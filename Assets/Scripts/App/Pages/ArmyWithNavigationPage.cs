@@ -1,6 +1,7 @@
 using System;
 using log4net;
 using Loom.ZombieBattleground.Common;
+using Loom.ZombieBattleground.Localization;
 using OneOf;
 using OneOf.Types;
 using UnityEngine;
@@ -61,7 +62,14 @@ namespace Loom.ZombieBattleground
                 {
                     Log.Warn(result.AsT1);
 
-                    FailAndGoToMainMenu("Failed to update card collection. Please try again.");
+                    FailAndGoToMainMenu
+                    (                
+                        GameClient.Get<ILocalizationManager>().GetUITranslation
+                        (
+                            LocalizationTerm.Handle_Error_General,
+                            "Failed to update card collection. Please try again."
+                        )
+                    );
                     return;
                 }
             }
@@ -172,7 +180,14 @@ namespace Loom.ZombieBattleground
         {
             PlayClickSound();
             _uiManager.GetPopup<QuestionPopup>().ConfirmationReceived += ConfirmRedirectMarketplaceLink;
-            _uiManager.DrawPopup<QuestionPopup>("Would you like to visit the Marketplace website?");
+            _uiManager.DrawPopup<QuestionPopup>
+            (                
+                GameClient.Get<ILocalizationManager>().GetUITranslation
+                (
+                    LocalizationTerm.ArmyPage_Popup_ConfirmMarketplace,
+                    "Would you like to visit the Marketplace website?"
+                )
+            );
         }
 
         private void ConfirmRedirectMarketplaceLink(bool status)
@@ -197,7 +212,14 @@ namespace Loom.ZombieBattleground
         private void FailAndGoToMainMenu(string customMessage = null)
         {
             _uiManager.HidePopup<LoadingOverlayPopup>();
-            _uiManager.DrawPopup<WarningPopup>(customMessage ?? "Something went wrong.\n Please try again.");
+            _uiManager.DrawPopup<WarningPopup>
+            (                
+                GameClient.Get<ILocalizationManager>().GetUITranslation
+                (
+                    LocalizationTerm.Handle_Error_General,
+                    customMessage ?? "Something went wrong.\n Please try again."
+                )
+            );
             GameClient.Get<IAppStateManager>().ChangeAppState(Enumerators.AppState.MAIN_MENU, true);
         }
     }
