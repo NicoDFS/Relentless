@@ -4,6 +4,7 @@ using DG.Tweening;
 using log4net;
 using Loom.ZombieBattleground.Common;
 using Loom.ZombieBattleground.Data;
+using Loom.ZombieBattleground.Localization;
 using Loom.ZombieBattleground.Gameplay;
 using Loom.ZombieBattleground.Helpers;
 using TMPro;
@@ -141,8 +142,12 @@ namespace Loom.ZombieBattleground
 
             Model = cardModel;
 
-            NameText.text = Model.Card.Prototype.Name;
-            BodyText.text = Model.Card.Prototype.Description;
+            NameText.text = Enum.TryParse($"GameData_Cards_Name_{Model.Card.Prototype.CardKey.MouldId.Id.ToString()}", out LocalizationTerm nameTerm) ?
+                    LocalizationUtil.GetLocalizedString(nameTerm, Model.Card.Prototype.Name) :
+                    Model.Card.Prototype.Name;
+            BodyText.text = Enum.TryParse($"GameData_Cards_Description_{Model.Card.Prototype.CardKey.MouldId.Id.ToString()}", out LocalizationTerm descriptionTerm) ?
+                    LocalizationUtil.GetLocalizedString(descriptionTerm, Model.Card.Prototype.Description) :
+                    Model.Card.Prototype.Description;
             CostText.text = Model.Card.Prototype.Cost.ToString();
 
             IsNewCard = true;
@@ -406,7 +411,9 @@ namespace Loom.ZombieBattleground
                         new BuffTooltipInfo
                         {
                             Title = cardTypeInfo.Name,
-                            Description = cardTypeInfo.Tooltip,
+                            Description = Enum.TryParse($"GameData_BuffsToolTip_{LocalizationUtil.CapitalizedText(cardTypeInfo.Type.ToString())}", out LocalizationTerm term) ?
+                                    LocalizationUtil.GetLocalizedString(term, cardTypeInfo.Tooltip) :
+                                    cardTypeInfo.Tooltip,
                             TooltipObjectType = Enumerators.TooltipObjectType.UNIT_TYPE,
                             Value = -1
                         });
@@ -427,7 +434,9 @@ namespace Loom.ZombieBattleground
                             new BuffTooltipInfo
                             {
                                 Title = gameMechanicInfo.Name,
-                                Description = gameMechanicInfo.Tooltip,
+                                Description = Enum.TryParse($"GameData_BuffsToolTip_{LocalizationUtil.CapitalizedText(gameMechanicInfo.Type.ToString())}", out LocalizationTerm term) ?
+                                    LocalizationUtil.GetLocalizedString(term, gameMechanicInfo.Tooltip) :
+                                    gameMechanicInfo.Tooltip,
                                 TooltipObjectType = Enumerators.TooltipObjectType.ABILITY,
                                 Value = GetValueOfAbilityByType(abil)
                             });
@@ -555,7 +564,9 @@ namespace Loom.ZombieBattleground
                         new BuffTooltipInfo
                         {
                             Title = cardTypeInfo.Name,
-                            Description = cardTypeInfo.Tooltip,
+                            Description = Enum.TryParse($"GameData_BuffsToolTip_{LocalizationUtil.CapitalizedText(cardTypeInfo.Type.ToString())}", out LocalizationTerm term) ?
+                                    LocalizationUtil.GetLocalizedString(term, cardTypeInfo.Tooltip) :
+                                    cardTypeInfo.Tooltip,
                             TooltipObjectType = Enumerators.TooltipObjectType.UNIT_TYPE,
                             Value = -1
                         });
@@ -573,7 +584,9 @@ namespace Loom.ZombieBattleground
                             new BuffTooltipInfo
                             {
                                 Title = gameMechanicInfo.Name,
-                                Description = gameMechanicInfo.Tooltip,
+                                Description = Enum.TryParse($"GameData_BuffsToolTip_{LocalizationUtil.CapitalizedText(gameMechanicInfo.Type.ToString())}", out LocalizationTerm term) ?
+                                    LocalizationUtil.GetLocalizedString(term, gameMechanicInfo.Tooltip) :
+                                    gameMechanicInfo.Tooltip,
                                 TooltipObjectType = Enumerators.TooltipObjectType.ABILITY,
                                 Value = GetValueOfAbilityByType(abil)
                             });
