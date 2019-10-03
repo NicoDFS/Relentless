@@ -427,9 +427,8 @@ namespace Loom.ZombieBattleground.Common
         public enum Language
         {
             NONE,
-            DE,
             EN,
-            RU
+            ZH_CN
         }
 
         public enum MatchType

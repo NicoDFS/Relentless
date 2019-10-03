@@ -1,4 +1,5 @@
 using System;
+using Loom.ZombieBattleground.Localization;
 using System.Collections.Generic;
 using Loom.ZombieBattleground.Common;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace Loom.ZombieBattleground
     public class LocalizationManager : IService, ILocalizationManager
     {
         private readonly Enumerators.Language _defaultLanguage = Enumerators.Language.EN;
+
+        ILoadObjectsManager _loadObjectsManager;
 
         private IDataManager _dataManager;
 
@@ -65,9 +68,13 @@ namespace Loom.ZombieBattleground
 
         public void Init()
         {
+            _loadObjectsManager = GameClient.Get<ILoadObjectsManager>();
+
             _dataManager = GameClient.Get<IDataManager>();
 
             FillLanguages();
+
+            ApplyLocalization();
         }
 
         public void Update()
@@ -78,9 +85,28 @@ namespace Loom.ZombieBattleground
         {
             SupportedLanguages = new Dictionary<SystemLanguage, Enumerators.Language>();
 
-            SupportedLanguages.Add(SystemLanguage.Russian, Enumerators.Language.RU);
             SupportedLanguages.Add(SystemLanguage.English, Enumerators.Language.EN);
-            SupportedLanguages.Add(SystemLanguage.German, Enumerators.Language.DE);
+            SupportedLanguages.Add(SystemLanguage.German, Enumerators.Language.ZH_CN);
+
+            string content = _loadObjectsManager.GetObjectByPath<TextAsset>("localization_data.txt").text;
+            string[] lines = content.Split('\n');
+
+            for (int i = 1; i < lines.Length; i++)
+            {
+                Debug.LogWarning(lines[i]);
+                string[] fields = lines[i].Split(',');
+
+                LocalizationTerm term;
+                if (Enum.TryParse<LocalizationTerm>(fields[0], out term)) 
+                {
+                    Debug.LogWarning(fields.Length);
+                    LocalizationString localizedString = new LocalizationString();
+                    localizedString.translation.Add(Enumerators.Language.EN, fields[1]);
+                    localizedString.translation.Add(Enumerators.Language.ZH_CN, fields[2]);
+                    
+                    LocalizationUtil.LocalizedStringDictionary.Add(term, localizedString);
+                }
+            }
         }
     }
 }
