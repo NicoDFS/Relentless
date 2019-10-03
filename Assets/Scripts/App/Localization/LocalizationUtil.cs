@@ -18,17 +18,6 @@ namespace Loom.ZombieBattleground.Localization
 
         public static string GetLocalizedString(LocalizationTerm term, string fallbackText = "")
         {
-            if( !LocalizedStringDictionary.ContainsKey(term) )
-            {
-                LocalizationString translationHolder = new LocalizationString();
-                translationHolder.translation.Add(Enumerators.Language.EN, term.ToString());
-
-                LocalizedStringDictionary.Add
-                (
-                    term,
-                    translationHolder
-                );
-            }
             try
             {
                 return LocalizedStringDictionary[term].GetString().Replace("\\n", "\n");

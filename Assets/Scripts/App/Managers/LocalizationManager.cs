@@ -3,6 +3,7 @@ using Loom.ZombieBattleground.Localization;
 using System.Collections.Generic;
 using Loom.ZombieBattleground.Common;
 using UnityEngine;
+using TMPro;
 
 namespace Loom.ZombieBattleground
 {
@@ -19,6 +20,8 @@ namespace Loom.ZombieBattleground
         public Dictionary<SystemLanguage, Enumerators.Language> SupportedLanguages { get; private set; }
 
         public Enumerators.Language CurrentLanguage { get; private set; } = Enumerators.Language.NONE;
+
+        public Dictionary<Enumerators.Language, TMP_FontAsset> fontLanguages {get; set;}
 
         public void ApplyLocalization()
         {
@@ -68,7 +71,12 @@ namespace Loom.ZombieBattleground
 
         public void Init()
         {
+            fontLanguages = new Dictionary<Enumerators.Language, TMP_FontAsset>();
+            
             _loadObjectsManager = GameClient.Get<ILoadObjectsManager>();
+            
+            fontLanguages.Add(Enumerators.Language.ZH_CN, MainApp.StaticChineseFont);
+            fontLanguages.Add(Enumerators.Language.EN, MainApp.StaticEnglishFont);
 
             _dataManager = GameClient.Get<IDataManager>();
 

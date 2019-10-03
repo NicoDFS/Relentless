@@ -8,6 +8,7 @@ namespace Loom.ZombieBattleground.Localization
     public class LocalizationObject : MonoBehaviour
     {
         public LocalizationTerm translationKey;
+        public bool changeFont = true;
         private static readonly ILog Log = Logging.GetLog(nameof(LocalizationFontSettings));
 
         private ILocalizationManager _localizationManager;
@@ -33,10 +34,24 @@ namespace Loom.ZombieBattleground.Localization
             if (_text != null)
             {
                 _text.text = LocalizationUtil.GetLocalizedString(translationKey, _text.text);
+
+                if (changeFont)
+                {
+                    _text.font = _localizationManager.fontLanguages[_localizationManager.CurrentLanguage];
+                }
             }
             else if(_tmpText != null)
             {
                 _tmpText.text = LocalizationUtil.GetLocalizedString(translationKey, _tmpText.text);
+
+                if (changeFont)
+                {
+                    _tmpText.font = _localizationManager.fontLanguages[_localizationManager.CurrentLanguage];
+                }
+            }
+            else
+            {
+                _localizationManager.LanguageWasChangedEvent -= OnApplyTranslation;
             }
         }
     }

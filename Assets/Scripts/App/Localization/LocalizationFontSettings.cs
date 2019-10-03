@@ -10,6 +10,8 @@ namespace Loom.ZombieBattleground.Localization
     public class LocalizationFontSettings : MonoBehaviour
     {
         private static readonly ILog Log = Logging.GetLog(nameof(LocalizationFontSettings));
+
+        private ILocalizationManager _localizationManager;
         
         private readonly Dictionary<Language, float> CharacterSpacingMap = new Dictionary<Language, float>
         {
@@ -42,13 +44,17 @@ namespace Loom.ZombieBattleground.Localization
         
         void Awake()
         {
+            _localizationManager = GameClient.Get<ILocalizationManager>();
+
             _text = this.gameObject.GetComponent<TextMeshProUGUI>();
             _tmpText = this.gameObject.GetComponent<TextMeshPro>();
 
-            OnApplyFontSettings();
+            _localizationManager.LanguageWasChangedEvent += OnApplyFontSettings;
+
+            OnApplyFontSettings(Language.EN);
         }
         
-        private void OnApplyFontSettings()
+        private void OnApplyFontSettings(Language language)
         {
             if (_text != null)
             {
@@ -85,6 +91,10 @@ namespace Loom.ZombieBattleground.Localization
                 {
                     Log.Info($"Error applying font settings with current language");
                 }
+            }
+            else
+            {
+                _localizationManager.LanguageWasChangedEvent -= OnApplyFontSettings;
             }
         }
     }
