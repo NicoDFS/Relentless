@@ -204,6 +204,8 @@ GameObject:
   - component: {fileID: 224747253085905610}
   - component: {fileID: 222410301864854232}
   - component: {fileID: 114578016036289554}
+  - component: {fileID: 3261558425874852331}
+  - component: {fileID: 2669834722594304091}
   m_Layer: 0
   m_Name: Text_BattleMode
   m_TagString: Untagged
@@ -353,6 +355,34 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3261558425874852331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369384655688060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6110fa9c0f922424baad87dccde74b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2669834722594304091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369384655688060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99c19572d63e8a43999bf51c125b668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TranslationKey: 0
+  ChangeFont: 1
+  ChangeText: 1
+  KeepOriginalFontInEnglish: 0
 --- !u!1 &1403551058579168
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,8 +795,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99c19572d63e8a43999bf51c125b668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translationKey: 61
-  changeFont: 1
+  TranslationKey: 61
+  ChangeFont: 1
+  ChangeText: 1
+  KeepOriginalFontInEnglish: 0
 --- !u!114 &1586057262542702271
 MonoBehaviour:
   m_ObjectHideFlags: 0

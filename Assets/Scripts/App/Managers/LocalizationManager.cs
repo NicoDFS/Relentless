@@ -101,13 +101,11 @@ namespace Loom.ZombieBattleground
 
             for (int i = 1; i < lines.Length; i++)
             {
-                Debug.LogWarning(lines[i]);
                 string[] fields = lines[i].Split(',');
 
                 LocalizationTerm term;
                 if (Enum.TryParse<LocalizationTerm>(fields[0], out term)) 
                 {
-                    Debug.LogWarning(fields.Length);
                     LocalizationString localizedString = new LocalizationString();
                     localizedString.translation.Add(Enumerators.Language.EN, fields[1]);
                     localizedString.translation.Add(Enumerators.Language.ZH_CN, fields[2]);

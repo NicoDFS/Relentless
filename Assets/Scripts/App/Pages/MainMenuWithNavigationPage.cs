@@ -6,6 +6,7 @@ using DG.Tweening;
 using log4net;
 using Object = UnityEngine.Object;
 using Loom.ZombieBattleground.Data;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -16,6 +17,8 @@ namespace Loom.ZombieBattleground
         private IUIManager _uiManager;
 
         private ILoadObjectsManager _loadObjectsManager;
+
+        private ILocalizationManager _localizationManager;
 
         private IAppStateManager _stateManager;
         
@@ -53,6 +56,7 @@ namespace Loom.ZombieBattleground
             _stateManager = GameClient.Get<IAppStateManager>();
             _soundManager = GameClient.Get<ISoundManager>();
             _playerManager = GameClient.Get<IPlayerManager>();
+            _localizationManager = GameClient.Get<ILocalizationManager>();
 
             _gameMode = DefaultGameMode;
         }
@@ -88,6 +92,8 @@ namespace Loom.ZombieBattleground
             _buttonPlay.interactable = CheckIfSelectDeckContainEnoughCards(deck);
 
             _uiManager.GetPopup<DeckSelectionPopup>().SelectDeckEvent += OnSelectDeckEvent;
+
+            _localizationManager.LanguageWasChangedEvent += OnLanguageChanged;
         }
         
         public void Hide()
@@ -99,6 +105,7 @@ namespace Loom.ZombieBattleground
             Object.Destroy(_selfPage);
             _selfPage = null;
             
+            _localizationManager.LanguageWasChangedEvent -= OnLanguageChanged;
             _uiManager.GetPopup<DeckSelectionPopup>().SelectDeckEvent -= OnSelectDeckEvent;
 
             OnHide();
@@ -109,6 +116,18 @@ namespace Loom.ZombieBattleground
         }
 
         #endregion
+
+        private void OnLanguageChanged(Enumerators.Language language)
+        {
+            if (_selfPage != null)
+            {
+                UpdateGameModeText();
+            }
+            else
+            {
+                _localizationManager.LanguageWasChangedEvent -= OnLanguageChanged;
+            }
+        }
 
         private void OnHide()
         {
@@ -227,15 +246,26 @@ namespace Loom.ZombieBattleground
         public void SetGameMode(GameMode gameMode)
         {
             _gameMode = gameMode;
+            UpdateGameModeText();
+        }
+
+        private void UpdateGameModeText()
+        {
             if(_gameMode == GameMode.SOLO)
             {
                 GameClient.Get<IMatchManager>().MatchType = Enumerators.MatchType.LOCAL;
-                _textGameMode.text = "SOLO";
+                _textGameMode.text = LocalizationUtil.GetLocalizedString(
+                    LocalizationTerm.MainMenuBattleMode_Label_BattleMode_Solo,
+                    "SOLO"
+                );
             }
             else if(_gameMode == GameMode.VS)
             {
                 GameClient.Get<IMatchManager>().MatchType = Enumerators.MatchType.PVP;
-                _textGameMode.text = "VS\nCASUAL";                 
+                _textGameMode.text = LocalizationUtil.GetLocalizedString(
+                    LocalizationTerm.MainMenuBattleMode_Label_BattleMode_VS,
+                    "VS\nCASUAL"
+                );                
             }
         }
         

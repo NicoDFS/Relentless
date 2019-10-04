@@ -14,7 +14,6 @@ namespace Loom.ZombieBattleground
     {
         public TMP_FontAsset EnglishFont;
         public TMP_FontAsset ChineseFont;
-
         public static TMP_FontAsset StaticEnglishFont;
         public static TMP_FontAsset StaticChineseFont;
         private static readonly ILog Log = Logging.GetLog(nameof(MainApp));
