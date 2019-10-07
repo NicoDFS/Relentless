@@ -101,7 +101,7 @@ namespace Loom.ZombieBattleground
 
             for (int i = 1; i < lines.Length; i++)
             {
-                string[] fields = lines[i].Split(',');
+                string[] fields = lines[i].Split('|');
 
                 LocalizationTerm term;
                 if (Enum.TryParse<LocalizationTerm>(fields[0], out term)) 

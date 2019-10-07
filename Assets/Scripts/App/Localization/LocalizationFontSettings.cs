@@ -9,6 +9,8 @@ namespace Loom.ZombieBattleground.Localization
 {   
     public class LocalizationFontSettings : MonoBehaviour
     {
+        public bool forceNormal = false;
+        public float offsetSpacing = 0;
         private static readonly ILog Log = Logging.GetLog(nameof(LocalizationFontSettings));
 
         private ILocalizationManager _localizationManager;
@@ -60,14 +62,14 @@ namespace Loom.ZombieBattleground.Localization
             {
                 try
                 {
-                    _text.fontStyle = FontStylesMap
+                    _text.fontStyle = !forceNormal ? FontStylesMap
                     [
                         GameClient.Get<ILocalizationManager>().CurrentLanguage
-                    ];
+                    ] : FontStyles.Normal;
                     _text.characterSpacing = CharacterSpacingMap
                     [
                         GameClient.Get<ILocalizationManager>().CurrentLanguage
-                    ];
+                    ] + offsetSpacing;
                 }
                 catch
                 {
@@ -78,14 +80,14 @@ namespace Loom.ZombieBattleground.Localization
             {
                 try
                 {
-                    _tmpText.fontStyle = FontStylesMap
+                    _tmpText.fontStyle = !forceNormal ? FontStylesMap
                     [
                         GameClient.Get<ILocalizationManager>().CurrentLanguage
-                    ];
+                    ] : FontStyles.Normal;
                     _tmpText.characterSpacing = CharacterSpacingMap
                     [
                         GameClient.Get<ILocalizationManager>().CurrentLanguage
-                    ];
+                    ] + offsetSpacing;
                 }
                 catch
                 {

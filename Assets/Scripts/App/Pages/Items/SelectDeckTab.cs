@@ -7,6 +7,7 @@ using Loom.ZombieBattleground.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -394,7 +395,13 @@ namespace Loom.ZombieBattleground
 
             if(deckListToDisplay.Count <= 0)
             {
-                OpenAlertDialog($"No decks found with that search.");
+                OpenAlertDialog(
+                    LocalizationUtil.GetLocalizedString
+                    (   
+                        LocalizationTerm.Warning_HordeSelection_SearchDeck_NotFound,
+                        "No decks found with that search."
+                    )
+                );
                 return deckList;
             }
 
@@ -577,7 +584,13 @@ namespace Loom.ZombieBattleground
             PlayClickSound();
             if (_myDeckPage.GetDeckList().Count <= 1)
             {
-                OpenAlertDialog("Cannot delete. You must have at least one deck.");
+                OpenAlertDialog(
+                    LocalizationUtil.GetLocalizedString
+                    (   
+                        LocalizationTerm.HordeSelection_Popup_InfoDeleteLastDeck,
+                        "Cannot delete. You must have at least one deck."
+                    )
+                );
                 return;
             }
 
@@ -586,7 +599,12 @@ namespace Loom.ZombieBattleground
             {
                 _buttonDelete.enabled = false;
                 _uiManager.GetPopup<QuestionPopup>().ConfirmationReceived += ConfirmDeleteDeckReceivedHandler;
-                _uiManager.DrawPopup<QuestionPopup>("Are you sure you want to delete " + deck.Name + "?");
+                _uiManager.DrawPopup<QuestionPopup>(
+                    LocalizationUtil.GetLocalizedString(
+                        LocalizationTerm.HordeSelection_Popup_ConfirmDeleteDeck,
+                        "Are you sure you want to delete {DECK_NAME} ?"
+                    ).Replace("{DECK_NAME}", deck.Name)
+                );
             }
         }
 

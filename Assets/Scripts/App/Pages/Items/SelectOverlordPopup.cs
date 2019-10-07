@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -222,7 +223,11 @@ namespace Loom.ZombieBattleground
 
             _overlordImage.sprite = DataUtilities.GetOverlordImage(overlord.Prototype.Faction);
             _textSelectOverlordName.text = overlord.Prototype.ShortName;
-            _textSelectOverlordDescription.text = overlord.Prototype.ShortDescription;
+            _textSelectOverlordDescription.text = LocalizationUtil.GetLocalizedString
+            (
+                (LocalizationTerm)Enum.Parse(typeof(LocalizationTerm), overlord.Prototype.ShortDescription),
+                overlord.Prototype.ShortDescription
+            );
 
             Enumerators.Faction againstFaction = Constants.FactionAgainstDictionary[overlord.Prototype.Faction];
 

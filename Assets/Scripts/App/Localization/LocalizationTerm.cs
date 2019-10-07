@@ -887,6 +887,18 @@
         Warning_MatchMaker_Error_FindMatch,
         Warning_MatchMaker_Error_CancelingFindMatch,
         Warning_Tutorial_Error_DeleteDeck,
-        Confirm_PlayAgain_Available
+        Confirm_PlayAgain_Available,
+        SettingsPopup_Label_Language,
+        LoginOTP_Label_Header,
+        LoginOTP_Label_Body,
+        LoginOTP_Label_OTP,
+        MulliganPopup_Label_Header,
+        ShopPage_Button_Purchase,
+        Champion_Rook_Description,
+        Champion_Azul_Description,
+        Champion_Hyde_Description,
+        Champion_Hotshot_Description,
+        Champion_Lyght_Description,
+        Champion_Bushwack_Description
     }
 }
