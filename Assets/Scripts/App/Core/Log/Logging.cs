@@ -156,7 +156,7 @@ namespace Loom.ZombieBattleground
 
             // Finish up
             #if UNITY_ANDROID
-                hierarchy.Root.Level = Level.Off;
+                hierarchy.Root.Level = Level.All;
             #else
                 hierarchy.Root.Level = Level.All;
             #endif
