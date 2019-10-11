@@ -4,6 +4,7 @@ using Loom.ZombieBattleground.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Loom.ZombieBattleground.Localization;
 
 public class AbilityBarUI
 {
@@ -65,15 +66,19 @@ public class AbilityBarUI
     public void FillAbility(OverlordSkillUserInstance skill)
     {
         SkillId = skill.Prototype.Id;
-        _abilityName.text = skill.Prototype.Title;
-        _abilityDescription.text = skill.Prototype.Description;
+        _abilityName.text = LocalizationUtil.GetLocalizedStringFromEnglish(
+            skill.Prototype.Title
+        );
+        _abilityDescription.text = LocalizationUtil.GetLocalizedStringFromEnglish(
+            skill.Prototype.Description
+        );
         _abilityImage.sprite = DataUtilities.GetAbilityIcon(skill);
 
         if (skill.UserData.IsUnlocked)
         {
             _lockedGroup.SetActive(false);
             _unlockedGroup.SetActive(true);
-        }
+         }
         else
         {
             _lockedGroup.SetActive(true);

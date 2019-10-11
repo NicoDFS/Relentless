@@ -45,7 +45,7 @@ RegisteringPopup_Placeholder_Password|Password...|密码……|비밀번호...||
 RegisteringPopup_Label_ConfirmPassword|CONFIRM PASSWORD|确认密码|비밀번호 확인|||
 RegisteringPopup_Placeholder_ConfirmPassword|Confirm Password...|确认密码……|비밀번호 확인...|||
 RegisteringPopup_Button_Register|REGISTER|注册|등록하기|||
-RegisteringPopup_Button_AlreadyRegistered|ALREADY\nREGISTERED?|已\n注册？|이미\n등록하셨나요?|||
+RegisteringPopup_Button_AlreadyRegistered|ALREADY\nREGISTERED?|已注册？|이미\n등록하셨나요?|||
 ForgotPasswordPopup_Label_Header|Password Reset|重置密码|비밀번호 초기화|||
 ForgotPasswordPopup_Label_SubHeader|Please enter your email below.\nWe will send you a link to reset your password.|请在下面输入你的邮箱。\n我们将给你发送一个重置密码的链接。|아레에 여러분의 이메일을 입력하세요.\n비밀번호 초기화를 위한 링크를 보내드릴 것입니다.|||
 ForgotPasswordPopup_Label_Email|EMAIL|邮箱|이메일|||
@@ -97,6 +97,7 @@ ArmyPage_Button_Filter|FILTER|筛选|필터|||
 ArmyPage_Button_BuyPacks|BUY MORE PACKS|购买更多卡包|더 많은 팩 구매하기|||
 ArmyPage_Input_Search|SEARCH|搜索|검색|||
 ArmyPage_Button_Marketplace|MARKETPLACE|交易市场|마켓플레이스|||
+ArmyPage_Label_ShowLibrary|Show Entire Library|展示整个库||||
 ArmyPage_Popup_ConfirmMarketplace|Would you like to visit the Marketplace website?|你想访问交易市场网站吗？|마켓플레이스 웹사이트로 이동하시겠습니까?|||
 ShopPage_Label_Header|SPECIAL PROMOS|推广活动|특별 프로모션|||
 ShopPage_Label_Banner|NEW PACK DISCOUNTS!|新卡包折扣！|신규 팩 할인!|||
@@ -115,7 +116,8 @@ FilterCard_Button_GooCost|GOO COST|GOO 成本|GOO 비용|||
 FilterDeck_Label_Header|FILTER DECKS|筛选卡组|덱 필터링|||
 FilterDeck_Button_Save|SAVE|保存|저장|||
 Mulligan_Button_Keep|KEEP|保留|가지기|||
-Gameplay_Button_EndTurn|END TURN|结束回合|턴 종료|||
+Gameplay_Button_EndTurn|END\nTURN|结束回合|턴 종료|||
+Gameplay_Button_Wait|\nWAIT|\n等待||||
 Gameplay_Popup_ConfirmQuit|Do you really want to quit?|你确定要退出吗？|정말 그만두시겠습니까?|||
 Gameplay_Popup_YourTurn|YOUR TURN|到你了|나의 턴|||
 WinLostPopup_Label_WinHeader|YOU WIN!|胜利！|승리!|||
@@ -245,7 +247,7 @@ GameData_Champion_ShortDescription_2|The Ancient One|The Ancient One|고대의 �
 GameData_ChampionSkill_Title_10|Freeze|冻结|Freeze|||
 GameData_ChampionSkill_Description_10|Freeze a creature|冻结1个生物|크리처를 얼린다|||
 GameData_ChampionSkill_Title_11|Ice Bolt|Ice Bolt|Ice Bolt|||
-GameData_ChampionSkill_Description_11|"Deal 2 damage to a target creature. If it survives| Freeze it"|对目标生物造成2点伤害。如果目标幸存，冻结它。|"대상 크리처에 2 데미지를 입히고| 살아남으면 해당 크리처를 얼린다."|||
+GameData_ChampionSkill_Description_11|"Deal 2 damage to a target creature. If it survives, Freeze it"|对目标生物造成2点伤害。如果目标幸存，冻结它。|"대상 크리처에 2 데미지를 입히고| 살아남으면 해당 크리처를 얼린다."|||
 GameData_ChampionSkill_Title_12|Ice Wall|Ice Wall|Ice Wall|||
 GameData_ChampionSkill_Description_12|Add 2 Def to target Water creature or your Champion|给目标水系生物或者你的英雄添加2点防御|대상 물 속성 크리처 또는 플레이어의 챔피언에 방어력 2를 더한다.|||
 GameData_ChampionSkill_Title_13|Shatter|Shatter|Shatter|||
@@ -309,7 +311,7 @@ GameData_Cards_Name_127|Ectoplazm|细胞外质|외형질|||
 GameData_Cards_Name_141|Maelztrom|大漩涡|맬즈트롬|||
 GameData_Cards_Name_151|Hazzard|隐患|해저드|||
 GameData_Cards_Name_115|Shovel|铁锹|삽|||
-GameData_Cards_Name_249|Harpoon|Harpoon|Harpoon|||
+GameData_Cards_Name_249|Harpoon|鱼叉|Harpoon|||
 GameData_Cards_Name_154|Boomstick|双管手枪|붐스틱|||
 GameData_Cards_Name_57|Crumbz|碎石|크럼즈|||
 GameData_Cards_Name_76|Everlazting|涅槃|에버라즈팅|||
@@ -344,24 +346,24 @@ GameData_Cards_Name_74|Prezerver|救生员|프리저버|||
 GameData_Cards_Name_142|Fumez|风影忍者|퓸즈|||
 GameData_Cards_Name_81|Zkewer|串肉扦|즈쿠어|||
 GameData_Cards_Name_87|Frozen|冰雪战士|프로즌|||
-GameData_Cards_Name_239|Zky|Zky|Zky|||
-GameData_Cards_Name_240|Zonic|Zonic|Zonic|||
-GameData_Cards_Name_241|Zwoop|Zwoop|Zwoop|||
+GameData_Cards_Name_239|Zky|飞天|Zky|||
+GameData_Cards_Name_240|Zonic|音波|Zonic|||
+GameData_Cards_Name_241|Zwoop|空降兵|Zwoop|||
 GameData_Cards_Name_108|Burzt|爆裂|버즈트|||
 GameData_Cards_Name_120|Wizp|植物精灵|위즈프|||
-GameData_Cards_Name_242|Duzt|Duzt|Duzt|||
+GameData_Cards_Name_242|Duzt|尘土|Duzt|||
 GameData_Cards_Name_6|Golem|石魔|골렘|||
-GameData_Cards_Name_244|Zolid|Zolid|Zolid|||
-GameData_Cards_Name_246|Flare|Flare|Flare|||
-GameData_Cards_Name_247|Hot|Hot|Hot|||
-GameData_Cards_Name_248|Bazooka|Bazooka|Bazooka|||
-GameData_Cards_Name_250|Huzk|Huzk|Huzk|||
-GameData_Cards_Name_251|Wood|Wood|Wood|||
-GameData_Cards_Name_252|Trunk|Trunk|Trunk|||
-GameData_Cards_Name_253|Gloop|Gloop|Gloop|||
-GameData_Cards_Name_254|Bane|Bane|Bane|||
-GameData_Cards_Name_255|Ztink|Ztink|Ztink|||
-GameData_Cards_Name_256|Brook|Brook|Brook|||
+GameData_Cards_Name_244|Zolid|相扑|Zolid|||
+GameData_Cards_Name_246|Flare|火头|Flare|||
+GameData_Cards_Name_247|Hot|热|Hot|||
+GameData_Cards_Name_248|Bazooka|火箭炮|Bazooka|||
+GameData_Cards_Name_250|Huzk|空壳|Huzk|||
+GameData_Cards_Name_251|Wood|木头|Wood|||
+GameData_Cards_Name_252|Trunk|树干|Trunk|||
+GameData_Cards_Name_253|Gloop|毒液|Gloop|||
+GameData_Cards_Name_254|Bane|灾星|Bane|||
+GameData_Cards_Name_255|Ztink|臭虫|Ztink|||
+GameData_Cards_Name_256|Brook|小溪|Brook|||
 GameData_Cards_Name_21|Vindrom|捆绑大师|바인드롬|||
 GameData_Cards_Name_132|Goozilla|Goo斯拉|구질라|||
 GameData_Cards_Name_39|Molotov|燃烧瓶|몰로토프|||
@@ -458,8 +460,12 @@ GameData_Cards_Name_99|Shale|页岩|셰일|||
 GameData_Cards_Name_107|Firewall|火墙|파이어월|||
 GameData_Cards_Name_86|Hozer|喷水管|호저|||
 GameData_Cards_Name_114|Lawnmower|除草机|잔디깎이|||
-GameData_Cards_Name_243|Rubble|Rubble|Rubble|||
-GameData_Cards_Name_257|Zteam|Zteam|Zteam|||
+GameData_Cards_Name_243|Rubble|瓦砾|Rubble|||
+GameData_Cards_Name_257|Zteam|蒸汽|Zteam|||
+GameData_Cards_Name_156|Corrupted Goo|腐坏的 Goo||||
+GameData_Cards_Name_155|Tainted Goo|污染的 Goo||||
+GameData_Cards_FlavorText_155|Smells kinda funny, but what a rush!|闻起来怪怪的，但是真是一针强心剂啊！||||
+GameData_Cards_FlavorText_156|Hooooweeee, better than all the moonshine!|妈耶耶耶耶，比那月光还美好！||||
 GameData_Cards_FlavorText_1|The unfriendly ghost...|来者不善……|The unfriendly ghost...|||
 GameData_Cards_FlavorText_2|Like any adolescent child that wishes you to leave him be... so GO AWAY!!|青春期，不好惹…… 离他远点吧|Like any adolescent child that wishes you to leave him be... so GO AWAY!!|||
 GameData_Cards_FlavorText_5|Addriaaannn!!! Addriaaaaaannnnn!!!|艾黛丽安！艾黛丽安！|Addriaaannn!!! Addriaaaaaannnnn!!!|||
@@ -481,7 +487,7 @@ GameData_Cards_FlavorText_127|Wha'ch yu lookin at' ?!|你瞅啥？！|Wha'ch yu 
 GameData_Cards_FlavorText_141|"Sometimes pukes a little in his mouth from all the spinning, but keeps a scary face!"|虽然有时转晕了会吐，但是吓人的表情不能崩！|"Sometimes pukes a little in his mouth from all the spinning, but keeps a scary face!"|||
 GameData_Cards_FlavorText_151|Almost reached the Goo-Anonymous meeting - almost...|马上就到达 Goo 匿名大会了……马上……|Almost reached the Goo-Anonymous meeting - almost...|||
 GameData_Cards_FlavorText_115|Friendly neighborhood shovel!|只是一只友善的邻家铁锹！！|Friendly neighborhood shovel!|||
-GameData_Cards_FlavorText_249|Great against legendary sea creatures|Great against legendary sea creatures|Great against legendary sea creatures|||
+GameData_Cards_FlavorText_249|Great against legendary sea creatures|对付海洋生物很好用|Great against legendary sea creatures|||
 GameData_Cards_FlavorText_154|Thank you for your service!|我们会怀念你的！|Thank you for your service!|||
 GameData_Cards_FlavorText_57|Time is our greatest adversary|时间是我们最大的对手|Time is our greatest adversary|||
 GameData_Cards_FlavorText_76|Guess who's back?|猜猜谁回来了？|Guess who's back?|||
@@ -516,24 +522,24 @@ GameData_Cards_FlavorText_74|Need a hand?|需要（帮）手吗？|Need a hand?|
 GameData_Cards_FlavorText_142|RAZENGAAAAAAAA!!!|螺——旋——丸——！！|RAZENGAAAAAAAA!!!|||
 GameData_Cards_FlavorText_81|Come closer... it's never too close|来，靠近点，再近点……|Come closer... it's never too close|||
 GameData_Cards_FlavorText_87|"When grabbed - sing: ""let it go, let it go.."""|"被抓住时，记得要唱：“let it go, let it go..”哦"|"When grabbed - sing: ""let it go, let it go.."""|||
-GameData_Cards_FlavorText_239|"Up, up, and away!"|"Up, up, and away!"|"Up, up, and away!"|||
-GameData_Cards_FlavorText_240|"Yells so loud, nobody wants to come near it"|"Yells so loud, nobody wants to come near it"|"Yells so loud| nobody wants to come near it"|||
-GameData_Cards_FlavorText_241|Likes to kill-steal|Likes to kill-steal|Likes to kill-steal|||
+GameData_Cards_FlavorText_239|"Up, up, and away!"|“飞，飞，一飞冲天！”|"Up, up, and away!"|||
+GameData_Cards_FlavorText_240|"Yells so loud, nobody wants to come near it"|“声音太大，没人想靠近它”|"Yells so loud| nobody wants to come near it"|||
+GameData_Cards_FlavorText_241|Likes to kill-steal|喜欢抢人头|Likes to kill-steal|||
 GameData_Cards_FlavorText_108|Some just like it hot!|有些人就是喜欢被烫嘴！|Some just like it hot!|||
 GameData_Cards_FlavorText_120|Zeeee... peski littl-- oh its you?!|真是个讨——噢是你啊——人喜欢的小可爱|Zeeee... peski littl-- oh its you?!|||
-GameData_Cards_FlavorText_242|To dust you shall return!|To dust you shall return!|To dust you shall return!|||
+GameData_Cards_FlavorText_242|To dust you shall return!|本是尘土，仍要归于尘土！|To dust you shall return!|||
 GameData_Cards_FlavorText_6|mmMMWhaaaaat?|额，什么么么么？|mmMMWhaaaaat?|||
-GameData_Cards_FlavorText_244|What happens when an unstoppable force meets an immovable object?|What happens when an unstoppable force meets an immovable object?|What happens when an unstoppable force meets an immovable object?|||
-GameData_Cards_FlavorText_246|"Ready, get set... Go!"|"Ready, get set... Go!"|"Ready, get set... Go!"|||
-GameData_Cards_FlavorText_247|Just as it says on the tin|Just as it says on the tin|Just as it says on the tin|||
-GameData_Cards_FlavorText_248|When you need a little extra firepower|When you need a little extra firepower|When you need a little extra firepower|||
-GameData_Cards_FlavorText_250|An empty shell of what it was|An empty shell of what it was|An empty shell of what it was|||
-GameData_Cards_FlavorText_251|Make like a tree -- and leave!|Make like a tree -- and leave!|Make like a tree -- and leave!|||
-GameData_Cards_FlavorText_252|"If a tree falls in a forest and no one is around to hear it, does it make a sound?"|"If a tree falls in a forest and no one is around to hear it, does it make a sound?"|"If a tree falls in a forest and no one is around to hear it| does it make a sound?"|||
-GameData_Cards_FlavorText_253|Blub...blub...blub|Blub...blub...blub|Blub...blub...blub|||
-GameData_Cards_FlavorText_254|Occasionally can't tell friend from foe|Occasionally can't tell friend from foe|Occasionally can't tell friend from foe|||
-GameData_Cards_FlavorText_255|Can't figure out why it's got no friends|Can't figure out why it's got no friends|Can't figure out why it's got no friends|||
-GameData_Cards_FlavorText_256|All tidal waves must start from a single drop|All tidal waves must start from a single drop|All tidal waves must start from a single drop|||
+GameData_Cards_FlavorText_244|What happens when an unstoppable force meets an immovable object?|当一个势不可挡的力量遇到一个无法动摇的物体，会发生什么?|What happens when an unstoppable force meets an immovable object?|||
+GameData_Cards_FlavorText_246|"Ready, get set... Go!"|"各就各位，预备…… 跑！"|"Ready, get set... Go!"|||
+GameData_Cards_FlavorText_247|Just as it says on the tin|人如其名|Just as it says on the tin|||
+GameData_Cards_FlavorText_248|When you need a little extra firepower|需要火力增援时，用它准没错|When you need a little extra firepower|||
+GameData_Cards_FlavorText_250|An empty shell of what it was|它只是一个空壳|An empty shell of what it was|||
+GameData_Cards_FlavorText_251|Make like a tree -- and leave!|弄得好像树一样 —— 然后就离开！|Make like a tree -- and leave!|||
+GameData_Cards_FlavorText_252|"If a tree falls in a forest and no one is around to hear it, does it make a sound?"|“如果森林里有棵树倒了，周围没有人听，它会发出声音吗?”|"If a tree falls in a forest and no one is around to hear it| does it make a sound?"|||
+GameData_Cards_FlavorText_253|Blub...blub...blub|咕噜……咕噜……咕噜|Blub...blub...blub|||
+GameData_Cards_FlavorText_254|Occasionally can't tell friend from foe|有时辨不清敌友|Occasionally can't tell friend from foe|||
+GameData_Cards_FlavorText_255|Can't figure out why it's got no friends|搞不懂为什么没朋友|Can't figure out why it's got no friends|||
+GameData_Cards_FlavorText_256|All tidal waves must start from a single drop|所有浪潮都是从一滴水开始的|All tidal waves must start from a single drop|||
 GameData_Cards_FlavorText_21|BDSM much?!|好像有点太刺激了？！|BDSM much?!|||
 GameData_Cards_FlavorText_132|"More, more, MORE GOO! Bring me ALL the GOO"|更多，更多，更多的 GOO！把所有 GOO 都给我！|"More| more| MORE GOO! Bring me ALL the GOO"|||
 GameData_Cards_FlavorText_39|Not suitable for n00bs and lightweights|不适合小白和轻量级选手|Not suitable for n00bs and lightweights|||
@@ -569,7 +575,7 @@ GameData_Cards_FlavorText_97|Shock therapy does work wonders|电击疗法真是�
 GameData_Cards_FlavorText_103|Angry enough to go though a WALL!|气得我要穿墙了！|Angry enough to go though a WALL!|||
 GameData_Cards_FlavorText_104|"Either super charismatic, or super scary... or both."|或者魅力无穷，或者惊悚无比……或者两者兼备|"Either super charismatic| or super scary... or both."|||
 GameData_Cards_FlavorText_117|As if they died again and went to creature heaven|就像他们又死了一次，然后去了生物天堂|As if they died again and went to creature heaven|||
-GameData_Cards_FlavorText_143|"No| no| no no| not a hamster| not a hamster ball...."|不，不，不，不要是小仓鼠，不要是圆滚滚的仓鼠球啊……|"No| no| no no| not a hamster| not a hamster ball...."|||
+GameData_Cards_FlavorText_143|"No, no, no no, not a hamster, not a hamster ball...."|不，不，不，不要是小仓鼠，不要是圆滚滚的仓鼠球啊……|"No| no| no no| not a hamster| not a hamster ball...."|||
 GameData_Cards_FlavorText_145|Try to veer from his major crater issues... it may goo deeeeep|尝试解决他那火山表面的皮肤……但坑怎么越来越深|Try to veer from his major crater issues... it may goo deeeeep|||
 GameData_Cards_FlavorText_146|Has a great fascination with church bells...|念念不忘那教堂钟声，必有回响……|Has a great fascination with church bells...|||
 GameData_Cards_FlavorText_148|"Can't get enough of that goo, ever"|永远也吃不腻那美味的 Goo 呀|"Can't get enough of that goo, ever"|||
@@ -630,8 +636,8 @@ GameData_Cards_FlavorText_99|Thatta boy!|伙计真棒！|Thatta boy!|||
 GameData_Cards_FlavorText_107|Having a pyromaniac on the battlefield does come in handy|战场上有个喜欢纵火的家伙真是帮大忙了|Having a pyromaniac on the battlefield does come in handy|||
 GameData_Cards_FlavorText_86|"The undefeated spitting world champion, can hit a squirrel from 100ft"|这位喷水界的东方不败，30米开外的小松鼠都能准确击中|"The undefeated spitting world champion| can hit a squirrel from 100ft"|||
 GameData_Cards_FlavorText_114|It can handle both plants and creatures... wait what?|它能处理植物——和生物……等等，什么？！|It can handle both plants and creatures... wait what?|||
-GameData_Cards_FlavorText_243|Finds pieces of itself all over the battlefield|Finds pieces of itself all over the battlefield|Finds pieces of itself all over the battlefield|||
-GameData_Cards_FlavorText_257|Its name is a paradox|Its name is a paradox|Its name is a paradox|||
+GameData_Cards_FlavorText_243|Finds pieces of itself all over the battlefield|战场上到处都是它自己的碎片|Finds pieces of itself all over the battlefield|||
+GameData_Cards_FlavorText_257|Its name is a paradox|它的名字本身就自相矛盾|Its name is a paradox|||
 GameData_Cards_Description_2|<b>Entry:</b> Return a creature to its owner's hand.|<b>入场：</b>将1个生物返回所有者的手牌里。|<b>입장:</b> 크리처 하나를 주인에게 돌려보낸다.|||
 GameData_Cards_Description_5|<b>Entry:</b> Give an ally creature +2 Def.|<b>入场：</b>给1个同盟生物 +2 防御值。|<b>입장:</b> 아군 크리처에 방어력을 2만큼 더한다.|||
 GameData_Cards_Description_19|<b>Entry:</b> Put a copy of this into play.|<b>入场：</b> 将一张同样的卡牌投入。|<b>입장:</b> 이 카드의 복제본을 플레이에 넣는다.|||
@@ -792,6 +798,8 @@ GameData_Cards_Description_86|<b>Entry:</b> Get +1 Atk for every enemy creature 
 GameData_Cards_Description_114|Deal 2 damage to all enemy creatures and Distract them.|对所有敌方生物造成 2 点伤害，并干扰它们。|모든 적 크리처에 데미지 2를 입히고 이성을 잃게 한다.|||
 GameData_Cards_Description_243|Has +2 Atk on the enemy's turn.|在敌方回合时，拥有 +2 攻击值。|적의 턴에 공격력이 2 증가한다.|||
 GameData_Cards_Description_257|<b>Entry:</b> Destroy all <b>Frozen</b> creatures.|<b>入场：</b>摧毁所有<b>冻结</b>的生物。|<b>입장:</b> <b>얼어있는</b> 적 크리처를 모두 파괴한다.|||
+GameData_Cards_Description_155|Get a Goo Bottle this turn.|本回合获得1个Goo瓶。||||
+GameData_Cards_Description_156|Get 6 Goo Bottles this turn.|本回合获得6个Goo瓶。||||
 GameData_InGameTutorial_0|Entry abilities activate as the card is played.|入场技能在此牌投入时激活。|입장 능력은 카드가 플레이에 나왔을 때 발동합니다.|||
 GameData_InGameTutorial_1|Turn abilities activate at the start of every turn.|回合技能在每回合开始时激活。|턴(Turn) 능력은 매 턴을 시작할 때마다 활성화됩니다.|||
 GameData_InGameTutorial_2|End abilities activate at the end of every turn.|回合结束技能在每回合结尾时激活。|마침(End) 능력은 매 턴의 마지막에 활성화됩니다.|||
@@ -801,7 +809,7 @@ GameData_InGameTutorial_5|Delayed abilities activate after a certain number of t
 GameData_InGameTutorial_6|A Frozen creature cannot attack the next turn.|一个被冻结的生物无法在下一回合攻击。|얼어있는 크리처는 다음 턴에 공격할 수 없습니다.|||
 GameData_InGameTutorial_7|Reanimated creatures reappear after one death.|被复活的生物在一次死亡后重新出现。|소생된 크리처는 한 번 죽은 후에 다시 나타납니다.|||
 GameData_InGameTutorial_8|Heavy creatures must be attacked first.|重型生物必须先被攻击。|헤비 속성의 크리처는 반드시 가장 먼저 공격받아야 합니다.|||
-GameData_InGameTutorial_9|Feral creatures can attack on the same turn they are played.|野性生物可以在被投入的回合攻击。|야생 속성의 크리처는 플레이에 들어간 턴에 공격할 수 있습니다.|||
+GameData_InGameTutorial_9|Feral creatures can the turn they are played.|野性生物可以在被投入的回合攻击。|야생 속성의 크리처는 플레이에 들어간 턴에 공격할 수 있습니다.|||
 GameData_InGameTutorial_10|tooltip description|提示描述|툴팁 설명|||
 GameData_InGameTutorial_11|tooltip description|提示描述|툴팁 설명|||
 GameData_InGameTutorial_12|tooltip description|提示描述|툴팁 설명|||
@@ -811,32 +819,32 @@ GameData_InGameTutorial_15|Flash allows the creature to attack twice.|闪击让�
 GameData_InGameTutorial_16|Guard protects the creature from damage or Destroy once.|防卫技能可以保护生物不受攻击伤害或抵挡一次摧毁技能。|보호 능력은 해당 크리처를 데미지 또는 파괴 능력으로부터 1회 보호해줍니다.|||
 GameData_Tutorial_0_Tooltip_0|Enemy Champion Defense|敌方英雄防御值|적 챔피언의 방어력|||
 GameData_Tutorial_0_Tooltip_1|Your Champion Defense|你的英雄防御值|내 챔피언의 방어력|||
-GameData_Tutorial_0_Tooltip_2|Def: How much damage this creature can take|防御值：此生物可承受多少攻击|방어력: 이 크리처가 견딜 수 있는 데미지|||
-GameData_Tutorial_0_Tooltip_3|Atk: How much damage this creature deals|攻击值：此生物可以造成多少伤害|공격력: 이 크리처가 입힐 수 있는 데미지|||
+GameData_Tutorial_0_Tooltip_2|Def: How much damage this creature can take.|防御值：此生物可承受多少攻击|방어력: 이 크리처가 견딜 수 있는 데미지|||
+GameData_Tutorial_0_Tooltip_3|Atk: How much damage this creature deals.|攻击值：此生物可以造成多少伤害|공격력: 이 크리처가 입힐 수 있는 데미지|||
 GameData_Tutorial_0_Tooltip_4|Gloop's Defense was lowered by the counter-attack.|Gloop的防御能力被反击削弱了。|Gloop의 방어력이 카운터 공격으로 줄어들었습니다.|||
-GameData_Tutorial_1_Tooltip_0|Add cards to your deck by dragging them to the top.|通过拖放到顶部来添加卡牌到你的卡组。|덱에 카드를 추가하려면 맨 위로 드래그하세요.|||
+GameData_Tutorial_1_Tooltip_0|Add cards to your deck by dragging them to the right.|通过拖放到顶部来添加卡牌到你的卡组。|덱에 카드를 추가하려면 맨 위로 드래그하세요.|||
 GameData_Tutorial_1_Tooltip_1|Remove cards from your deck by double tapping on them.|通过双击从卡组中移除卡牌。|덱에서 카드를 제거하려면 카드 위에서 두 번 탭 하세요.|||
 GameData_Tutorial_1_Tooltip_2|You can also add cards by double tapping them.|你也可以通过双击添加卡牌。|카드를 두 번 탭 해서 추가할 수도 있습니다.|||
 GameData_Tutorial_1_Tooltip_3|It's time to BATTLE!|对战的时刻到了！|"자| 이제 배틀을 시작해보죠!"|||
-GameData_Tutorial_1_Tooltip_4|"Later on| you can select this text to rename your deck."|稍后，你可以选择此文本来重命名你的卡组。|나중에는 이 텍스트를 선택하여 덱의 이름을 변경할 수 있습니다.|||
-GameData_Tutorial_1_Tooltip_5|"For now| click on the arrows to browse your cards and fill the deck."|现在，点击箭头浏览你的卡牌并构建卡组。|지금은 화살표를 클릭하여 카드를 확인하면서 덱을 채우세요.|||
+GameData_Tutorial_1_Tooltip_4|Later on, you can select this text to rename your Deck.|稍后，你可以选择此文本来重命名你的卡组。|나중에는 이 텍스트를 선택하여 덱의 이름을 변경할 수 있습니다.|||
+GameData_Tutorial_1_Tooltip_5|For now, click on the arrows to browse your cards and fill the deck.|现在，点击箭头浏览你的卡牌并构建卡组。|지금은 화살표를 클릭하여 카드를 확인하면서 덱을 채우세요.|||
 GameData_Tutorial_1_Tooltip_6|Don't you want to open your new cards first?|不想先打开你的新卡牌吗？|새 카드를 먼저 열어보고 싶지 않으신가요?|||
 GameData_Tutorial_1_Tooltip_7|Open your pack.|打开你的卡包。|팩을 열어보세요.|||
 GameData_Tutorial_2_Tooltip_0|Feral creatures can attack on the same turn they are played.|野性生物可以在被投入的回合攻击。|야생 속성의 크리처는 플레이에 들어간 턴에 공격할 수 있습니다.|||
 GameData_Tutorial_2_Tooltip_1|This is how much goo your card costs.|这是卡牌的 goo 成本。|이것은 카드의 Goo 비용을 나타냅니다.|||
 GameData_Tutorial_2_Tooltip_2|You've earned a goo bottle.|你获得了一个 goo 瓶。|Goo 병을 1개 얻었군요.|||
-GameData_Tutorial_2_Tooltip_3|"You've earned another goo bottle| and the goo you spent before has been replenished."|你又获得了一个 goo 瓶，而且你之前使用的 goo 已重新充满。|"Goo 병을 1개 더 얻었으며| 전에 사용했던 Goo는 다시 채워집니다."|||
-GameData_Tutorial_2_Tooltip_4|"Entry effects happen as you play cards| just like Items."|入场效果在你投入卡牌时触发，就像工具牌一样。|입장 효과는 카드를 플레이에 넣을 때 발동합니다. 아이템처럼 말이죠.|||
+GameData_Tutorial_2_Tooltip_3|You've earned another goo bottle, and goo you spent before is replenished.|你又获得了一个 goo 瓶，而且你之前使用的 goo 已重新充满。|"Goo 병을 1개 더 얻었으며| 전에 사용했던 Goo는 다시 채워집니다."|||
+GameData_Tutorial_2_Tooltip_4|Entry effects happen as you play cards, just like Items.|入场效果在你投入卡牌时触发，就像工具牌一样。|입장 효과는 카드를 플레이에 넣을 때 발동합니다. 아이템처럼 말이죠.|||
 GameData_Tutorial_2_Tooltip_5|Heavy creatures need to be attacked first.|重型生物必须先被攻击。|헤비 속성의 크리처는 가장 먼저 공격받아야 합니다.|||
 GameData_Tutorial_2_Tooltip_6|Champions have unique abilities that can be used on cooldown.|英雄拥有独特的技能，可以在冷却时使用。|챔피언들은 쿨다운 중에 사용할 수 있는 독특한 능력을 가지고 있습니다.|||
 GameData_Tutorial_3_Tooltip_0|Let's check out your new cards first.|让我们先看看你的新卡牌。|우선 새 카드를 확인해봅시다.|||
 GameData_Tutorial_4_Tooltip_0|You go first.|你先来。|당신이 선공입니다.|||
-GameData_Tutorial_4_Tooltip_1|"This is your starting hand. Drag the cards you want replaced to the top| then press KEEP."|这是你的初始手牌。将要替换的卡牌拖到上方，然后按“保留”。|"이것은 처음에 당신이 손에 들고 있을 카드입니다. 바꾸고 싶은 카드를 위로 드래그하고| ""가지기"" 버튼을 누르세요."|||
+GameData_Tutorial_4_Tooltip_1|This is your starting hand. Drag cards you want replaced to the top, then press KEEP|这是你的初始手牌。将要替换的卡牌拖到上方，然后按“保留”。|"이것은 처음에 당신이 손에 들고 있을 카드입니다. 바꾸고 싶은 카드를 위로 드래그하고| ""가지기"" 버튼을 누르세요."|||
 GameData_Tutorial_4_Tooltip_2|You still have a battle to win.|你还有一场对战在进行中。|아직 승리해야 할 배틀이 있습니다.|||
-GameData_Tutorial_0_TutorialStep_0_AvatarDescription|"Welcome!\n\nSince you're new around here| I'll let you borrow my deck while you learn the ropes."|欢迎你！\n\n由于你是新手，我就让你借用我的卡组先熟悉一下规则吧。|"환영합니다!\n\n새로 오신 분이니| 요령을 익히는 동안 제 덱을 빌려드릴게요."|||
+GameData_Tutorial_0_TutorialStep_0_AvatarDescription|"Welcome!\n\nSince you're new around here, I'll let you borrow my deck while you learn the ropes."|欢迎你！\n\n由于你是新手，我就让你借用我的卡组先熟悉一下规则吧。|"환영합니다!\n\n새로 오신 분이니| 요령을 익히는 동안 제 덱을 빌려드릴게요."|||
 GameData_Tutorial_0_TutorialStep_1_AvatarDescription|Destroy the enemy Champion to win!|摧毁敌方英雄来赢得胜利吧！|적 챔피언을 파괴하여 승리하세요!|||
 GameData_Tutorial_0_TutorialStep_28_AvatarDescription|NOICE! \nYou won your first match!|太棒了！\n你赢得了你的首场比赛！|훌륭합니다! 첫 매치에서 승리했군요!|||
-GameData_Tutorial_2_TutorialStep_0_AvatarDescription|These creatures aren't all just claws and flesh. They have abilities too.\n\nLet's learn how to use them.|这些生物不仅仅是血肉之躯，它们还拥有技能。\n\n让我们来学习如何使用它们吧。|이 크리처들은 그저 발톱과 살만 가진 것이 아닙니다. 그들은 능력도 갖추고 있지요.\n\n그 능력을 사용하는 법을 배워봅시다.|||
+GameData_Tutorial_2_TutorialStep_0_AvatarDescription|Creatures aren't all just claws and flesh.\n\nThey have abilities too. Let's learn how to use them.|这些生物不仅仅是血肉之躯，它们还拥有技能。\n\n让我们来学习如何使用它们吧。|이 크리처들은 그저 발톱과 살만 가진 것이 아닙니다. 그들은 능력도 갖추고 있지요.\n\n그 능력을 사용하는 법을 배워봅시다.|||
 GameData_Tutorial_4_TutorialStep_0_AvatarDescription|This time it's all up to you...\n\nUse everything you've learned and make me proud!|这次全靠你自己了……\n\n放开手脚，让我骄傲吧！|이번에는 모든 것이 당신에게 달려있습니다...\n\n그 동안 당신이 배운 모든 것을 사용해서 저를 자랑스럽게 해주세요!|||
 GameData_Tutorial_4_TutorialStep_7_AvatarDescription|There's nothing more I can teach you. Congratulations!\n\nNow you can take your skills online by challenging other players in PvP mode.|我已把所有秘诀传授于你。恭喜出师！\n\n现在你将可以去 PvP 模式中，挑战其他玩家，大展拳脚了。|이제 더는 가르칠 것이 없군요. 축하합니다!\n\n이제 PvP 모드에서 다른 플레이어들에게 도전하여 온라인으로 기술을 갈고닦을 수 있습니다.|||
 GameData_Tutorial_0_TutorialStep_0_TooltipCloseText|GOT IT|知道了|확인|||
@@ -851,7 +859,7 @@ GameData_Tutorial_0_TutorialStep_8_ChampionSayTooltip_0|Two can play that game.|
 GameData_Tutorial_0_TutorialStep_9_ChampionSayTooltip_0|My creature cannot attack yet. So I'm done for now.|My creature cannot attack yet. So I'm done for now.|"내 크리처는 아직 공격할 수 없기 때문에| 이번 턴은 여기까지 입니다."|||
 GameData_Tutorial_0_TutorialStep_11_ChampionSayTooltip_0|Not bad for a slab of rock.|Not bad for a slab of rock.|바위 조각치고는 제법이군.|||
 GameData_Tutorial_0_TutorialStep_12_ChampionSayTooltip_0|Let's attack that creature.|Let's attack that creature.|저 크리처를 공격합시다.|||
-GameData_Tutorial_0_TutorialStep_14_ChampionSayTooltip_0|"I'm done. Let's move on| shall we?"|"I'm done. Let's move on| shall we?"|이번 턴은 여기까지 하고 넘어가 볼까요?|||
+GameData_Tutorial_0_TutorialStep_14_ChampionSayTooltip_0|"I'm done. Let's move on, shall we?"|"I'm done. Let's move on, shall we?"|이번 턴은 여기까지 하고 넘어가 볼까요?|||
 GameData_Tutorial_0_TutorialStep_16_ChampionSayTooltip_0|Double trouble.|Double trouble.|골치 아프지?|||
 GameData_Tutorial_0_TutorialStep_17_ChampionSayTooltip_0|Turn him to ash!|Turn him to ash!|저 녀석을 잿더미로 만들어 버리세요!|||
 GameData_Tutorial_0_TutorialStep_24_ChampionSayTooltip_0|Two can play that game.|Two can play that game.|이 게임은 두 명이 플레이할 수 있습니다.|||
@@ -863,7 +871,7 @@ GameData_Tutorial_2_TutorialStep_9_ChampionSayTooltip_0|Now you can't touch me.|
 GameData_Tutorial_2_TutorialStep_11_ChampionSayTooltip_0|Play the feral first!|请先投入野性生物！|야생 크리처를 먼저 플레이에 넣으세요!|||
 GameData_Tutorial_2_TutorialStep_21_ChampionSayTooltip_0|My fireball will end him.|My fireball will end him.|제 파이어볼(Fireball)로 저 녀석을 끝장내 버리세요!|||
 GameData_Tutorial_2_TutorialStep_22_ChampionSayTooltip_0|Gotcha.|Gotcha.|좋았어!|||
-ConnectionPopup_Label_Body|"Lost connection to the server| reconnecting..."|服务器连接断开，正在重新连接……|서버와 연결이 끊어졌습니다. 다시 연결하고 있습니다...|||
+ConnectionPopup_Label_Body|Lost connection to the server, reconnecting...|服务器连接断开，正在重新连接……|서버와 연결이 끊어졌습니다. 다시 연결하고 있습니다...|||
 InputOTP_Label_Header|Input your verification code.|输入你的验证码。|인증 코드를 입력하세요.|||
 InputOTP_Label_Body|You should have received a verification code to the phone number associated with this account.|和此账号绑定的手机应该已收到验证码。|이 계정과 연결된 휴대폰 번호로 인증 코드를 전송했습니다.|||
 InputOTP_Label_OTP|Code|验证码|인증 코드|||
@@ -872,6 +880,7 @@ Common_Button_Cancel|CANCEL|取消|취소|||
 Common_Button_Send|SEND|发送|전송|||
 MyDecks_Editing_Button_Auto|AUTO COMPLETE|自选完成|자동 채우기|||
 MyDecks_Editing_PlaceHolder_Search|SEARCH|搜索|검색|||
+MyDecks_Editing_Label_Edition|EDITION|版本||||
 MyDecks_Editing_Label_Element|ELEMENT|派系|속성|||
 MyDecks_Editing_Label_GooCost|GOO COST|GOO 成本|GOO 비용|||
 MyDecks_Editing_Label_Rarity|RARITY|稀有度|희귀성|||
@@ -880,8 +889,8 @@ MyDecks_Editing_Button_SaveDeck|SAVE|保存|저장|||
 ViewDeck_Label_Abilities|ABILITIES|技能|능력|||
 ViewDeck_Button_Change|CHANGE|更改|변경|||
 ConnectionPopup_Label_Connecting|Validating and fetching data...|正在验证并获取数据……|데이터 검증 및 수신 중...|||
-ConnectionPopup_Label_Failed|"Connection to the backend has failed| please check your Internet connection and try again later."|连接后端失败，请检查你的网络连接，并再试。|백엔드 연결에 실패했습니다. 인터넷 연결을 확인한 후 다시 시도해주세요.|||
-ConnectionPopup_Label_Reconnecting|"Lost connection to the server| reconnecting..."|服务器连接断开，正在重新连接……|서버와 연결이 끊어졌습니다. 다시 연결하고 있습니다...|||
+ConnectionPopup_Label_Failed|"Connection to the backend has failed, please check your Internet connection and try again later."|连接后端失败，请检查你的网络连接，并再试。|백엔드 연결에 실패했습니다. 인터넷 연결을 확인한 후 다시 시도해주세요.|||
+ConnectionPopup_Label_Reconnecting|"Lost connection to the server, reconnecting..."|服务器连接断开，正在重新连接……|서버와 연결이 끊어졌습니다. 다시 연결하고 있습니다...|||
 ConnectionPopup_Label_Matchmaking|Looking for an opponent...|寻找对手……|상대 찾는 중...|||
 Common_Button_Close|CLOSE|关闭|닫기|||
 Common_Button_Quit|QUIT|退出|종료|||
@@ -893,7 +902,7 @@ LevelUp_Label_NextLevelReward|Get next reward at level {NextLevelReward}!|在第
 SelectChampionPopup_Label_Header|SELECT YOUR CHAMPION|选择你的英雄|챔피언 선택|||
 SelectChampionPopup_Label_WeakAgainst|WEAK AGAINST|克星|취약 속성|||
 SelectChampionAbilityPopup_Label_Header|SELECT CHAMPION ABILITIES|选择英雄技能|챔피언 능력 선택|||
-SelectChampionAbilityPopup_Label_SelectedAmount|<color=#FFFF00>{SELECTED_AMOUNT}/{TOTAL_AMOUNT}</color> ABILITIES SELECTED|已选择 <color=#FFFF00>{SELECTED_AMOUNT}/{TOTAL_AMOUNT}</color> 技能|<color=#FFFF00>{SELECTED_AMOUNT}/{TOTAL_AMOUNT}</color>개의 능력이 선택됨|||
+SelectChampionAbilityPopup_Label_SelectedAmount| ABILITIES SELECTED| 已选择技能||||
 AbilityBar_Label_Body|UNLOCK ABILITY|解锁技能|능력 활성화|||
 RenamePopup_Label_Head|RENAME DECK|重命名卡组|덱 이름 변경|||
 RenamePopup_Label_Body|NAME YOUR DECK|命名你的卡组|덱 이름을 입력하세요|||
@@ -920,3 +929,4 @@ Champion_Hotshot_Description|He seeks vengeance for his parents’ death.|他为
 Champion_Lyght_Description|She is in pursuit of the ultimate thrill.|她追求终极的刺激。||||
 Champion_Bushwack_Description|She hopes to find a cure for her parents’ illness.|她希望找到给父母治病的方法。||||
 ChampionSelection_Button_Continue|CONTINUE|继续|계속|||
+Common_Button_Back|BACK|背部||||

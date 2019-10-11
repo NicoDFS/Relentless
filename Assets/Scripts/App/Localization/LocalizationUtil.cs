@@ -28,6 +28,25 @@ namespace Loom.ZombieBattleground.Localization
             }
         }
 
+        public static string GetLocalizedStringFromEnglish(string translation)
+        {
+            try
+            {
+                foreach(KeyValuePair<LocalizationTerm, LocalizationString> entry in LocalizedStringDictionary)
+                {
+                    if (entry.Value.Contains(translation))
+                    {
+                        return entry.Value.GetString().Replace("\\n", "\n");
+                    }
+                }
+                return translation;
+            }
+            catch
+            {
+                return translation;
+            }
+        }
+
         public static void SetLanguage(Enumerators.Language language)
         {
             string fullLanguageName = GetFullLanguageName(language);
@@ -66,12 +85,22 @@ namespace Loom.ZombieBattleground.Localization
             string transString = translation[_dataManager.CachedUserLocalData.AppLanguage];
             if (transString != "")
             {
+                string translationText = translation[_dataManager.CachedUserLocalData.AppLanguage];
+                if (_dataManager.CachedUserLocalData.AppLanguage == Enumerators.Language.ZH_CN)
+                {
+                    translationText = translationText.Replace("<b>", "").Replace("</b>", "");
+                }
                 return translation[_dataManager.CachedUserLocalData.AppLanguage];
             }
             else
             {
                 return translation[Enumerators.Language.EN];
             }
+        }
+
+        public bool Contains(string toFind)
+        {
+            return translation.ContainsValue(toFind);
         }
     }
 }

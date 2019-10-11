@@ -13,6 +13,7 @@ using Object = UnityEngine.Object;
 using Card = Loom.ZombieBattleground.Data.Card;
 using Deck = Loom.ZombieBattleground.Data.Deck;
 using OverlordUserInstance = Loom.ZombieBattleground.Data.OverlordUserInstance;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -250,7 +251,12 @@ namespace Loom.ZombieBattleground
 
             DataUtilities.PlayClickSound();
             _uiManager.GetPopup<QuestionPopup>().ConfirmationReceived += ConfirmSaveDeckHandler;
-            _uiManager.DrawPopup<QuestionPopup>("Would you like to save your progress?");
+            _uiManager.DrawPopup<QuestionPopup>(
+                LocalizationUtil.GetLocalizedString(
+                    LocalizationTerm.HordeEditing_Popup_ConfirmSaveProgress,
+                    "Would you like to save your progress?"
+                )
+            );
         }
 
         private void ConfirmSaveDeckHandler(bool status)
@@ -328,7 +334,11 @@ namespace Loom.ZombieBattleground
             if (Constants.FactionAgainstDictionary[overlordData.Prototype.Faction] == card.Faction)
             {
                 OpenAlertDialog(
-                    "Cannot add from the faction your Champion is weak against.");
+                    LocalizationUtil.GetLocalizedString(
+                        LocalizationTerm.Warning_HordeEditing_AddCard_AgainstChampionFaction,
+                        "Cannot add from the faction your Champion is weak against."
+                    )
+                );
                 return;
             }
 
@@ -353,7 +363,11 @@ namespace Loom.ZombieBattleground
                 if (collectionCardData.Amount <= 0)
                 {
                     OpenAlertDialog(
-                        "You don't have enough of this card.\nBuy or earn packs to get more cards.");
+                        LocalizationUtil.GetLocalizedString(
+                            LocalizationTerm.Warning_HordeEditing_AddCard_NotEnough,
+                            "You don't have enough of this card.\nBuy or earn packs to get more cards."
+                        )
+                    );
                     return;
                 }
             }
@@ -369,14 +383,23 @@ namespace Loom.ZombieBattleground
             uint maxCopies = GetMaxCopiesValue(card);
             if ((existingCard != null || existingCard.Count > 0) && totalExistingAmount >= maxCopies)
             {
-                OpenAlertDialog("Cannot have more than " + maxCopies + " copies of an " +
-                    card.Rank.ToString().ToLowerInvariant() + " card in one deck.");
+                OpenAlertDialog(
+                    LocalizationUtil.GetLocalizedString(
+                        LocalizationTerm.Warning_HordeEditing_AddCard_RankMaxOut,
+                        "Cannot have more than {MAX_COPIES} copies of an {CARD_RANK} card in one deck."
+                    ).Replace("{MAX_COPIES}", maxCopies.ToString()).Replace("{CARD_RANK}", card.Rank.ToString().ToLowerInvariant())
+                );
                 return;
             }
 
             if (_myDeckPage.CurrentEditDeck.GetNumCards() == Constants.DeckMaxSize)
             {
-                OpenAlertDialog("Cannot have more than " + Constants.DeckMaxSize + " cards in one deck.");
+                OpenAlertDialog(
+                    LocalizationUtil.GetLocalizedString(
+                        LocalizationTerm.Warning_HordeEditing_AddCard_MaxDeckSize,
+                        "Cannot have more than {MAX_DECK_SIZE} cards in one deck."
+                    ).Replace("{MAX_DECK_SIZE}", Constants.DeckMaxSize.ToString())
+                );
                 return;
             }
 

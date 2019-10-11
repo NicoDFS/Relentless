@@ -5,6 +5,7 @@ using Loom.ZombieBattleground.Helpers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -89,7 +90,7 @@ namespace Loom.ZombieBattleground
 
             _textInfo.text = string.Format("FINISH ALL {0} TUTORIALS TO START PVP", _tutorialManager.TutorialsCount.ToString());
 
-            _textTitle.text = _tutorialManager.CurrentTutorial.Name;
+            _textTitle.text = LocalizationUtil.GetLocalizedStringFromEnglish(_tutorialManager.CurrentTutorial.Name);
 
             float step = 1f / _tutorialManager.TutorialsCount;
             _startValueProgressBar = step * id;

@@ -2,6 +2,7 @@ using Loom.ZombieBattleground.Common;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -102,8 +103,8 @@ namespace Loom.ZombieBattleground
 
             if (data is object[] array)
             {
-                _text.text = (string)array[0];
-                _hideButtonText.text = (string)array[1];
+                _text.text = LocalizationUtil.GetLocalizedStringFromEnglish((string)array[0]);
+                _hideButtonText.text = LocalizationUtil.GetLocalizedStringFromEnglish((string)array[1]);
                 _janeImage.sprite = _janePoses[(int)((Enumerators.TutorialAvatarPose)array[2])];
                 bool aboveUI = (bool)array[3];
                 if(aboveUI)
