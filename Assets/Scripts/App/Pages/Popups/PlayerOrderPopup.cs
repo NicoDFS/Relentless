@@ -117,10 +117,10 @@ namespace Loom.ZombieBattleground
 
             _playerOverlordPicture.sprite =
                 _loadObjectsManager.GetObjectByPath<Sprite>("Images/Heroes/hero_" +
-                    player.Prototype.Faction.ToString().ToLowerInvariant());
+                    player.Prototype.Id.Id.ToString());
             _opponentOverlordPicture.sprite =
                 _loadObjectsManager.GetObjectByPath<Sprite>("Images/Heroes/hero_" +
-                    opponent.Prototype.Faction.ToString().ToLowerInvariant());
+                    opponent.Prototype.Id.Id.ToString());
 
             _playerOverlordPicture.SetNativeSize();
             _opponentOverlordPicture.SetNativeSize();

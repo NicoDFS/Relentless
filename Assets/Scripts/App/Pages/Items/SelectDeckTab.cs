@@ -279,7 +279,7 @@ namespace Loom.ZombieBattleground
                 {
                     deckInfoObject.TextCardsAmount.text = $"{cardsAmount}/{Constants.MaxDeckSize}";
                 }
-                deckInfoObject.ImageOverlordThumbnail.sprite = GetOverlordThumbnailSprite(overlord.Prototype.Faction);
+                deckInfoObject.ImageOverlordThumbnail.sprite = GetOverlordThumbnailSprite(overlord.Prototype.Id);
 
                 if(deck.PrimarySkill == Enumerators.Skill.NONE)
                 {
@@ -672,27 +672,10 @@ namespace Loom.ZombieBattleground
             _uiManager.DrawPopup<WarningPopup>(msg);
         }
 
-        private Sprite GetOverlordThumbnailSprite(Enumerators.Faction overlordFaction)
+        private Sprite GetOverlordThumbnailSprite(OverlordId overlordId)
         {
             string path = "Images/UI/MyDecks/OverlordDeckThumbnail";
-            switch(overlordFaction)
-            {
-                case Enumerators.Faction.AIR:
-                    return _loadObjectsManager.GetObjectByPath<Sprite>(path+"/deck_thumbnail_air");
-                case Enumerators.Faction.FIRE:
-                    return _loadObjectsManager.GetObjectByPath<Sprite>(path+"/deck_thumbnail_fire");
-                case Enumerators.Faction.EARTH:
-                    return _loadObjectsManager.GetObjectByPath<Sprite>(path+"/deck_thumbnail_earth");
-                case Enumerators.Faction.TOXIC:
-                    return _loadObjectsManager.GetObjectByPath<Sprite>(path+"/deck_thumbnail_toxic");
-                case Enumerators.Faction.WATER:
-                    return _loadObjectsManager.GetObjectByPath<Sprite>(path+"/deck_thumbnail_water");
-                case Enumerators.Faction.LIFE:
-                    return _loadObjectsManager.GetObjectByPath<Sprite>(path+"/deck_thumbnail_life");
-                default:
-                    Log.Info($"No Overlord thumbnail found for faction {overlordFaction}");
-                    return null;
-            }
+            return _loadObjectsManager.GetObjectByPath<Sprite>(path+"/deck_thumbnail_"+overlordId.Id.ToString());
         }
     }
 }

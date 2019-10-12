@@ -921,6 +921,7 @@
         ViewDeck_Label_Abilities,
         ViewDeck_Button_Change,
         Gameplay_Button_Wait,
-        Common_Button_Back
+        Common_Button_Back,
+        Champion_Blaze_Description
     }
 }

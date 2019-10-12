@@ -118,7 +118,7 @@ namespace Loom.ZombieBattleground
                 OverlordCard overlordCard = new OverlordCard();
                 overlordCard.Init(overlordCardUi);
                 overlordCard.SetOverlordId(overlordUserInstance.Prototype.Id);
-                overlordCard.SetOverlordImage(overlordUserInstance.Prototype.Faction);
+                overlordCard.SetOverlordImage(overlordUserInstance.Prototype.Id, overlordUserInstance.Prototype.Faction);
 
                 _overlordCards.Add(overlordCard);
             }
@@ -221,7 +221,7 @@ namespace Loom.ZombieBattleground
         {
             OverlordUserInstance overlord = _dataManager.CachedOverlordData.Overlords.Find(overlords => overlords.Prototype.Id == overlordId);
 
-            _overlordImage.sprite = DataUtilities.GetOverlordImage(overlord.Prototype.Faction);
+            _overlordImage.sprite = DataUtilities.GetOverlordImageById(overlordId);
             _textSelectOverlordName.text = overlord.Prototype.ShortName;
             _textSelectOverlordDescription.text = LocalizationUtil.GetLocalizedString
             (
@@ -268,9 +268,9 @@ namespace Loom.ZombieBattleground
             _overlordId = overlordId;
         }
 
-        public void SetOverlordImage(Enumerators.Faction faction)
+        public void SetOverlordImage(OverlordId overlordId, Enumerators.Faction faction)
         {
-            _overlordImage.sprite = DataUtilities.GetOverlordImage(faction);
+            _overlordImage.sprite = DataUtilities.GetOverlordImageById(overlordId);
             _overlordImage.GetComponent<RectTransform>().anchoredPosition = SetPosition(faction);
         }
 

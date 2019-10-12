@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Loom.ZombieBattleground.Common;
 using Newtonsoft.Json;
+using UnityEngine;
 
 namespace Loom.ZombieBattleground.Data
 {
@@ -34,8 +35,8 @@ namespace Loom.ZombieBattleground.Data
 
         [JsonProperty("HeroId")]
         public OverlordId OverlordId { get; set; }
-
         public string Name { get; set; }
+        public int Back { get; set; }
 
         public List<DeckCardData> Cards { get; set; }
 
@@ -56,6 +57,22 @@ namespace Loom.ZombieBattleground.Data
             Id = id;
             OverlordId = overlordId;
             Name = name;
+
+            string[] nameSplit = Name.Split('|');
+            if (nameSplit.Length > 1)
+            {
+                Name = "";
+                for (int i = 0; i < nameSplit.Length-1; i++)
+                {
+                    Name += nameSplit[i];
+                }
+                int finalBack = 0;
+                {
+                    int.TryParse(nameSplit[nameSplit.Length-1], out finalBack);
+                }
+                Back = finalBack;
+            }
+
             Cards = cards ?? new List<DeckCardData>();
             PrimarySkill = primarySkill;
             SecondarySkill = secondarySkill;

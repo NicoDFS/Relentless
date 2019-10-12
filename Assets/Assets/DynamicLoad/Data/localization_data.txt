@@ -231,6 +231,7 @@ GameData_ChampionSkill_Description_3|Give all ally Earth creatures +1 Def|给所
 GameData_ChampionSkill_Title_4|Fortress|Fortress|Fortress|||
 GameData_ChampionSkill_Description_4|Give 2 random ally Earth creatures Heavy|给任意2个同盟土系生物重型技能|임의의 아군 땅 속성 크리처 2기에 헤비 능력을 부여한다.|||
 GameData_Champion_Name_1|Razu|Razu|Razu|||
+GameData_Champion_Name_6|Blaze|Blaze|Blaze|||
 GameData_Champion_ShortDescription_1|The Fire Daemon|The Fire Daemon|The Fire Daemon|||
 GameData_ChampionSkill_Title_5|Fire Bolt|Fire Bolt|Fire Bolt|||
 GameData_ChampionSkill_Description_5|Deal 1 damage to target|对目标造成1点伤害|대상에 데미지 1을 입힌다.|||
@@ -926,6 +927,7 @@ Champion_Rook_Description|He wants to prove himself worthy to lead.|他想证明
 Champion_Azul_Description|She hopes to end humanity’s dependence on goo.|她希望结束人类对goo的依赖。
 Champion_Hyde_Description|Unknown.|未知。||||
 Champion_Hotshot_Description|He seeks vengeance for his parents’ death.|他为父母的死报仇。||||
+Champion_Blaze_Description|A living weapon, created to wreak havoc.|A living weapon, created to wreak havoc。||||
 Champion_Lyght_Description|She is in pursuit of the ultimate thrill.|她追求终极的刺激。||||
 Champion_Bushwack_Description|She hopes to find a cure for her parents’ illness.|她希望找到给父母治病的方法。||||
 ChampionSelection_Button_Continue|CONTINUE|继续|계속|||
