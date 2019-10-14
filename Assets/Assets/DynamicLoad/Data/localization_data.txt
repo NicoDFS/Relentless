@@ -107,6 +107,7 @@ PackOpener_Label_PackToOpenAmount|{[PACK_AMOUNT_TO_OPEN]} packs[i2p_Zero]No pack
 PackOpener_Button_Open|OPEN|开启|열기|||
 PackOpener_Button_BuyPacks|BUY MORE PACKS|购买更多卡包|더 많은 팩 구매하기|||
 PackOpener_Button_Collect|COLLECT|收集|받기|||
+PackOpener_Button_OpenNextPack|OPEN NEXT PACK|打开下一个卡包||||
 FilterCard_Label_Header|FILTER CARDS|筛选卡牌|카드 필터링|||
 FilterCard_Button_Save|SAVE|保存|저장|||
 FilterCard_Button_SelectAll|SELECT ALL|选择全部|모두 선택|||
@@ -584,7 +585,7 @@ GameData_Cards_FlavorText_149|"And so he walked the desert for 40 years, only to
 GameData_Cards_FlavorText_150|After four steps he gave up on the straight line and started puking|走了四步之后，他终于放弃走直线，直接开始吐了|After four steps he gave up on the straight line and started puking|||
 GameData_Cards_FlavorText_152|He always loved to tell a goo story|他总是喜欢说些 Goo 的段子|He always loved to tell a goo story|||
 GameData_Cards_FlavorText_153|Not in the mood for dancing...|现在没有跳舞的心情……|Not in the mood for dancing...|||
-GameData_Cards_FlavorText_133|eeeehhehehehe|诶嘿嘿诶嘿嘿嘿嘿|eeeehhehehehe|||
+GameData_Cards_FlavorText_133|eeeehhehehehe|嘿嘿嘿嘿嘿嘿嘿嘿|eeeehhehehehe|||
 GameData_Cards_FlavorText_128|Smells like goo spirit|闻起来真醒神|Smells like goo spirit|||
 GameData_Cards_FlavorText_134|He remembers the north|他还记得北境|He remembers the north|||
 GameData_Cards_FlavorText_139|He's been trying to get out for a millennia - thank you global warming!!|他已经花了一千年尝试逃出来——全球变暖，感谢你！！|He's been trying to get out for a millennia - thank you global warming!!|||
@@ -635,7 +636,7 @@ GameData_Cards_FlavorText_20|"Some like to grow flowers, others grow hallucinoge
 GameData_Cards_FlavorText_78|Make it R-A-A-I-N-Z!!!|下雨吧！！！|Make it R-A-A-I-N-Z!!!|||
 GameData_Cards_FlavorText_99|Thatta boy!|伙计真棒！|Thatta boy!|||
 GameData_Cards_FlavorText_107|Having a pyromaniac on the battlefield does come in handy|战场上有个喜欢纵火的家伙真是帮大忙了|Having a pyromaniac on the battlefield does come in handy|||
-GameData_Cards_FlavorText_86|"The undefeated spitting world champion, can hit a squirrel from 100ft"|这位喷水界的东方不败，30米开外的小松鼠都能准确击中|"The undefeated spitting world champion| can hit a squirrel from 100ft"|||
+GameData_Cards_FlavorText_86|The undefeated spitting world champion, can hit a squirrel from 100ft|这位喷水界的东方不败，30米开外的小松鼠都能准确击中|"The undefeated spitting world champion| can hit a squirrel from 100ft"|||
 GameData_Cards_FlavorText_114|It can handle both plants and creatures... wait what?|它能处理植物——和生物……等等，什么？！|It can handle both plants and creatures... wait what?|||
 GameData_Cards_FlavorText_243|Finds pieces of itself all over the battlefield|战场上到处都是它自己的碎片|Finds pieces of itself all over the battlefield|||
 GameData_Cards_FlavorText_257|Its name is a paradox|它的名字本身就自相矛盾|Its name is a paradox|||
@@ -645,7 +646,7 @@ GameData_Cards_Description_19|<b>Entry:</b> Put a copy of this into play.|<b>入
 GameData_Cards_Description_33|<b>Entry:</b> Take control of a random enemy creature.|<b>入场：</b> 控制任意一个敌方生物。|<b>입장:</b> 임의의 적 크리처의 제어권을 가져온다.|||
 GameData_Cards_Description_34|<b>Entry:</b> Reduce the cost of a random card in your hand by 1.|<b>入场：</b>手牌中随机一张牌的成本减少 1 。|<b>입장:</b> 플레이어의 손에 있는 임의의 카드의 비용을 1만큼 줄인다.|||
 GameData_Cards_Description_62|<b>Entry:</b> Give an ally creature +2 Atk.|<b>入场：</b>给一个同盟生物 +2 攻击值。|<b>입장:</b> 아군 크리처에 공격력을 2만큼 더한다.|||
-GameData_Cards_Description_82|"<b>Feral</b>, <b>Destroy</b>"|<b>野性</b>、<b>摧毁</b>|"<b>야생</b>| <b>파괴</b>"|||
+GameData_Cards_Description_82|<b>Feral</b>, <b>Destroy</b>|<b>野性</b>、<b>摧毁</b>|"<b>야생</b>| <b>파괴</b>"|||
 GameData_Cards_Description_105|<b>Feral</b>|<b>野性</b>|<b>야생</b>|||
 GameData_Cards_Description_106|<b>Feral</b>|<b>野性</b>|<b>야생</b>|||
 GameData_Cards_Description_113|<b>Entry:</b> Freeze all enemy creatures.|<b>入场：</b> 冻结所有敌方生物。|<b>입장:</b> 모든 적 크리처를 얼린다.|||
@@ -658,7 +659,7 @@ GameData_Cards_Description_151|<b>Entry:</b> Lose 2 goo bottles.|<b>入场：</b
 GameData_Cards_Description_115|<b>Select:</b> Deal 3 damage OR Restore +3 Def.|<b>选择：</b> 造成 3 点伤害，或恢复 +3 防御值。|<b>선택:</b> 데미지 3을 입히거나 방어력 3을 회복한다.|||
 GameData_Cards_Description_249|6 damage to an enemy|对一个敌人造成 6 点伤害|적에게 데미지 6을 입힌다.|||
 GameData_Cards_Description_154|Deal 2 damage to all enemy creatures.|对所有敌方生物造成 2 点伤害。|모든 적 크리처에 데미지 2를 입힌다.|||
-GameData_Cards_Description_57|"<b>Heavy, Death:</b> Draw a card"|<b>重型、死亡：</b> 抽一张牌|"<b>헤비| 죽음:</b> 카드를 뽑는다."|||
+GameData_Cards_Description_57|<b>Heavy, Death:</b> Draw a card|<b>重型、死亡：</b> 抽一张牌|"<b>헤비| 죽음:</b> 카드를 뽑는다."|||
 GameData_Cards_Description_76|<b>Death:</b> Shuffle this card into your deck.|<b>死亡：</b> 将此卡牌返回你的卡组。|<b>죽음:</b> 이 카드를 플레이어의 덱에 섞는다.|||
 GameData_Cards_Description_68|Draw a card.|抽一张牌。|카드를 뽑는다.|||
 GameData_Cards_Description_12|<b>Entry:</b> Deal 4 damage to an enemy.|<b>入场：</b> 对一个敌人造成 4 点伤害。|<b>입장:</b> 적 1기에 데미지 4를 입힌다.|||
@@ -674,8 +675,8 @@ GameData_Cards_Description_98|<b>Heavy</b>|<b>重型</b>|<b>헤비</b>|||
 GameData_Cards_Description_31|<b>Entry:</b> Deal 5 damage to all enemy creatures.|<b>入场：</b>对所有敌方生物造成 5 点伤害。|<b>입장:</b> 모든 적 크리처들에 데미지 5를 입힌다.|||
 GameData_Cards_Description_116|Give a creature <b>Swing</b>.|给一个生物<b>溅伤</b>技能。|크리처에 <b>진동</b> 능력을 부여한다.|||
 GameData_Cards_Description_50|<b>Death:</b> Draw a card for every ally creature in play.|<b>死亡：</b>抽与场上同盟生物数量相等张数的牌。|<b>죽음:</b> 플레이 중인 아군 크리처 하나당 카드 하나를 뽑는다.|||
-GameData_Cards_Description_44|"While this is in play, ally creatures get +1 Atk."|当此牌在场上时，所有同盟生物获得 +1 攻击值。|"이 카드가 플레이 중일 때| 아군 크리처들의 공격력이 1 증가한다."|||
-GameData_Cards_Description_59|"While this is in play, deal 2 damage to creatures that attack this."|当此牌在场上时，对所有攻击此的生物造成 2 点伤害。|"이 카드가 플레이 중일 때| 이 카드를 공격하는 크리처들에 데미지 2를 입힌다."|||
+GameData_Cards_Description_44|While this is in play, ally creatures get +1 Atk.|当此牌在场上时，所有同盟生物获得 +1 攻击值。|"이 카드가 플레이 중일 때| 아군 크리처들의 공격력이 1 증가한다."|||
+GameData_Cards_Description_59|While this is in play, deal 2 damage to creatures that attack this.|当此牌在场上时，对所有攻击此的生物造成 2 点伤害。|"이 카드가 플레이 중일 때| 이 카드를 공격하는 크리처들에 데미지 2를 입힌다."|||
 GameData_Cards_Description_3|<b>Death:</b> Both players draw 2 cards.|<b>死亡：</b>双方玩家抽 2 张牌。|<b>죽음:</b> 두 플레이어가 2장씩 카드를 뽑는다.|||
 GameData_Cards_Description_4|<b>End:</b> Deal 2 damage to all enemy creatures.|<b>回合结束：</b> 对所有敌方生物造成 2 点伤害。|<b>마침:</b> 모든 적 크리처에 데미지 2를 입힌다.|||
 GameData_Cards_Description_7|<b>Entry:</b> Give a creature <b>Heavy</b>.|<b>入场：</b>给一个生物<b>重型</b>技能。|<b>입장:</b> 크리처에 <b>헤비</b> 능력을 부여한다.|||
@@ -686,14 +687,14 @@ GameData_Cards_Description_37|<b>Swing</b>|<b>溅伤</b>|<b>진동</b>|||
 GameData_Cards_Description_64|<b>Entry:</b> Deal 1 damage to all other creatures.|<b>入场：</b>对所有其他生物造成 1 点伤害。|<b>입장:</b> 다른 모든 크리처들에 데미지 1을 입힌다.|||
 GameData_Cards_Description_74|<b>Entry:</b> Give an ally creature +3/+3.|<b>入场：</b>给一个同盟生物 +3/+3 攻击/防御值。|<b>입장:</b> 아군 크리처에 공격력과 방어력을 3만큼 더한다.|||
 GameData_Cards_Description_142|<b>Entry:</b> Get a Goo Bottle this turn.|<b>入场：</b> 本回合获得一个 goo 瓶。|<b>입장:</b> 이번 턴에 Goo 병을 1개 얻는다.|||
-GameData_Cards_Description_81|"<b>Destroy</b>| while this is in play, your creatures cost 2 more."|<b>摧毁</b>，当此牌在场上时，你的生物成本增加 2 。|"<b>파괴</b>| 이 카드가 플레이 중일 때| 플레이어의 크리처들의 비용이 2만큼 증가한다."|||
+GameData_Cards_Description_81|<b>Destroy</b>, while this is in play, your creatures cost 2 more.|<b>摧毁</b>，当此牌在场上时，你的生物成本增加 2 。|"<b>파괴</b>| 이 카드가 플레이 중일 때| 플레이어의 크리처들의 비용이 2만큼 증가한다."|||
 GameData_Cards_Description_239|<b>Entry:</b> Draw a card.|<b>入场：</b>抽一张牌。|<b>입장:</b> 카드를 뽑는다.|||
 GameData_Cards_Description_240|<b>Guard</b>|<b>防卫</b>|<b>보호</b>|||
 GameData_Cards_Description_241|<b>Entry:</b> Distract an enemy Heavy creature.|<b>入场：</b>干扰一个敌方重型生物。|<b>입장:</b> 적 헤비 크리처의 이성을 잃게 한다.|||
 GameData_Cards_Description_108|<b>End:</b> Deal 2 damage to a random enemy creature.|<b>回合结束：</b>对任意一个敌方生物造成 2 点伤害。|<b>마침:</b> 임의의 적 크리처에 데미지 2를 입힌다.|||
 GameData_Cards_Description_120|<b>Entry:</b> Give a creature +1/+1.|<b>入场：</b>给一个生物 +1/+1 攻击/防御值。|<b>입장:</b> 크리처 1기에 공격력과 방어력을 1만큼 더한다.|||
 GameData_Cards_Description_242|<b>Heavy</b>|<b>重型</b>|<b>헤비</b>|||
-GameData_Cards_Description_6|"<b>Heavy</b>, <b>Rage:</b> Draw a card."|<b>重型</b>、<b>狂怒：</b> 抽一张牌。|"<b>헤비</b>| <b>격노:</b> 카드를 뽑는다."|||
+GameData_Cards_Description_6|<b>Heavy</b>, <b>Rage:</b> Draw a card.|<b>重型</b>、<b>狂怒：</b> 抽一张牌。|"<b>헤비</b>| <b>격노:</b> 카드를 뽑는다."|||
 GameData_Cards_Description_244|<b>Heavy</b>|<b>重型</b>|<b>헤비</b>|||
 GameData_Cards_Description_246|<b>Feral</b>|<b>野性</b>|<b>야생</b>|||
 GameData_Cards_Description_248|Deal 10 damage to a creature.|对一个生物造成 10 点伤害。|크리처 1기에 데미지 10을 입힌다.|||
@@ -701,16 +702,16 @@ GameData_Cards_Description_250|<b>Reanimate</b>|<b>复活</b>|<b>소생</b>|||
 GameData_Cards_Description_251|<b>Reanimate</b>|<b>复活</b>|<b>소생</b>|||
 GameData_Cards_Description_253|<b>Destroy</b>|<b>摧毁</b>|<b>파괴</b>|||
 GameData_Cards_Description_254|<b>Death:</b> Deal 5 damage to your Champion.|<b>死亡：</b>对你的英雄造成 5 点伤害。|<b>죽음:</b> 플레이어의 챔피언에 데미지 5를 입힌다.|||
-GameData_Cards_Description_255|"<b>Guard, Destroy</b>"|<b>防卫、摧毁</b>|"<b>보호| 파괴</b>"|||
+GameData_Cards_Description_255|<b>Guard, Destroy</b>|<b>防卫、摧毁</b>|"<b>보호| 파괴</b>"|||
 GameData_Cards_Description_256|<b>Entry:</b> Freeze a Creature.|<b>入场：</b> 冻结一个生物。|<b>입장:</b> 크리처 1기를 얼린다.|||
-GameData_Cards_Description_21|"While this is in play, give all ally creatures +2 Def."|当此牌在场上时，给所有同盟生物 +2 防御值。|"이 카드가 플레이 중일 때| 모든 아군 크리처들에 방어력 2를 더한다."|||
+GameData_Cards_Description_21|While this is in play, give all ally creatures +2 Def.|当此牌在场上时，给所有同盟生物 +2 防御值。|"이 카드가 플레이 중일 때| 모든 아군 크리처들에 방어력 2를 더한다."|||
 GameData_Cards_Description_132|<b>Entry:</b> Give a creature +6/-6.|<b>入场：</b>给一个生物 +6/-6 攻击/防御值。|<b>입장:</b> 크리처에 공격력을 6 더하고 방어력을 6 낮춘다.|||
 GameData_Cards_Description_39|Destroy a random creature.|摧毁任意一个生物。|임의의 크리처 1기를 파괴한다.|||
 GameData_Cards_Description_136|<b>Entry:</b> Give an ally creature +3/+2.|<b>入场：</b>给一个同盟生物 +3/+2 攻击/防御值。|"<b>입장:</b> 아군 크리처에 공격력 3| 방어력 2를 더한다."|||
-GameData_Cards_Description_49|"<b>Heavy</b>, Freeze creatures this damages."|<b>重型</b>，冻结此牌损伤的生物。|"<b>헤비</b>| 데미지를 입힐 크리처를 얼린다."|||
+GameData_Cards_Description_49|<b>Heavy</b>, Freeze creatures this damages.|<b>重型</b>，冻结此牌损伤的生物。|"<b>헤비</b>| 데미지를 입힐 크리처를 얼린다."|||
 GameData_Cards_Description_65|<b>Entry:</b> Deal 1 damage to an enemy.|<b>入场：</b>对一个敌人造成 1 点伤害。|<b>입장:</b> 적 1기에 데미지 1을 입힌다.|||
 GameData_Cards_Description_88|<b>Entry:</b> Distract an enemy creature.|<b>入场：</b>干扰一个敌方生物。|<b>입장:</b> 적 크리처의 이성을 잃게 한다.|||
-GameData_Cards_Description_8|"While this is in play, it takes a maximum of 2 damage from any source."|当此牌在场上时，任何来源的攻击都只造成最高 2 点伤害。|"이 카드가 플레이 중일 때| 어떤 공격이든 최대 2 데미지만을 받는다."|||
+GameData_Cards_Description_8|While this is in play, it takes a maximum of 2 damage from any source.|当此牌在场上时，任何来源的攻击都只造成最高 2 点伤害。|"이 카드가 플레이 중일 때| 어떤 공격이든 최대 2 데미지만을 받는다."|||
 GameData_Cards_Description_9|<b>Entry:</b> Give adjacent creatures +1/+2 and <b>Heavy</b>.|<b>入场：</b>给相邻生物 +1/+2 攻击/防御值和<b>重型</b>技能。|"<b>입장:</b> 인접 크리처들에 공격력 1| 방어력 2를 더하고 <b>헤비</b> 능력을 부여한다."|||
 GameData_Cards_Description_18|Give a creature +7/-7.|给一个生物 +7/-7 攻击/防御值。|크리처에 공격력을 7 더하고 방어력을 7 낮춘다.|||
 GameData_Cards_Description_22|<b>End:</b> Restore 2 Def to all other ally creatures.|<b>回合结束：</b> 给所有其他同盟生物恢复 2 点防御值。|<b>마침:</b> 다른 모든 아군 크리처들의 방어력을 2만큼 회복시킨다.|||
@@ -718,10 +719,10 @@ GameData_Cards_Description_23|<b>Reanimate</b>|<b>复活</b>|<b>소생</b>|||
 GameData_Cards_Description_27|<b>Entry:</b> Destroy all other creatures.|<b>入场：</b>摧毁所有其他生物。|<b>입장:</b> 다른 모든 크리처들을 파괴한다.|||
 GameData_Cards_Description_29|<b>Entry:</b> Deal 4 damage to an enemy if you have 25 Def or less|<b>入场：</b>如果你的防御值为 25 或更低，对一个敌人造成 4 点伤害。|<b>입장:</b> 플레이어의 방어력이 25 이하일 때 적에게 데미지 4를 입힌다.|||
 GameData_Cards_Description_32|<b>Entry:</b> Give an ally creature <b>Guard</b>|<b>入场：</b>给一个同盟生物<b>防卫</b>技能。|<b>입장:</b> 아군 크리처에 <b>보호</b> 능력을 부여한다.|||
-GameData_Cards_Description_35|"<b>Heavy, End:</b> +2 Def."|<b>重型、回合结束：</b>+2 防御值。|"<b>헤비| 마침:</b> 방어력 2를 더한다."|||
+GameData_Cards_Description_35|<b>Heavy, End:</b> +2 Def.|<b>重型、回合结束：</b>+2 防御值。|"<b>헤비| 마침:</b> 방어력 2를 더한다."|||
 GameData_Cards_Description_36|<b>Entry:</b> Destroy an enemy creature with <b>Heavy</b>|<b>入场：</b>摧毁一个拥有<b>重型</b>技能的敌方生物。|<b>입장:</b> <b>헤비</b> 능력을 가진 적 크리처 1기를 파괴한다.|||
 GameData_Cards_Description_38|<b>Entry:</b> Give an ally creature <b>Feral</b>.|<b>入场：</b>给一个同盟生物<b>野性</b>技能。|<b>입장:</b> 아군 크리처에 <b>야생</b> 능력을 부여한다.|||
-GameData_Cards_Description_42|"While this is in play, gain the Atk and Def of adjacent creatures other than Z-Virus."|当此牌在场上时，从相邻的、非【Z-病毒】的生物手中获取其攻击和防御值。|"이 카드가 플레이 중일 때| Z-Virus를 제외한 인접 크리처들의 공격력과 방어력을 얻는다."|||
+GameData_Cards_Description_42|While this is in play, gain the Atk and Def of adjacent creatures other than Z-Virus.|当此牌在场上时，从相邻的、非【Z-病毒】的生物手中获取其攻击和防御值。|"이 카드가 플레이 중일 때| Z-Virus를 제외한 인접 크리처들의 공격력과 방어력을 얻는다."|||
 GameData_Cards_Description_43|<b>Death:</b> Put 3 random creatures from your discard into play.|<b>死亡：</b>从你丢弃的牌中抽取随机 3 个生物投入战场。|<b>죽음:</b> 플레이어가 버린 패에서 임의의 크리처 3기를 플레이에 넣는다.|||
 GameData_Cards_Description_45|<b>Entry:</b> Put a random 2-cost creature into play.|<b>入场：</b>将随机一个 2 goo 成本的生物投入战场。|<b>입장:</b> 비용이 2인 임의의 크리처 1기를 플레이에 넣는다.|||
 GameData_Cards_Description_46|<b>End:</b> Deal 1 damage to your Champion.|<b>回合结束：</b>对你的英雄造成 1 点伤害。|<b>마침:</b> 플레이어의 챔피언에 데미지 1을 입힌다.|||
@@ -734,16 +735,16 @@ GameData_Cards_Description_85|</b>Death:</b> Deal damage to all equal to this cr
 GameData_Cards_Description_90|<b>Entry:</b> Freeze all enemy creatures|<b>入场：</b> 冻结所有敌方生物。|<b>입장:</b> 모든 적 크리처를 얼린다|||
 GameData_Cards_Description_94|<b>Entry:</b> Adjacent creatures get <b>Guard</b>.|<b>入场：</b>相邻生物获得<b>防卫</b>技能。|<b>입장:</b> 인접 크리처들이 <b>보호</b> 능력을 얻는다.|||
 GameData_Cards_Description_96|<b>Entry:</b> Draw a card from the enemy Deck|<b>入场：</b>从敌方卡组中抽一张牌。|<b>입장:</b> 적 덱에서 카드를 한 장 뽑는다.|||
-GameData_Cards_Description_97|"While this is in hand, costs 1 less after every turn this is in your hand."|当此牌在手牌中时，每过一回合成本就减少 1 。|"이 카드를 손에 가지고 있는 동안| 매 턴이 끝날 때마다 비용이 1씩 감소한다."|||
+GameData_Cards_Description_97|While this is in hand, costs 1 less after every turn this is in your hand.|当此牌在手牌中时，每过一回合成本就减少 1 。|"이 카드를 손에 가지고 있는 동안| 매 턴이 끝날 때마다 비용이 1씩 감소한다."|||
 GameData_Cards_Description_103|<b>Rage:</b> +3 Atk.|<b>狂怒：</b>+3 攻击值。|<b>격노:</b> 공격력에 3을 더한다.|||
 GameData_Cards_Description_104|<b>Entry:</b> Give all ally creatures <b>Heavy</b>|<b>入场：</b>给所有同盟生物<b>重型</b>技能。|<b>입장:</b> 모든 아군 크리처에 <b>헤비</b> 능력을 부여한다.|||
 GameData_Cards_Description_117|Change all enemy creatures' Atk to 1 this turn.|在本回合，将所有敌方生物的攻击值变为 1 。|이번 턴에 모든 적 크리처들의 공격력을 1로 바꾼다|||
 GameData_Cards_Description_143|<b>Guard</b>|<b>防卫</b>|<b>보호</b>|||
 GameData_Cards_Description_145|<b>Entry:</b> Get an empty Goo Bottle if this is your only creature in play.|<b>入场：</b>如果此生物是你在场上的唯一生物，获得一个空 goo 瓶。|<b>입장:</b> 플레이에 이 카드만 있는 경우 빈 Goo 병을 1개 얻는다.|||
-GameData_Cards_Description_146|"<b>Entry:</b> If the enemy has 30 Def or less, get an empty Goo Bottle."|<b>入场：</b>如果敌方防御值为 30 或更低，获得一个空 goo 瓶。|"<b>입장:</b> 적의 방어력이 30 이하인 경우| 빈 Goo 병을 1개 얻는다."|||
+GameData_Cards_Description_146|<b>Entry:</b> If the enemy has 30 Def or less, get an empty Goo Bottle.|<b>入场：</b>如果敌方防御值为 30 或更低，获得一个空 goo 瓶。|"<b>입장:</b> 적의 방어력이 30 이하인 경우| 빈 Goo 병을 1개 얻는다."|||
 GameData_Cards_Description_148|<b>Death:</b> Get 1 Goo Bottle this turn.|<b>死亡：</b>本回合获得 1 个 goo 瓶。|<b>죽음:</b> 이번 턴에 Goo 병을 1개 얻는다.|||
 GameData_Cards_Description_149|<b>Entry:</b> Get 2 Goo Bottles this turn.|<b>入场：</b>本回合获得 2 个 goo 瓶。|<b>입장:</b> 이번 턴에 Goo 병을 2개 얻는다.|||
-GameData_Cards_Description_150|"While this is in play, gain Atk and Def equal to the number of unspent Goo you have."|当此牌在场上时，获得与你未用 goo 的数量相等的攻击和防御值。|"이 카드가 플레이 중인 경우| 보유 중인 미사용 Goo의 수만큼 공격력과 방어력을 얻는다."|||
+GameData_Cards_Description_150|While this is in play, gain Atk and Def equal to the number of unspent Goo you have.|当此牌在场上时，获得与你未用 goo 的数量相等的攻击和防御值。|"이 카드가 플레이 중인 경우| 보유 중인 미사용 Goo의 수만큼 공격력과 방어력을 얻는다."|||
 GameData_Cards_Description_152|<b>Entry:</b> Get a Goo Bottle if you have less Def than your enemy.|<b>入场：</b>如果你的防御值比敌方更低，获得一个 goo 瓶。|<b>입장:</b> 플레이어의 방어력이 적보다 낮은 경우 Goo 병을 1개 얻는다.|||
 GameData_Cards_Description_153|<b>Entry:</b> Get an empty Goo Bottle if you have fewer creatures in play than the enemy.|<b>入场：</b>如果你在战场上的生物数量少于敌方，获得一个空 goo 瓶。|<b>입장:</b> 플레이 중인 크리처가 적보다 더 적은 경우 빈 Goo 병을 1개 얻는다.|||
 GameData_Cards_Description_133|<b>Entry:</b> Give an ally creature +1/+2.|<b>入场：</b>给一个同盟生物 +1/+2 攻击/防御值。|"<b>입장:</b> 아군 크리처에 공격력 1| 방어력 2를 더한다."|||
@@ -753,16 +754,16 @@ GameData_Cards_Description_122|<b>Entry:</b> Both players get an empty Goo Bottl
 GameData_Cards_Description_126|<b>Entry:</b> Give a creature +2/-1.|<b>入场：</b>给一个生物 +2/-1 攻击/防御值。|<b>입장:</b> 크리처에 공격력을 2 더하고 방어력을 1 낮춘다.|||
 GameData_Cards_Description_93|<b>Entry:</b> Give this +1 Atk for every ally creature in play.|<b>入场：</b>获得与场上同盟生物数量相等的攻击值。|<b>입장:</b> 플레이 중인 모든 아군 크리처에 공격력 1을 더한다.|||
 GameData_Cards_Description_79|<b>Entry:</b> Discard a random card from hand.|<b>入场：</b>从手牌中随机丢弃一张牌。|<b>입장:</b> 플레이어의 손에서 임의의 카드 1개를 버린다.|||
-GameData_Cards_Description_54|"While this is in play, reduce the cost of all creatures in your hand by 1."|当此牌在场上时，手牌中所有生物的成本减少 1 。|"이 카드가 플레이 중일 때| 플레이어의 손에 있는 모든 크리처의 비용을 1만큼 감소시킨다."|||
+GameData_Cards_Description_54|While this is in play, reduce the cost of all creatures in your hand by 1.|当此牌在场上时，手牌中所有生物的成本减少 1 。|"이 카드가 플레이 중일 때| 플레이어의 손에 있는 모든 크리처의 비용을 1만큼 감소시킨다."|||
 GameData_Cards_Description_40|Distract a creature then give it +3/-3|干扰一个生物并给它 +3/-3 攻击/防御值|"크리처의 이성을 잃게 하고| 이후 공격력 3을 더하고 방어력 3을 낮춘다."|||
 GameData_Cards_Description_41|creature cannot take damage until the start of your next turn.|在你下一回合开始前，生物无法受到损伤。|플레이어의 다음 턴이 시작할 때까지 크리처는 데미지를 받지 않는다.|||
 GameData_Cards_Description_51|<b>Entry:</b> Give a random creature in your hand +2/+1.|<b>入场：</b>给你的手牌中随机一个生物 +2/+1 攻击/防御值。|"<b>입장:</b> 플레이어의 손에 있는 임의의 크리처에 공격력 2| 방어력 1을 더한다."|||
-GameData_Cards_Description_52|"<b>Feral</b>, does not need to attack creatures with Heavy first."|<b>野性</b>，不需要先攻击拥有重型技能的生物。|"<b>야생</b>| 헤비 속성의 크리처를 먼저 공격하지 않아도 된다."|||
+GameData_Cards_Description_52|<b>Feral</b>, does not need to attack creatures with Heavy first.|<b>野性</b>，不需要先攻击拥有重型技能的生物。|"<b>야생</b>| 헤비 속성의 크리처를 먼저 공격하지 않아도 된다."|||
 GameData_Cards_Description_53|<b>Entry:</b> Both players draw a card.|<b>入场：</b>双方玩家抽一张牌。|<b>입장:</b> 두 플레이어가 1장씩 카드를 뽑는다.|||
-GameData_Cards_Description_55|"While this is in hand, costs 1 less for every ally creature in play."|当此牌在手中时，减少与场上同盟生物数量相等的goo成本。|"이 카드를 손에 가지고 있는 경우| 플레이 중인 아군 크리처 하나당 비용을 1만큼 감소시킨다."|||
+GameData_Cards_Description_55|While this is in hand, costs 1 less for every ally creature in play.|当此牌在手中时，减少与场上同盟生物数量相等的goo成本。|"이 카드를 손에 가지고 있는 경우| 플레이 중인 아군 크리처 하나당 비용을 1만큼 감소시킨다."|||
 GameData_Cards_Description_56|<b>Rage:</b> Deal 2 damage to the enemy Champion.|<b>狂怒：</b>对敌方英雄造成 2 点伤害。|<b>격노:</b> 적 챔피언에 데미지 2를 입힌다.|||
 GameData_Cards_Description_58|<b>Entry:</b> Give an ally creature +4 Def.|<b>入场：</b>给一个同盟生物 +4 防御值。|<b>입장:</b> 아군 크리처에 방어력을 4만큼 더한다.|||
-GameData_Cards_Description_60|"<b>Heavy</b>, <b>Rage:</b> +2 Atk."|<b>重型</b>、<b>狂怒：</b>+2 攻击值。|"<b>헤비</b>| <b>격노:</b> 공격력 2 추가"|||
+GameData_Cards_Description_60|<b>Heavy</b>, <b>Rage:</b> +2 Atk.|<b>重型</b>、<b>狂怒：</b>+2 攻击值。|"<b>헤비</b>| <b>격노:</b> 공격력 2 추가"|||
 GameData_Cards_Description_66|<b>Entry:</b> Give ally creatures +2 Atk this turn.|<b>入场：</b>本回合给同盟生物 +2 攻击值。|<b>입장:</b> 이번 턴에 아군 크리처에게 공격력을 2만큼 더한다.|||
 GameData_Cards_Description_69|Each player puts a random creature from their deck into play.|每个玩家从各自卡组中随机抽取一个生物投入战场。|각 플레이어는 자신의 덱에서 임의의 크리처 1기를 플레이에 넣는다.|||
 GameData_Cards_Description_71|Deal damage equal to the number of Item cards you have played this match.|造成相等于你在本次比赛中使用工具牌数量的伤害。|이 매치에서 플레이어가 사용한 아이템 카드의 수만큼 데미지를 입힌다.|||
@@ -772,10 +773,10 @@ GameData_Cards_Description_80|<b>Entry:</b> Both players draw a card.|<b>入场�
 GameData_Cards_Description_83|<b>Death:</b> Return this to your hand. It costs 1 more.|<b>死亡：</b>将此牌返回到你的手牌。它的成本增加 1 。|<b>죽음:</b> 이 카드를 플레이어의 손으로 다시 돌려보낸다. 비용이 1만큼 증가한다.|||
 GameData_Cards_Description_144|<b>Death:</b> Get an empty Goo Bottle.|<b>死亡：</b>获得一个空 goo 瓶。|<b>죽음:</b> 빈 Goo 병을 1개 얻는다.|||
 GameData_Cards_Description_89|<b>Entry:</b> Get <b>Heavy</b> and Guard if this is your only creature in play.|<b>入场：</b>如果此生物是你在场上的唯一生物，获得<b>重型</b>和<b>防卫</b>技能。|<b>입장:</b> 플레이에 이 카드만 있는 경우 <b>헤비</b>와 가드 속성을 얻는다.|||
-GameData_Cards_Description_102|"<b>Entry:</b> If this is your only creature in play, it gets <b>Heavy</b>."|<b>入场：</b>如果这是你在场上唯一的生物，它会获得<b>重型</b>技能。|"<b>입장:</b> 플레이에 이 카드만 있는 경우| <b>헤비</b> 속성을 얻는다."|||
+GameData_Cards_Description_102|<b>Entry:</b> If this is your only creature in play, it gets <b>Heavy</b>.|<b>入场：</b>如果这是你在场上唯一的生物，它会获得<b>重型</b>技能。|"<b>입장:</b> 플레이에 이 카드만 있는 경우| <b>헤비</b> 속성을 얻는다."|||
 GameData_Cards_Description_109|<b>Rage:</b> Deal 5 damage to a random enemy.|<b>狂怒：</b>对任意一个敌人造成 5 点伤害。|<b>격노:</b> 임의의 적 1기에 데미지 5를 입힌다.|||
-GameData_Cards_Description_110|"While this is in play, your creatures have <b>Feral</b>."|当此牌在场上时，你的生物拥有<b>野性</b>技能。|"이 카드가 플레이 중일 때| 플레이어의 크리처들이 <b>야생</b> 능력을 가진다."|||
-GameData_Cards_Description_111|"<b>Cannot attack, Turn:</b> Deal 7 damage to a random enemy."|<b>无法攻击、回合：</b>对随机一个敌人造成 7 点伤害。|"<b>공격 불가| 턴:</b> 임의의 적 1기에 데미지 7을 입힌다."|||
+GameData_Cards_Description_110|While this is in play, your creatures have <b>Feral</b>.|当此牌在场上时，你的生物拥有<b>野性</b>技能。|"이 카드가 플레이 중일 때| 플레이어의 크리처들이 <b>야생</b> 능력을 가진다."|||
+GameData_Cards_Description_111|<b>Cannot attack, Turn:</b> Deal 7 damage to a random enemy.|<b>无法攻击、回合：</b>对随机一个敌人造成 7 点伤害。|"<b>공격 불가| 턴:</b> 임의의 적 1기에 데미지 7을 입힌다."|||
 GameData_Cards_Description_112|Destroy a creature.|摧毁一个生物。|크리처 1기를 파괴한다.|||
 GameData_Cards_Description_124|<b>Entry:</b> Give an ally creature </b>Reanimate</b>.|<b>入场：</b>给一个同盟生物<b>复活</b>技能。|<b>입장:</b> 아군 크리처에 </b>소생</b> 속성을 부여한다.|||
 GameData_Cards_Description_125|<b>Death:</b> Put the 2 highest costing creatures in your hand into play.|<b>死亡：</b>将手牌中成本最高的 2 个生物投入战场。|<b>죽음:</b> 플레이어의 손에 있는 가장 비용이 비싼 크리처 2기를 플레이에 넣는다.|||
@@ -783,18 +784,18 @@ GameData_Cards_Description_129|<b>Destroy</b>|<b>摧毁</b>|<b>파괴</b>|||
 GameData_Cards_Description_130|<b>Entry:</b> Deal 4 damage to your Champion and get an empty Goo Bottle.|<b>入场：</b>对你的英雄造成 4 点伤害，并获得一个空 goo 瓶。|<b>입장:</b> 플레이어의 챔피언에 데미지 4를 입히고 빈 Goo 병을 1개 얻는다.|||
 GameData_Cards_Description_131|<b>Entry:</b> Give a creature +4/-2|<b>入场：</b>给一个生物 +4/-2 攻击/防御值。|<b>입장:</b> 크리처에 공격력을 4 더하고 방어력을 2 낮춘사.|||
 GameData_Cards_Description_135|<b>Entry:</b> Put 2 ally Frozens into play if you have less Def than the enemy.|<b>入场：</b>如果你的防御值比敌方低，将两个同盟的【冰雪战士】投入战场。|<b>입장:</b> 플레이어의 방어력이 적보다 낮은 경우 아군 Frozen 2기를 플레이에 넣는다.|||
-GameData_Cards_Description_140|"While this is in play, you have an extra Goo Bottle."|当此牌在场上时，你获得一个额外的 goo 瓶。|"이 카드가 플레이 중일 때| 추가로 Goo 병을 1개 얻는다."|||
+GameData_Cards_Description_140|While this is in play, you have an extra Goo Bottle.|当此牌在场上时，你获得一个额外的 goo 瓶。|"이 카드가 플레이 중일 때| 추가로 Goo 병을 1개 얻는다."|||
 GameData_Cards_Description_137|Deal 2 damage to all enemy creatures.|对所有敌方生物造成 2 点伤害。|모든 적 크리처에 데미지 2를 입힌다.|||
 GameData_Cards_Description_100|<b>End:</b> +1 Def|<b>回合结束：</b>+1 防御值。|<b>마침:</b> 방어력 1을 더한다|||
 GameData_Cards_Description_84|<b>Attack:</b> Get a Goo Bottle this turn.|<b>攻击：</b> 本回合获得一个 goo 瓶。|<b>공격:</b> 이번 턴에 Goo 병을 1개 얻는다.|||
 GameData_Cards_Description_63|<b>Attack:</b> Draw a card.|<b>攻击：</b>抽一张牌。|<b>공격:</b> 카드를 뽑는다.|||
 GameData_Cards_Description_147|<b>Attack:</b> Get a Goo Bottle this turn.|<b>攻击：</b> 本回合获得一个 goo 瓶。|<b>공격:</b> 이번 턴에 Goo 병을 1개 얻는다.|||
-GameData_Cards_Description_95|"While this is in hand, costs 0 if this is the only creature in your hand."|当此牌在手牌中，如果这是手中唯一的生物，成本为 0 。|"플레이어가 손에 오직 이 카드만 가지고 있는 경우| 이 카드의 비용이 0이 된다."|||
+GameData_Cards_Description_95|While this is in hand, costs 0 if this is the only creature in your hand.|当此牌在手牌中，如果这是手中唯一的生物，成本为 0 。|"플레이어가 손에 오직 이 카드만 가지고 있는 경우| 이 카드의 비용이 0이 된다."|||
 GameData_Cards_Description_92|<b>Entry:</b> Change an enemy creature's Atk to 0 this turn.|<b>入场：</b>本回合将一个敌方生物的攻击值变为 0 。|<b>입장:</b> 이번 턴에 적 크리처 1기의 공격력을 0으로 바꾼다.|||
 GameData_Cards_Description_20|<b>Death:</b> Fill your board with random 1-cost creatures.|<b>死亡：</b>用随机 1 goo 成本的生物填满你的战场。|<b>죽음:</b> 비용이 1인 임의의 크리처들로 플레이어의 전장을 채운다.|||
 GameData_Cards_Description_78|<b>Death:</b> Restore 8 Def to your Champion.|<b>死亡：</b>给你的英雄恢复 8 点防御值。|<b>죽음:</b> 플레이어의 챔피언의 방어력을 8만큼 회복한다.|||
 GameData_Cards_Description_99|<b>Attack:</b> +2 Def.|<b>攻击：</b>+2 防御值。|<b>공격:</b> 방어력 2를 더한다.|||
-GameData_Cards_Description_107|"While this is in play, adjacent creatures get +2 Atk."|当此牌在场上时，相邻生物获得 +2 攻击值。|"이 카드가 플레이 중일 때| 인접 크리처들의 공격력이 2 증가한다."|||
+GameData_Cards_Description_107|While this is in play, adjacent creatures get +2 Atk.|当此牌在场上时，相邻生物获得 +2 攻击值。|"이 카드가 플레이 중일 때| 인접 크리처들의 공격력이 2 증가한다."|||
 GameData_Cards_Description_86|<b>Entry:</b> Get +1 Atk for every enemy creature in play|<b>入场：</b>获得与场上敌方生物数量相等的攻击值。|<b>입장:</b> 플레이 중인 적 크리처 하나당 공격력 1을 더한다.|||
 GameData_Cards_Description_114|Deal 2 damage to all enemy creatures and Distract them.|对所有敌方生物造成 2 点伤害，并干扰它们。|모든 적 크리처에 데미지 2를 입히고 이성을 잃게 한다.|||
 GameData_Cards_Description_243|Has +2 Atk on the enemy's turn.|在敌方回合时，拥有 +2 攻击值。|적의 턴에 공격력이 2 증가한다.|||
@@ -810,7 +811,7 @@ GameData_InGameTutorial_5|Delayed abilities activate after a certain number of t
 GameData_InGameTutorial_6|A Frozen creature cannot attack the next turn.|一个被冻结的生物无法在下一回合攻击。|얼어있는 크리처는 다음 턴에 공격할 수 없습니다.|||
 GameData_InGameTutorial_7|Reanimated creatures reappear after one death.|被复活的生物在一次死亡后重新出现。|소생된 크리처는 한 번 죽은 후에 다시 나타납니다.|||
 GameData_InGameTutorial_8|Heavy creatures must be attacked first.|重型生物必须先被攻击。|헤비 속성의 크리처는 반드시 가장 먼저 공격받아야 합니다.|||
-GameData_InGameTutorial_9|Feral creatures can the turn they are played.|野性生物可以在被投入的回合攻击。|야생 속성의 크리처는 플레이에 들어간 턴에 공격할 수 있습니다.|||
+GameData_InGameTutorial_9|Feral creatures can attack the turn they are played.|野性生物入场即可攻击。|야생 속성의 크리처는 플레이에 들어간 턴에 공격할 수 있습니다.|||
 GameData_InGameTutorial_10|tooltip description|提示描述|툴팁 설명|||
 GameData_InGameTutorial_11|tooltip description|提示描述|툴팁 설명|||
 GameData_InGameTutorial_12|tooltip description|提示描述|툴팁 설명|||
@@ -827,7 +828,7 @@ GameData_Tutorial_1_Tooltip_0|Add cards to your deck by dragging them to the rig
 GameData_Tutorial_1_Tooltip_1|Remove cards from your deck by double tapping on them.|通过双击从卡组中移除卡牌。|덱에서 카드를 제거하려면 카드 위에서 두 번 탭 하세요.|||
 GameData_Tutorial_1_Tooltip_2|You can also add cards by double tapping them.|你也可以通过双击添加卡牌。|카드를 두 번 탭 해서 추가할 수도 있습니다.|||
 GameData_Tutorial_1_Tooltip_3|It's time to BATTLE!|对战的时刻到了！|"자| 이제 배틀을 시작해보죠!"|||
-GameData_Tutorial_1_Tooltip_4|Later on, you can select this text to rename your Deck.|稍后，你可以选择此文本来重命名你的卡组。|나중에는 이 텍스트를 선택하여 덱의 이름을 변경할 수 있습니다.|||
+GameData_Tutorial_1_Tooltip_4|Later on, you can click this button to rename your Deck.|稍后，你可以点击此按钮来重命名你的卡组。|나중에는 이 텍스트를 선택하여 덱의 이름을 변경할 수 있습니다.|||
 GameData_Tutorial_1_Tooltip_5|For now, click on the arrows to browse your cards and fill the deck.|现在，点击箭头浏览你的卡牌并构建卡组。|지금은 화살표를 클릭하여 카드를 확인하면서 덱을 채우세요.|||
 GameData_Tutorial_1_Tooltip_6|Don't you want to open your new cards first?|不想先打开你的新卡牌吗？|새 카드를 먼저 열어보고 싶지 않으신가요?|||
 GameData_Tutorial_1_Tooltip_7|Open your pack.|打开你的卡包。|팩을 열어보세요.|||
@@ -842,36 +843,42 @@ GameData_Tutorial_3_Tooltip_0|Let's check out your new cards first.|让我们先
 GameData_Tutorial_4_Tooltip_0|You go first.|你先来。|당신이 선공입니다.|||
 GameData_Tutorial_4_Tooltip_1|This is your starting hand. Drag cards you want replaced to the top, then press KEEP|这是你的初始手牌。将要替换的卡牌拖到上方，然后按“保留”。|"이것은 처음에 당신이 손에 들고 있을 카드입니다. 바꾸고 싶은 카드를 위로 드래그하고| ""가지기"" 버튼을 누르세요."|||
 GameData_Tutorial_4_Tooltip_2|You still have a battle to win.|你还有一场对战在进行中。|아직 승리해야 할 배틀이 있습니다.|||
-GameData_Tutorial_0_TutorialStep_0_AvatarDescription|"Welcome!\n\nSince you're new around here, I'll let you borrow my deck while you learn the ropes."|欢迎你！\n\n由于你是新手，我就让你借用我的卡组先熟悉一下规则吧。|"환영합니다!\n\n새로 오신 분이니| 요령을 익히는 동안 제 덱을 빌려드릴게요."|||
+GameData_Tutorial_0_TutorialStep_0_AvatarDescription|Welcome! Since you're new around here, I'll let you borrow my deck while you learn the ropes.|欢迎你！\n\n由于你是新手，我就让你借用我的卡组先熟悉一下规则吧。|"환영합니다!\n\n새로 오신 분이니| 요령을 익히는 동안 제 덱을 빌려드릴게요."|||
 GameData_Tutorial_0_TutorialStep_1_AvatarDescription|Destroy the enemy Champion to win!|摧毁敌方英雄来赢得胜利吧！|적 챔피언을 파괴하여 승리하세요!|||
-GameData_Tutorial_0_TutorialStep_28_AvatarDescription|NOICE! \nYou won your first match!|太棒了！\n你赢得了你的首场比赛！|훌륭합니다! 첫 매치에서 승리했군요!|||
-GameData_Tutorial_2_TutorialStep_0_AvatarDescription|Creatures aren't all just claws and flesh.\n\nThey have abilities too. Let's learn how to use them.|这些生物不仅仅是血肉之躯，它们还拥有技能。\n\n让我们来学习如何使用它们吧。|이 크리처들은 그저 발톱과 살만 가진 것이 아닙니다. 그들은 능력도 갖추고 있지요.\n\n그 능력을 사용하는 법을 배워봅시다.|||
-GameData_Tutorial_4_TutorialStep_0_AvatarDescription|This time it's all up to you...\n\nUse everything you've learned and make me proud!|这次全靠你自己了……\n\n放开手脚，让我骄傲吧！|이번에는 모든 것이 당신에게 달려있습니다...\n\n그 동안 당신이 배운 모든 것을 사용해서 저를 자랑스럽게 해주세요!|||
-GameData_Tutorial_4_TutorialStep_7_AvatarDescription|There's nothing more I can teach you. Congratulations!\n\nNow you can take your skills online by challenging other players in PvP mode.|我已把所有秘诀传授于你。恭喜出师！\n\n现在你将可以去 PvP 模式中，挑战其他玩家，大展拳脚了。|이제 더는 가르칠 것이 없군요. 축하합니다!\n\n이제 PvP 모드에서 다른 플레이어들에게 도전하여 온라인으로 기술을 갈고닦을 수 있습니다.|||
+GameData_Tutorial_0_TutorialStep_28_AvatarDescription|NOICE! You won your first match!|太棒了！\n你赢得了你的首场比赛！|훌륭합니다! 첫 매치에서 승리했군요!|||
+GameData_Tutorial_2_TutorialStep_0_AvatarDescription|Creatures aren't all just claws and flesh. They have abilities too. Let's learn how to use them.|这些生物不仅仅靠爪子和蛮力，它们还拥有技能。让我们来学习如何使用它们吧。|이 크리처들은 그저 발톱과 살만 가진 것이 아닙니다. 그들은 능력도 갖추고 있지요.\n\n그 능력을 사용하는 법을 배워봅시다.|||
+GameData_Tutorial_4_TutorialStep_0_AvatarDescription|This time it's all up to you... Use everything you've learned and make me proud!|这次全靠你自己了……学以致用，放开手脚，让我骄傲吧！|이번에는 모든 것이 당신에게 달려있습니다...\n\n그 동안 당신이 배운 모든 것을 사용해서 저를 자랑스럽게 해주세요!|||
+GameData_Tutorial_4_TutorialStep_7_AvatarDescription|There's nothing more I can teach you. Congratulations!  Now you can take your skills online by challenging other players in PvP mode.|我已把所有秘诀传授于你。恭喜出师！\n\n现在你将可以去 PvP 模式中，挑战其他玩家，大展拳脚了。|이제 더는 가르칠 것이 없군요. 축하합니다!\n\n이제 PvP 모드에서 다른 플레이어들에게 도전하여 온라인으로 기술을 갈고닦을 수 있습니다.|||
 GameData_Tutorial_0_TutorialStep_0_TooltipCloseText|GOT IT|知道了|확인|||
 GameData_Tutorial_0_TutorialStep_1_TooltipCloseText|LET'S BEGIN|我们开始吧|"자| 시작해볼까요?"|||
 GameData_Tutorial_0_TutorialStep_28_TooltipCloseText|GOT IT!|知道了!|확인!|||
 GameData_Tutorial_2_TutorialStep_0_TooltipCloseText|LET'S BEGIN|我们开始吧|"자| 시작해볼까요?"|||
 GameData_Tutorial_4_TutorialStep_0_TooltipCloseText|BATTLE!|开战!|배틀!|||
 GameData_Tutorial_4_TutorialStep_7_TooltipCloseText|CONTINUE|继续|계속|||
-GameData_Tutorial_0_TutorialStep_2_ChampionSayTooltip_0|GROWL!|GROWL!|으르렁!|||
-GameData_Tutorial_0_TutorialStep_3_ChampionSayTooltip_0|I will burn you to ash!|I will burn you to ash!|너를 잿더미로 만들어주마!|||
-GameData_Tutorial_0_TutorialStep_8_ChampionSayTooltip_0|Two can play that game.|Two can play that game.|이 게임은 두 명이 플레이할 수 있습니다.|||
-GameData_Tutorial_0_TutorialStep_9_ChampionSayTooltip_0|My creature cannot attack yet. So I'm done for now.|My creature cannot attack yet. So I'm done for now.|"내 크리처는 아직 공격할 수 없기 때문에| 이번 턴은 여기까지 입니다."|||
-GameData_Tutorial_0_TutorialStep_11_ChampionSayTooltip_0|Not bad for a slab of rock.|Not bad for a slab of rock.|바위 조각치고는 제법이군.|||
-GameData_Tutorial_0_TutorialStep_12_ChampionSayTooltip_0|Let's attack that creature.|Let's attack that creature.|저 크리처를 공격합시다.|||
-GameData_Tutorial_0_TutorialStep_14_ChampionSayTooltip_0|"I'm done. Let's move on, shall we?"|"I'm done. Let's move on, shall we?"|이번 턴은 여기까지 하고 넘어가 볼까요?|||
-GameData_Tutorial_0_TutorialStep_16_ChampionSayTooltip_0|Double trouble.|Double trouble.|골치 아프지?|||
-GameData_Tutorial_0_TutorialStep_17_ChampionSayTooltip_0|Turn him to ash!|Turn him to ash!|저 녀석을 잿더미로 만들어 버리세요!|||
+GameData_Tutorial_0_TutorialStep_2_ChampionSayTooltip_0|GROWL!|咆哮吧！|으르렁!|||
+GameData_Tutorial_0_TutorialStep_3_ChampionSayTooltip_0|I will burn you to ash!|我会把你烧成灰！|너를 잿더미로 만들어주마!|||
+GameData_Tutorial_0_TutorialStep_8_ChampionSayTooltip_0|Two can play that game.|你这一套我也会。|이 게임은 두 명이 플레이할 수 있습니다.|||
+GameData_Tutorial_0_TutorialStep_9_ChampionSayTooltip_0|My creature cannot attack yet. So I'm done for now.|我的生物还不能攻击。所以我先放你一马。|"내 크리처는 아직 공격할 수 없기 때문에| 이번 턴은 여기까지 입니다."|||
+GameData_Tutorial_0_TutorialStep_11_ChampionSayTooltip_0|Not bad for a slab of rock.|对于一块石头来说还不错啦。|바위 조각치고는 제법이군.|||
+GameData_Tutorial_0_TutorialStep_12_ChampionSayTooltip_0|Let's attack that creature.|让我们来打那个生物。|저 크리처를 공격합시다.|||
+GameData_Tutorial_0_TutorialStep_14_ChampionSayTooltip_0|I'm done. Let's move on, shall we?|我完了。我们继续吧？|이번 턴은 여기까지 하고 넘어가 볼까요?|||
+GameData_Tutorial_0_TutorialStep_16_ChampionSayTooltip_0|Double trouble.|雪上加霜吧。|골치 아프지?|||
+GameData_Tutorial_0_TutorialStep_17_ChampionSayTooltip_0|Turn him to ash!|把他烧成灰！|저 녀석을 잿더미로 만들어 버리세요!|||
+GameData_Tutorial_0_TutorialStep_18_ChampionSayTooltip_0|An Item. Didn't know you were smart enough to play those.|工具牌。没想到你还有点聪明，居然会玩这些。||||
+GameData_Tutorial_0_TutorialStep_19_ChampionSayTooltip_0|MELT BABY, MELT!|融化吧，融化呀||||
 GameData_Tutorial_0_TutorialStep_24_ChampionSayTooltip_0|Two can play that game.|Two can play that game.|이 게임은 두 명이 플레이할 수 있습니다.|||
-GameData_Tutorial_2_TutorialStep_1_ChampionSayTooltip_0|I'll crush you!|I'll crush you!|너를 부숴버리겠다!|||
-GameData_Tutorial_2_TutorialStep_2_ChampionSayTooltip_0|Not if I defeat you first!|Not if I defeat you first!|내가 널 먼저 쓰러뜨린다면 그럴 수 없을 거다!|||
-GameData_Tutorial_2_TutorialStep_5_ChampionSayTooltip_0|Pesky Feral creatures!|Pesky Feral creatures!|성가신 야생 크리처로군!|||
-GameData_Tutorial_2_TutorialStep_8_ChampionSayTooltip_0|We're done here. Let's move on!|We're done here. Let's move on!|이번 턴은 여기까지입니다. 넘어가죠!|||
-GameData_Tutorial_2_TutorialStep_9_ChampionSayTooltip_0|Now you can't touch me.|Now you can't touch me.|이제 너는 나를 건드릴 수 없다.|||
-GameData_Tutorial_2_TutorialStep_11_ChampionSayTooltip_0|Play the feral first!|请先投入野性生物！|야생 크리처를 먼저 플레이에 넣으세요!|||
-GameData_Tutorial_2_TutorialStep_21_ChampionSayTooltip_0|My fireball will end him.|My fireball will end him.|제 파이어볼(Fireball)로 저 녀석을 끝장내 버리세요!|||
-GameData_Tutorial_2_TutorialStep_22_ChampionSayTooltip_0|Gotcha.|Gotcha.|좋았어!|||
+GameData_Tutorial_2_TutorialStep_1_ChampionSayTooltip_0|I'll crush you!|等着被我碾压吧！|너를 부숴버리겠다!|||
+GameData_Tutorial_2_TutorialStep_2_ChampionSayTooltip_0|Not if I defeat you first!|说不定谁碾压谁呢！|내가 널 먼저 쓰러뜨린다면 그럴 수 없을 거다!|||
+GameData_Tutorial_2_TutorialStep_5_ChampionSayTooltip_0|Pesky Feral creatures!|野性生物太讨厌了！|성가신 야생 크리처로군!|||
+GameData_Tutorial_2_TutorialStep_8_ChampionSayTooltip_0|We're done here. Let's move on!|我们完了。继续吧！|이번 턴은 여기까지입니다. 넘어가죠!|||
+GameData_Tutorial_2_TutorialStep_9_ChampionSayTooltip_0|Now you can't touch me.|现在你碰不了我。|이제 너는 나를 건드릴 수 없다.|||
+GameData_Tutorial_2_TutorialStep_11_ChampionSayTooltip_0|Play the feral, first!|先投入野性生物！|야생 크리처를 먼저 플레이에 넣으세요!|||
+GameData_Tutorial_2_TutorialStep_21_ChampionSayTooltip_0|My fireball will end him.|我的火球会终结他。|제 파이어볼(Fireball)로 저 녀석을 끝장내 버리세요!|||
+GameData_Tutorial_2_TutorialStep_22_ChampionSayTooltip_0|Gotcha.|搞定啦。|좋았어!|||
+GameData_Tutorial_Finish_Label_1|Basic|基础||||
+GameData_Tutorial_Finish_Body_1|FINISH ALL 3 TUTORIALS TO START PVP|三个教程全部完成后再开始对战模式||||
+GameData_Tutorial_Finish_Label_2|Abilities|技能||||
+GameData_Tutorial_Finish_Label_3|Normal Battle|正常对战||||
 ConnectionPopup_Label_Body|Lost connection to the server, reconnecting...|服务器连接断开，正在重新连接……|서버와 연결이 끊어졌습니다. 다시 연결하고 있습니다...|||
 InputOTP_Label_Header|Input your verification code.|输入你的验证码。|인증 코드를 입력하세요.|||
 InputOTP_Label_Body|You should have received a verification code to the phone number associated with this account.|和此账号绑定的手机应该已收到验证码。|이 계정과 연결된 휴대폰 번호로 인증 코드를 전송했습니다.|||
@@ -927,8 +934,11 @@ Champion_Rook_Description|He wants to prove himself worthy to lead.|他想证明
 Champion_Azul_Description|She hopes to end humanity’s dependence on goo.|她希望结束人类对goo的依赖。
 Champion_Hyde_Description|Unknown.|未知。||||
 Champion_Hotshot_Description|He seeks vengeance for his parents’ death.|他为父母的死报仇。||||
-Champion_Blaze_Description|A living weapon, created to wreak havoc.|A living weapon, created to wreak havoc。||||
+Champion_Blaze_Description|A living weapon, created to wreak havoc.|生化武器，为肆虐而造。||||
 Champion_Lyght_Description|She is in pursuit of the ultimate thrill.|她追求终极的刺激。||||
 Champion_Bushwack_Description|She hopes to find a cure for her parents’ illness.|她希望找到给父母治病的方法。||||
 ChampionSelection_Button_Continue|CONTINUE|继续|계속|||
-Common_Button_Back|BACK|背部||||
+Common_Button_Back|BACK|返回||||
+Common_Button_Remove|REMOVE|移除||||
+Common_Button_AddToDeck|ADD TO DECK|添加至卡组||||
+PackOpener_CheckYourPacks|Checking your packs...|正在查看你的卡包……||||

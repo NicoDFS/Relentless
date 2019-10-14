@@ -62,7 +62,7 @@
           "TutorialStepType": "GameplayStep",
           "TutorialAvatar": {
             "Pose": "NORMAL",
-            "Description": "Welcome!\n\nSince you're new around here, I'll let you borrow my deck while you learn the ropes.",
+            "Description": "Welcome! Since you're new around here, I'll let you borrow my deck while you learn the ropes.",
             "AboveUI": false,
             "DescriptionTooltipCloseText": "GOT IT"
           }
@@ -433,7 +433,7 @@
           "TutorialStepType": "GameplayStep",
           "TutorialAvatar": {
             "Pose": "NORMAL",
-            "Description": "NOICE! \nYou won your first match!",
+            "Description": "NOICE! You won your first match!",
             "AboveUI": true,
             "DescriptionTooltipCloseText": "GOT IT!"
           }
@@ -1644,7 +1644,7 @@
           "TutorialStepType": "GameplayStep",
           "TutorialAvatar": {
             "Pose": "NORMAL",
-            "Description": "Creatures aren't all just claws and flesh.\n\nThey have abilities too. Let's learn how to use them.",
+            "Description": "Creatures aren't all just claws and flesh. They have abilities too. Let's learn how to use them.",
             "AboveUI": false,
             "DescriptionTooltipCloseText": "LET'S BEGIN"
           }
@@ -2724,7 +2724,7 @@
           "TutorialStepType": "GameplayStep",
           "TutorialAvatar": {
             "Pose": "NORMAL",
-            "Description": "This time it's all up to you...\n\nUse everything you've learned and make me proud!",
+            "Description": "This time it's all up to you... Use everything you've learned and make me proud!",
             "AboveUI": false,
             "DescriptionTooltipCloseText": "BATTLE!"
           }
@@ -2793,7 +2793,7 @@
           "TutorialStepType": "GameplayStep",
           "TutorialAvatar": {
             "Pose": "NORMAL",
-            "Description": "There's nothing more I can teach you. Congratulations!\n\nNow you can take your skills online by challenging other players in VS mode.",
+            "Description": "There's nothing more I can teach you. Congratulations!  Now you can take your skills online by challenging other players in VS mode.",
             "AboveUI": true,
             "DescriptionTooltipCloseText": "CONTINUE"
           }

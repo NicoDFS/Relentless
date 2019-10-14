@@ -21,6 +21,7 @@ using UnityEngine.UI;
 using CardKey = Loom.ZombieBattleground.Data.CardKey;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -1063,7 +1064,7 @@ namespace Loom.ZombieBattleground
             {
                 try
                 {
-                    _uiManager.DrawPopup<LoadingOverlayPopup>("Checking your packs...");
+                    _uiManager.DrawPopup<LoadingOverlayPopup>(LocalizationUtil.GetLocalizedStringFromEnglish("Checking your packs..."));
                     await _networkActionManager.ExecuteNetworkTask(async () =>
                     {
                         using (DAppChainClient client = await _plasmaChainBackendFacade.GetConnectedClient())

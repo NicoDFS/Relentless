@@ -922,6 +922,13 @@
         ViewDeck_Button_Change,
         Gameplay_Button_Wait,
         Common_Button_Back,
-        Champion_Blaze_Description
+        Champion_Blaze_Description,
+        GameData_Tutorial_0_TutorialStep_18_ChampionSayTooltip_0,
+        GameData_Tutorial_0_TutorialStep_19_ChampionSayTooltip_0,
+        GameData_Tutorial_Finish_Body_1,
+        GameData_Tutorial_Finish_Label_1,
+        PackOpener_Button_OpenNextPack,
+        Common_Button_Remove,
+        PackOpener_CheckYourPacks
     }
 }
