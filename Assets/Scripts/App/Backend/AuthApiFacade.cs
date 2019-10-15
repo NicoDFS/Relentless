@@ -5,6 +5,7 @@ using log4net;
 using Loom.ZombieBattleground.Common;
 using Newtonsoft.Json;
 using Plugins.AsyncAwaitUtil.Source;
+using UnityEngine;
 
 namespace Loom.ZombieBattleground.BackendCommunication
 {
@@ -248,6 +249,37 @@ namespace Loom.ZombieBattleground.BackendCommunication
 
             ZbVersion version = JsonConvert.DeserializeObject<ZbVersion>(httpResponseMessage.ReadToEnd());
             return version;
+        }
+
+        public async Task<UserUnlockables> LoadUnlockables(string userId)
+        {
+            WebrequestCreationInfo webrequestCreationInfo = new WebrequestCreationInfo();
+            webrequestCreationInfo.Url =
+                $"{AuthApiHost}/zb/unlocked/"+userId;
+
+            Log.Debug(webrequestCreationInfo.Url);
+
+            HttpResponseMessage httpResponseMessage = await WebRequestUtils.CreateAndSendWebrequest(webrequestCreationInfo);
+
+            Log.Debug(httpResponseMessage.ReadToEnd());
+
+            UserUnlockables unlocks;
+
+            if (httpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                unlocks = new UserUnlockables();
+                unlocks.userId = userId;
+                unlocks.unlockedCardBack = false;
+                unlocks.unlockedChampion = false;
+            }
+            else
+            {
+                httpResponseMessage.ThrowOnError(webrequestCreationInfo);
+
+                unlocks = JsonConvert.DeserializeObject<UserUnlockables>(httpResponseMessage.ReadToEnd());
+            }
+
+            return unlocks;
         }
 
         public BackendEndpoint GetProductionBackendEndpointFromZbVersion(ZbVersion zbVersion, PlasmachainEndpointsConfiguration fallbackPlasmachainEndpointsConfiguration)

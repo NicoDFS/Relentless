@@ -88,6 +88,8 @@ namespace Loom.ZombieBattleground
 
         public ZbVersion ZbVersion { get; private set; }
 
+        public UserUnlockables userUnlockables {get; set;}
+
         public async Task StartLoadCache()
         {
             Log.Info("=== Start loading server ==== ");
@@ -450,6 +452,11 @@ namespace Loom.ZombieBattleground
         public async Task LoadZbVersionData()
         {
             ZbVersion = await GameClient.Get<AuthApiFacade>().GetZbVersionData(GameClient.GetDefaultBackendPurpose());
+        }
+
+        public async Task LoadUnlockables()
+        {
+            userUnlockables = await GameClient.Get<AuthApiFacade>().LoadUnlockables(GameClient.Get<BackendDataControlMediator>().UserDataModel.UserId);
         }
     }
 }

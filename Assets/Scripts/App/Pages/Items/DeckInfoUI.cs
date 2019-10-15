@@ -39,7 +39,7 @@ namespace Loom.ZombieBattleground
         public void Show(Deck deck)
         {
             _currentEditDeck = deck.Clone();
-            _deckNameText.text = deck.Name;
+            _deckNameText.text = deck.FinalName;
 
             Enumerators.Faction faction = DataUtilities.GetFaction(deck.OverlordId);
             _overlordImage.sprite = DataUtilities.GetOverlordImageById(deck.OverlordId);
@@ -59,12 +59,44 @@ namespace Loom.ZombieBattleground
 
         private void OnSaveNewDeckName(string name)
         {
-            _deckNameText.text = name;
+            string FinalName = "";
+            int CardBack = 0;
+            string[] nameSplit = name.Split('|');
+            if (nameSplit.Length > 1)
+            {
+                for (int i = 0; i < nameSplit.Length-1; i++)
+                {
+                    FinalName += nameSplit[i];
+                }
+                int finalBack = 0;
+                {
+                    int.TryParse(nameSplit[nameSplit.Length-1], out finalBack);
+                }
+                CardBack = finalBack;
+            }
+
+            _deckNameText.text = FinalName;
         }
 
         private void OnSelectNewDeckName(string name)
         {
-            _deckNameText.text = name;
+            string FinalName = "";
+            int CardBack = 0;
+            string[] nameSplit = name.Split('|');
+            if (nameSplit.Length > 1)
+            {
+                for (int i = 0; i < nameSplit.Length-1; i++)
+                {
+                    FinalName += nameSplit[i];
+                }
+                int finalBack = 0;
+                {
+                    int.TryParse(nameSplit[nameSplit.Length-1], out finalBack);
+                }
+                CardBack = finalBack;
+            }
+
+            _deckNameText.text = FinalName;
         }
 
         private void ButtonAutoCompleteHandler()

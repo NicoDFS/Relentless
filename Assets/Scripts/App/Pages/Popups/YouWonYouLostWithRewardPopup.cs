@@ -135,7 +135,7 @@ namespace Loom.ZombieBattleground
             _textLevel = Self.transform.Find("Moving_Panel/Group_PlayerInfo/Image_Circle/Text_LevelNumber").GetComponent<TextMeshProUGUI>();
 
             _textPlayerName.text = _backendDataControlMediator.UserDataModel.UserId;
-            _textDeckName.text = deck.Name;
+            _textDeckName.text = deck.FinalName;
             _textLevel.text = "1";
 
             _rewardAnimation = Object.Instantiate(

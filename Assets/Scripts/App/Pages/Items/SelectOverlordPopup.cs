@@ -121,6 +121,14 @@ namespace Loom.ZombieBattleground
                 overlordCard.SetOverlordImage(overlordUserInstance.Prototype.Id, overlordUserInstance.Prototype.Faction);
 
                 _overlordCards.Add(overlordCard);
+
+                if (overlordUserInstance.Prototype.Id.Id == 6)
+                {
+                    if (!_dataManager.userUnlockables.unlockedChampion)
+                    {
+                        overlordCardUi.SetActive(false);
+                    }
+                }
             }
 
             Scrollbar deckCardsScrollBar = Self.transform.Find("Panel_Content/Panel/Right_Panel/Overlords/Scroll View")

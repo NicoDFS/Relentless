@@ -326,6 +326,17 @@ namespace Loom.ZombieBattleground
             Player opponent = _gameplayManager.OpponentPlayer;
             GameObject go = Object.Instantiate(_cardsController.OpponentCardPrefab);
             go.GetComponent<SortingGroup>().sortingOrder = opponent.CardsInHand.Count;
+            if (_gameplayManager.OpponentPlayerDeck.Back == 1)
+            {
+                go.transform.Find("cardback_enemy").GetComponent<SpriteRenderer>().sprite = 
+                GameClient.Get<ILoadObjectsManager>().GetObjectByPath<Sprite>("Images/UI/CardBack/CZB_Card_Back_Backer");
+            }
+            else if (_gameplayManager.OpponentPlayerDeck.Back == 0)
+            {
+                go.transform.Find("cardback_enemy").GetComponent<SpriteRenderer>().sprite = 
+                GameClient.Get<ILoadObjectsManager>().GetObjectByPath<Sprite>("Images/UI/CardBack/cardback");
+            }
+
             OpponentHandCardView opponentHandCard = new OpponentHandCardView(go, cardModel);
 
             CallLog($"{nameof(CreateOpponentHandCard)} returned {opponentHandCard}");

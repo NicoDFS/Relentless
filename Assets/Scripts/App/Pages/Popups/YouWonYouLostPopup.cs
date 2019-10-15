@@ -255,7 +255,7 @@ namespace Loom.ZombieBattleground
                 _currentPlayerOverlord.Prototype.Id
             );
 
-            _textDeckName.text = deck?.Name ?? "";
+            _textDeckName.text = deck?.FinalName ?? "";
         }
 
         public void Show(object data)

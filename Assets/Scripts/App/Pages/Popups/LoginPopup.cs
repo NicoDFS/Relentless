@@ -742,6 +742,8 @@ namespace Loom.ZombieBattleground
                         _backendDataControlMediator.UserDataModel.IsValid = true;
                         _backendDataControlMediator.SetUserDataModel(_backendDataControlMediator.UserDataModel);
 
+                        await GameClient.Get<IDataManager>().LoadUnlockables();
+
                         SuccessfulLogin();
 
                         if (!_gameStarted)

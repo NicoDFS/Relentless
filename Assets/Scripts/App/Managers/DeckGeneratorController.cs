@@ -340,7 +340,7 @@ namespace Loom.ZombieBattleground
                 bool isNameCollide = false;
                 for (int i = 0; i < _dataManager.CachedDecksData.Decks.Count; ++i)
                 {
-                    if (string.Equals(_dataManager.CachedDecksData.Decks[i].Name,deckName))
+                    if (string.Equals(_dataManager.CachedDecksData.Decks[i].FinalName,deckName))
                     {
                         isNameCollide = true;
                         ++index;

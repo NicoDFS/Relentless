@@ -254,7 +254,7 @@ namespace Loom.ZombieBattleground
 
                 Deck deck = deckListToDisplay[deckDataIndex];
 
-                string deckName = deck.Name;
+                string deckName = deck.FinalName;
                 int cardsAmount = deck.GetNumCards();
                 OverlordUserInstance overlord = _dataManager.CachedOverlordData.GetOverlordById(deck.OverlordId);
 

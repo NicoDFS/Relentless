@@ -6,7 +6,7 @@ HordeSelection_Label_Header|SELECT DECK|选择卡组|덱 선택하기|||
 HordeSelection_Button_Edit|EDIT|编辑|편집|||
 HordeSelection_Button_Delete|DELETE|删除|삭제|||
 HordeSelection_Button_Rename|RENAME|重命名|이름 바꾸기|||
-HordeSelection_Button_Build|BUILD A NEW DECK|组建新卡组|덱 생성하기|||
+HordeSelection_Button_Build|BUILD A\nNEW DECK|组建新卡组|덱 생성하기|||
 HordeSelection_Popup_InfoDeleteLastDeck|Cannot delete. You must have at least one deck.|无法删除。你必须至少有一个卡组。|지울 수 없습니다. 최소한 하나의 덱을 가지고 있어야 합니다.|||
 HordeSelection_Popup_ConfirmDeleteDeck|Are you sure you want to delete {DECK_NAME}?|你确定要删除 {DECK_NAME} 吗？|{DECK_NAME} 덱을 정말 지우시겠습니까?|||
 HordeSelection_Spinner_DeletingDeck|Deleting Deck . . .|卡组删除中……|덱을 지우고 있습니다 . . .|||
