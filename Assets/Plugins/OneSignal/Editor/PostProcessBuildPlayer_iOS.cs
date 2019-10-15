@@ -127,9 +127,10 @@
          bmgroups.AddString("remote-notification");
          rootInfoPlist.root.SetString("NSLocationAlwaysUsageDescription", "Used to confirm the location of the player.");
          rootInfoPlist.root.SetString("NSLocationWhenInUseUsageDescription", "Used to confirm the location of the player.");
-         if (rootInfoPlist.values.ContainsKey("UIApplicationExitsOnSuspend"))
+   
+         if (rootInfoPlist.root.values.ContainsKey("UIApplicationExitsOnSuspend"))
          {
-            rootInfoPlist.values.Remove("UIApplicationExitsOnSuspend");
+            rootInfoPlist.root.values.Remove("UIApplicationExitsOnSuspend");
          }
 
          rootInfoPlist.WriteToFile(pathToRootInfoPlist);
