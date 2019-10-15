@@ -58,6 +58,8 @@ namespace Loom.ZombieBattleground
 
         private List<CardZoneOnBoardStatus> _deckStatus, _graveyardStatus;
 
+        private List<CardZoneOnBoardStatus> _deckStatusOpponent, _graveyardStatusOpponent;
+
         private Transform _actionReportPivot, _actionReportPanel;
 
         private GameObject _playerGraveyardGameObject;
@@ -108,28 +110,6 @@ namespace Loom.ZombieBattleground
 
             _matchManager.MatchFinished += MatchFinishedHandler;
 
-            _deckStatus = new List<CardZoneOnBoardStatus>();
-            _deckStatus.Add(new CardZoneOnBoardStatus(null, 0));
-            _deckStatus.Add(new CardZoneOnBoardStatus(
-                _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_single"), 15));
-            _deckStatus.Add(new CardZoneOnBoardStatus(
-                _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_couple"), 40));
-            _deckStatus.Add(new CardZoneOnBoardStatus(
-                _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_bunch"), 60));
-            _deckStatus.Add(new CardZoneOnBoardStatus(
-                _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_full"), 80));
-
-            _graveyardStatus = new List<CardZoneOnBoardStatus>();
-            _graveyardStatus.Add(new CardZoneOnBoardStatus(null, 0));
-            _graveyardStatus.Add(new CardZoneOnBoardStatus(
-                _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_single"), 10));
-            _graveyardStatus.Add(new CardZoneOnBoardStatus(
-                _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_couple"), 40));
-            _graveyardStatus.Add(new CardZoneOnBoardStatus(
-                _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_bunch"), 75));
-            _graveyardStatus.Add(new CardZoneOnBoardStatus(
-                _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_full"), 100));
-
             _playerManaBarsPosition = new Vector3(-3.55f, 0, -6.07f);
             _opponentManaBarsPosition = new Vector3(9.77f, 0, 4.75f);
 
@@ -165,6 +145,111 @@ namespace Loom.ZombieBattleground
                 {
                     _reportGameActionsPanel.Update();
                 }
+            }
+        }
+
+        private void SetDeckImagesAssets()
+        {
+            if (_gameplayManager.CurrentPlayerDeck.Back == 0)
+            {
+                _deckStatus = new List<CardZoneOnBoardStatus>();
+                _deckStatus.Add(new CardZoneOnBoardStatus(null, 0));
+                
+                _deckStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_single"), 15));
+                _deckStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_couple"), 40));
+                _deckStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_bunch"), 60));
+                _deckStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_full"), 80));
+
+                _graveyardStatus = new List<CardZoneOnBoardStatus>();
+                _graveyardStatus.Add(new CardZoneOnBoardStatus(null, 0));
+                _graveyardStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_single"), 10));
+                _graveyardStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_couple"), 40));
+                _graveyardStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_bunch"), 75));
+                _graveyardStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_full"), 100));
+            }
+            else if (_gameplayManager.CurrentPlayerDeck.Back == 1)
+            {
+                _deckStatus = new List<CardZoneOnBoardStatus>();
+                _deckStatus.Add(new CardZoneOnBoardStatus(null, 0));
+                
+                _deckStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_backer_single"), 15));
+                _deckStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_backer_couple"), 40));
+                _deckStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_backer_bunch"), 60));
+                _deckStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_backer_full"), 80));
+
+                _graveyardStatus = new List<CardZoneOnBoardStatus>();
+                _graveyardStatus.Add(new CardZoneOnBoardStatus(null, 0));
+                _graveyardStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_backer_single"), 10));
+                _graveyardStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_backer_couple"), 40));
+                _graveyardStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_backer_bunch"), 75));
+                _graveyardStatus.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_backer_full"), 100));
+            }
+
+            if (_gameplayManager.OpponentPlayerDeck.Back == 0)
+            {
+                _deckStatusOpponent = new List<CardZoneOnBoardStatus>();
+                _deckStatusOpponent.Add(new CardZoneOnBoardStatus(null, 0));
+                
+                _deckStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_single"), 15));
+                _deckStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_couple"), 40));
+                _deckStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_bunch"), 60));
+                _deckStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_full"), 80));
+
+                _graveyardStatusOpponent = new List<CardZoneOnBoardStatus>();
+                _graveyardStatusOpponent.Add(new CardZoneOnBoardStatus(null, 0));
+                _graveyardStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_single"), 10));
+                _graveyardStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_couple"), 40));
+                _graveyardStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_bunch"), 75));
+                _graveyardStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_full"), 100));
+            }
+            else if (_gameplayManager.OpponentPlayerDeck.Back == 1)
+            {
+                _deckStatusOpponent = new List<CardZoneOnBoardStatus>();
+                _deckStatusOpponent.Add(new CardZoneOnBoardStatus(null, 0));
+                
+                _deckStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_backer_single"), 15));
+                _deckStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_backer_couple"), 40));
+                _deckStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_backer_bunch"), 60));
+                _deckStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/deck_backer_full"), 80));
+
+                _graveyardStatusOpponent = new List<CardZoneOnBoardStatus>();
+                _graveyardStatusOpponent.Add(new CardZoneOnBoardStatus(null, 0));
+                _graveyardStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_backer_single"), 10));
+                _graveyardStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_backer_couple"), 40));
+                _graveyardStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_backer_bunch"), 75));
+                _graveyardStatusOpponent.Add(new CardZoneOnBoardStatus(
+                    _loadObjectsManager.GetObjectByPath<Sprite>("Images/BoardCardsStatuses/graveyard_backer_full"), 100));
             }
         }
 
@@ -283,6 +368,8 @@ namespace Loom.ZombieBattleground
             if (overlordHeroId == null)
                 throw new Exception($"{nameof(overlordHeroId)} == null");
 
+            SetDeckImagesAssets();
+
             _playerOverlord = _dataManager.CachedOverlordData.GetOverlordById(overlordId.Value);
             _opponentOverlord = _dataManager.CachedOverlordData.GetOverlordById(overlordHeroId.Value);
 
@@ -350,7 +437,7 @@ namespace Loom.ZombieBattleground
         public void SetOverlordInfo(OverlordUserInstance overlord, string objectName)
         {
             Texture2D overlordTexture =
-                _loadObjectsManager.GetObjectByPath<Texture2D>("Images/Heroes/CZB_2D_Hero_Portrait_" + overlord.Prototype.Faction + "_EXP");
+                _loadObjectsManager.GetObjectByPath<Texture2D>("Images/Heroes/CZB_2D_Hero_Portrait_" + overlord.Prototype.Id.Id + "_EXP");
             Transform overlordObjectTransform = GameObject.Find(objectName + "/OverlordArea/RegularModel/RegularPosition/Avatar/OverlordImage").transform;
 
             Material overlordAvatarMaterial = new Material(Shader.Find("Sprites/Default"));
@@ -574,13 +661,13 @@ namespace Loom.ZombieBattleground
 
             if (index == 0)
             {
-                _opponentDeckStatusTexture.sprite = _deckStatus.Find(x => x.Percent == index).StatusSprite;
+                _opponentDeckStatusTexture.sprite = _deckStatusOpponent.Find(x => x.Percent == index).StatusSprite;
             }
             else
             {
                 int percent = GetPercentFromMaxDeck(index);
 
-                CardZoneOnBoardStatus nearest = _deckStatus.OrderBy(x => Math.Abs(x.Percent - percent))
+                CardZoneOnBoardStatus nearest = _deckStatusOpponent.OrderBy(x => Math.Abs(x.Percent - percent))
                     .Where(y => y.Percent > 0).First();
 
                 _opponentDeckStatusTexture.sprite = nearest.StatusSprite;
@@ -594,13 +681,13 @@ namespace Loom.ZombieBattleground
 
             if (index == 0)
             {
-                _opponentGraveyardStatusTexture.sprite = _deckStatus.Find(x => x.Percent == index).StatusSprite;
+                _opponentGraveyardStatusTexture.sprite = _graveyardStatusOpponent.Find(x => x.Percent == index).StatusSprite;
             }
             else
             {
                 int percent = GetPercentFromMaxDeck(index);
 
-                List<CardZoneOnBoardStatus> nearestObjects = _graveyardStatus
+                List<CardZoneOnBoardStatus> nearestObjects = _graveyardStatusOpponent
                     .OrderBy(x => Math.Abs(x.Percent - percent)).Where(y => y.Percent > 0).ToList();
 
                 CardZoneOnBoardStatus nearest;

@@ -268,7 +268,17 @@ namespace Loom.ZombieBattleground
             animationSequence3.OnComplete(
                 () =>
                 {
-                    go.transform.Find("Back").gameObject.SetActive(true);
+                    Transform backCard = go.transform.Find("Back");
+                    backCard.gameObject.SetActive(true);
+                    if (_gameplayManager.CurrentPlayerDeck.Back == 0)
+                    {
+                        backCard.GetComponent<SpriteRenderer>().sprite = GameClient.Get<ILoadObjectsManager>().GetObjectByPath<Sprite>("Images/UI/CardBack/cardback");
+                    }
+                    else if (_gameplayManager.CurrentPlayerDeck.Back == 1)
+                    {
+                        backCard.GetComponent<SpriteRenderer>().sprite = GameClient.Get<ILoadObjectsManager>().GetObjectByPath<Sprite>("Images/UI/CardBack/CZB_Card_Back_Backer");
+                    }
+
                     Sequence animationSequence4 = DOTween.Sequence();
                     animationSequence4.Append(go.transform.DORotate(new Vector3(0, 180, 0f), .45f));
 

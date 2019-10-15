@@ -252,10 +252,10 @@ namespace Loom.ZombieBattleground
 
             _imageOverlordPortrait.sprite = GetOverlordPortraitSprite
             (
-                _currentPlayerOverlord.Prototype.Faction
+                _currentPlayerOverlord.Prototype.Id
             );
 
-            _textDeckName.text = deck?.Name ?? "";
+            _textDeckName.text = deck?.FinalName ?? "";
         }
 
         public void Show(object data)
@@ -373,9 +373,9 @@ namespace Loom.ZombieBattleground
             _soundManager.StopPlaying(Enumerators.SoundType.LOST_POPUP);
         }
 
-        private Sprite GetOverlordPortraitSprite(Enumerators.Faction overlordFaction)
+        private Sprite GetOverlordPortraitSprite(OverlordId overlordId)
         {
-            string path = "Images/UI/WinLose/OverlordPortrait/results_overlord_"+overlordFaction.ToString().ToLowerInvariant();
+            string path = "Images/UI/WinLose/OverlordPortrait/results_overlord_"+overlordId.Id.ToString();
             return _loadObjectsManager.GetObjectByPath<Sprite>(path);
         }
 

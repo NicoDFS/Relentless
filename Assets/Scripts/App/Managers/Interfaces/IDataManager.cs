@@ -29,6 +29,8 @@ namespace Loom.ZombieBattleground
 
         ZbVersion ZbVersion { get; }
 
+        UserUnlockables userUnlockables {get; set;}
+
         Task StartLoadCache();
 
         Task SaveCache(Enumerators.CacheDataType type);
@@ -52,5 +54,7 @@ namespace Loom.ZombieBattleground
         string GetPersistentDataPath(string fileName);
 
         Task LoadZbVersionData();
+
+        Task LoadUnlockables();
     }
 }

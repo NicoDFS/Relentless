@@ -6,6 +6,7 @@ using TMPro;
 using DG.Tweening;
 using System.Linq;
 using Loom.ZombieBattleground.Helpers;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -178,7 +179,7 @@ namespace Loom.ZombieBattleground
 
                 Description = description;
 
-                _textDescription.text = Description;
+                _textDescription.text = LocalizationUtil.GetLocalizedStringFromEnglish(Description);
 
 
                 switch (align)

@@ -6,11 +6,16 @@ using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using ZombieBattleground.Editor.Runtime;
 #endif
+using TMPro;
 
 namespace Loom.ZombieBattleground
 {
     public class MainApp : MonoBehaviour
     {
+        public TMP_FontAsset EnglishFont;
+        public TMP_FontAsset ChineseFont;
+        public static TMP_FontAsset StaticEnglishFont;
+        public static TMP_FontAsset StaticChineseFont;
         private static readonly ILog Log = Logging.GetLog(nameof(MainApp));
 
         public delegate void MainAppDelegate(object param);
@@ -31,6 +36,9 @@ namespace Loom.ZombieBattleground
 
         private void Awake()
         {
+            StaticEnglishFont = EnglishFont;
+            StaticChineseFont = ChineseFont;
+            
             if (Instance != null)
             {
                 Destroy(gameObject);

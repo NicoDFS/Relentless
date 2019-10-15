@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using Object = UnityEngine.Object;
 using TMPro;
 using Loom.ZombieBattleground.Gameplay;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -95,27 +96,55 @@ namespace Loom.ZombieBattleground
             switch (state)
             {
                 case MatchMakingFlowController.MatchMakingState.RegisteringToPool:
-                    _generalText.text = "Registering Player for Matchmaking...";
+                    _generalText.text = 
+                        LocalizationUtil.GetLocalizedString(
+                            LocalizationTerm.MatchMakingPopup_Label_RegisteringToPool,
+                            "Registering Player for Matchmaking..."
+                        );
                     break;
                 case MatchMakingFlowController.MatchMakingState.WaitingPeriod:
-                    _generalText.text = "Looking for a suitable opponent...";
+                    _generalText.text = 
+                        LocalizationUtil.GetLocalizedString(
+                            LocalizationTerm.MatchMakingPopup_Label_WaitingPeriod,
+                            "Matching with a suitable opponent..."
+                        );
                     break;
                 case MatchMakingFlowController.MatchMakingState.FindingMatch:
-                    _generalText.text = "Matching with a suitable opponent...";
+                    _generalText.text = 
+                        LocalizationUtil.GetLocalizedString(
+                            LocalizationTerm.MatchMakingPopup_Label_FindingMatch,
+                            "Matching with a suitable opponent..."
+                        );
                     break;
                 case MatchMakingFlowController.MatchMakingState.AcceptingMatch:
-                    _generalText.text = "Confirming match with a suitable opponent...";
+                    _generalText.text = 
+                        LocalizationUtil.GetLocalizedString(
+                            LocalizationTerm.MatchMakingPopup_Label_AcceptingMatch,
+                            "Confirming match with a suitable opponent..."
+                        );
                     break;
                 case MatchMakingFlowController.MatchMakingState.WaitingForOpponent:
-                    _generalText.text = "Waiting for confirmation from opponent...";
+                    _generalText.text = 
+                        LocalizationUtil.GetLocalizedString(
+                            LocalizationTerm.MatchMakingPopup_Label_WaitingForOpponent,
+                            "Waiting for confirmation from opponent..."
+                        );
                     break;
                 case MatchMakingFlowController.MatchMakingState.ConfirmingWithOpponent:
-                    _generalText.text = "Confirming opponent status...";
+                    _generalText.text = 
+                        LocalizationUtil.GetLocalizedString(
+                            LocalizationTerm.MatchMakingPopup_Label_ConfirmingWithOpponent,
+                            "Confirming opponent status..."
+                        );
                     break;
                 case MatchMakingFlowController.MatchMakingState.NotStarted:
                     break;
                 case MatchMakingFlowController.MatchMakingState.Canceled:
-                    _generalText.text = "Canceling...";
+                    _generalText.text = 
+                        LocalizationUtil.GetLocalizedString(
+                            LocalizationTerm.MatchMakingPopup_Label_Canceled,
+                            "Canceling..."
+                        );
                     break;
                 case MatchMakingFlowController.MatchMakingState.Confirmed:
                     break;

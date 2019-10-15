@@ -130,10 +130,10 @@ namespace Loom.ZombieBattleground
 
             _selectedDeck = deck;
 
-            _deckNameText.text = _tutorialManager.IsTutorial ? Constants.TutorialDefaultDeckName : _selectedDeck.Name;
+            _deckNameText.text = _tutorialManager.IsTutorial ? Constants.TutorialDefaultDeckName : _selectedDeck.FinalName;
 
             Enumerators.Faction faction = DataUtilities.GetFaction(deck.OverlordId);
-            _overlordImage.sprite = DataUtilities.GetOverlordImage(deck.OverlordId);
+            _overlordImage.sprite = DataUtilities.GetOverlordImageById(deck.OverlordId);
             RectTransform rectTransform = _overlordImage.GetComponent<RectTransform>();
             rectTransform.anchoredPosition = DataUtilities.GetOverlordImagePositionInViewDeck(faction);
             rectTransform.localScale = DataUtilities.GetOverlordImageScaleInViewDeck(faction);

@@ -8,6 +8,7 @@ using Loom.ZombieBattleground.Common;
 using Loom.ZombieBattleground.Data;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -55,7 +56,12 @@ namespace Loom.ZombieBattleground
 
         public async void ProcessAddDeck(Deck deck)
         {
-            GameClient.Get<IUIManager>().DrawPopup<LoadingOverlayPopup>("Saving Deck . . .");
+            GameClient.Get<IUIManager>().DrawPopup<LoadingOverlayPopup>(
+                LocalizationUtil.GetLocalizedString(
+                    LocalizationTerm.HordeEditing_Spinner_SavingDeck,
+                    "Saving Deck . . ."
+                )
+            );
 
             bool success = false;
             try
@@ -84,7 +90,12 @@ namespace Loom.ZombieBattleground
                     keepCurrentAppState: true,
                     onUnknownExceptionCallbackFunc: exception =>
                     {
-                        OpenAlertDialog("Not able to Add Deck: \n" + exception.Message);
+                        OpenAlertDialog(
+                            LocalizationUtil.GetLocalizedString(
+                                LocalizationTerm.Warning_HordeEditing_AddDeck_Error,
+                                "Not able to Add Deck: \n"
+                            ) + exception.Message
+                        );
                         return Task.CompletedTask;
                     }
                 );
@@ -102,7 +113,12 @@ namespace Loom.ZombieBattleground
 
         public async void ProcessEditDeck(Deck deck)
         {
-            GameClient.Get<IUIManager>().DrawPopup<LoadingOverlayPopup>("Saving Deck . . .");
+            GameClient.Get<IUIManager>().DrawPopup<LoadingOverlayPopup>(
+                LocalizationUtil.GetLocalizedString(
+                    LocalizationTerm.HordeEditing_Spinner_SavingDeck,
+                    "Saving Deck . . ."
+                )
+            );
             bool success = false;
             try
             {
@@ -141,7 +157,12 @@ namespace Loom.ZombieBattleground
                         {
                             message = Constants.ErrorMessageForConnectionFailed;
                         }
-                        OpenAlertDialog("Not able to Edit Deck: \n" + message);
+                        OpenAlertDialog(
+                            LocalizationUtil.GetLocalizedString(
+                                LocalizationTerm.Warning_HordeEditing_AddDeck_Error,
+                                "Not able to Add Deck: \n"
+                            ) + message
+                        );
                         return Task.CompletedTask;
                     }
                 );
@@ -159,7 +180,12 @@ namespace Loom.ZombieBattleground
 
         public async Task ProcessDeleteDeck(Deck deck)
         {
-            GameClient.Get<IUIManager>().DrawPopup<LoadingOverlayPopup>("Deleting Deck . . .");
+            GameClient.Get<IUIManager>().DrawPopup<LoadingOverlayPopup>(
+                LocalizationUtil.GetLocalizedString(
+                    LocalizationTerm.HordeSelection_Spinner_DeletingDeck,
+                    "Deleting Deck . . ."
+                )
+            );
             bool success = false;
             try
             {
@@ -180,7 +206,11 @@ namespace Loom.ZombieBattleground
                     keepCurrentAppState: true,
                     onUnknownExceptionCallbackFunc: exception =>
                     {
-                        OpenAlertDialog($"Not able to Delete Deck {deck.Id}: " + exception.Message);
+                        OpenAlertDialog(
+                            LocalizationUtil.GetLocalizedString(
+                                LocalizationTerm.Warning_Tutorial_Error_DeleteDeck,
+                                "Not able to Delete Deck {DECK_ID}: "
+                            ).Replace("{DECK_ID}", deck.Id.ToString()) + exception.Message);
                         return Task.CompletedTask;
                     }
                 );
@@ -200,7 +230,12 @@ namespace Loom.ZombieBattleground
         {
             if (string.IsNullOrWhiteSpace(deckName))
             {
-                OpenAlertDialog("Saving Deck with an empty name is not allowed.");
+                OpenAlertDialog(
+                    LocalizationUtil.GetLocalizedString(
+                        LocalizationTerm.Warning_HordeEditing_DeckName_Empty,
+                        "Saving Deck with an empty name is not allowed."
+                    )
+                );
                 return false;
             }
 
@@ -215,7 +250,16 @@ namespace Loom.ZombieBattleground
             {
                 if (deck.Name.Trim().Equals(deckName.Trim(), StringComparison.InvariantCultureIgnoreCase))
                 {
-                    OpenAlertDialog("Not able to Edit Deck: \n Deck Name already exists.");
+                    OpenAlertDialog(
+                        LocalizationUtil.GetLocalizedString(
+                            LocalizationTerm.Warning_HordeEditing_EditDeck_Error,
+                            "Not able to Edit Deck: "
+                        ) + 
+                        LocalizationUtil.GetLocalizedString(
+                            LocalizationTerm.Warning_HordeEditing_DeckName_Exist,
+                            "\n Deck Name already exists."
+                        )
+                    );
                     return false;
                 }
             }
@@ -296,7 +340,7 @@ namespace Loom.ZombieBattleground
                 bool isNameCollide = false;
                 for (int i = 0; i < _dataManager.CachedDecksData.Decks.Count; ++i)
                 {
-                    if (string.Equals(_dataManager.CachedDecksData.Decks[i].Name,deckName))
+                    if (string.Equals(_dataManager.CachedDecksData.Decks[i].FinalName,deckName))
                     {
                         isNameCollide = true;
                         ++index;

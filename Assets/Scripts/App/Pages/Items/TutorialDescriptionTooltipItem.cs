@@ -6,6 +6,7 @@ using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -106,7 +107,7 @@ namespace Loom.ZombieBattleground
 
             description = description.Replace("\n", " ");
 
-            _textDescription.text = description;
+            _textDescription.text = LocalizationUtil.GetLocalizedStringFromEnglish(description);
 
             SetBackgroundType(align);
             if (resizable && _currentBackground != null)
