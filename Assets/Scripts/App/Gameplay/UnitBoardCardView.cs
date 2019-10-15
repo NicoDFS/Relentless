@@ -17,6 +17,27 @@ namespace Loom.ZombieBattleground
             AttackText = selfObject.transform.Find("AttackText").GetComponent<TextMeshPro>();
             DefenseText = selfObject.transform.Find("DefenseText").GetComponent<TextMeshPro>();
 
+            Transform cardBack = selfObject.transform.Find("Back");
+
+            if (cardBack != null)
+            {
+                IGameplayManager gameplayManager = GameClient.Get<IGameplayManager>();
+
+                if (gameplayManager.CurrentPlayerDeck != null)
+                {
+                    if (gameplayManager.CurrentPlayerDeck.Back == 1)
+                    {
+                        cardBack.GetComponent<SpriteRenderer>().sprite = 
+                        GameClient.Get<ILoadObjectsManager>().GetObjectByPath<Sprite>("Images/UI/CardBack/CZB_Card_Back_Backer");
+                    }
+                    else if (gameplayManager.CurrentPlayerDeck.Back == 0)
+                    {
+                        cardBack.GetComponent<SpriteRenderer>().sprite = 
+                        GameClient.Get<ILoadObjectsManager>().GetObjectByPath<Sprite>("Images/UI/CardBack/cardback");
+                    }
+                }
+            }
+
             DrawStats();
 
             // TODO: refactor-state: unsubscribe

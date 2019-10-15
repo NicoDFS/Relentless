@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Serialization;
+using Loom.ZombieBattleground.Localization;
 
 public class EndTurnButton : MonoBehaviour
 {
@@ -43,7 +44,13 @@ public class EndTurnButton : MonoBehaviour
     public void SetEnabled(bool enabled)
     {
         _active = enabled;
-        _buttonText.text = enabled ? "END\nTURN" : "\nWAIT";
+        _buttonText.text = enabled ? 
+            LocalizationUtil.GetLocalizedString(
+                LocalizationTerm.Gameplay_Button_EndTurn,
+                "END\nTURN") : 
+            LocalizationUtil.GetLocalizedString(
+                LocalizationTerm.Gameplay_Button_Wait,
+                "\nWAIT");
         _thisRenderer.sprite = enabled ? _defaultSprite : _pressedSprite;
         _endButtonGlowObject.SetActive(enabled);
     }
@@ -78,7 +85,8 @@ public class EndTurnButton : MonoBehaviour
             !_active ||
             _gameplayManager.IsGameEnded ||
             _gameplayManager.GetController<AbilitiesController>().BlockEndTurnButton ||
-            _gameplayManager.GetController<CardsController>().BlockEndTurnButton)
+            _gameplayManager.GetController<CardsController>().BlockEndTurnButton ||
+            _gameplayManager.GetController<SkillsController>().BlockEndTurnButton)
             return;
 
         _wasClicked = true;
@@ -97,7 +105,8 @@ public class EndTurnButton : MonoBehaviour
             (GameClient.Get<ITutorialManager>().IsTutorial &&
              (!GameClient.Get<ITutorialManager>().CurrentTutorialStep.ToGameplayStep().CanEndTurn ||
              !GameClient.Get<ITutorialManager>().IsCompletedActivitiesForThisTurn())) ||
-             _gameplayManager.GetController<AbilitiesController>().BlockEndTurnButton)
+             _gameplayManager.GetController<AbilitiesController>().BlockEndTurnButton ||
+             _gameplayManager.GetController<SkillsController>().BlockEndTurnButton)
         {
             GameClient.Get<ITutorialManager>().ReportActivityAction(Enumerators.TutorialActivityAction.TapOnEndTurnButtonWhenItsLimited);
             return;

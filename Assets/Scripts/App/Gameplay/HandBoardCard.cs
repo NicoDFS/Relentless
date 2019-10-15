@@ -56,6 +56,26 @@ namespace Loom.ZombieBattleground
         {
             GameObject = selfObject;
 
+            Transform cardBack = selfObject.transform.Find("Back");
+            if (cardBack != null)
+            {
+                IGameplayManager gameplayManager = GameClient.Get<IGameplayManager>();
+
+                if (gameplayManager.CurrentPlayerDeck != null)
+                {
+                    if (gameplayManager.CurrentPlayerDeck.Back == 1)
+                    {
+                        cardBack.GetComponent<SpriteRenderer>().sprite = 
+                        GameClient.Get<ILoadObjectsManager>().GetObjectByPath<Sprite>("Images/UI/CardBack/CZB_Card_Back_Backer");
+                    }
+                    else if (gameplayManager.CurrentPlayerDeck.Back == 0)
+                    {
+                        cardBack.GetComponent<SpriteRenderer>().sprite = 
+                        GameClient.Get<ILoadObjectsManager>().GetObjectByPath<Sprite>("Images/UI/CardBack/cardback");
+                    }
+                }
+            }
+
             BoardCardView = boardCardView;
             CardModel = boardCardView.Model;
             HandCardCollider = GameObject.GetComponent<Collider2D>();
@@ -272,7 +292,7 @@ namespace Loom.ZombieBattleground
             IsReturnToHand = true;
             _isHandCard = true;
             Enabled = true;
-            GameObject.GetComponent<SortingGroup>().sortingLayerID = SRSortingLayers.HandCards;
+            GameObject.GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID("HandCards");
             GameObject.GetComponent<SortingGroup>().sortingOrder = 0;
 
             _soundManager.PlaySound(Enumerators.SoundType.CARD_FLY_HAND, Constants.CardsMoveSoundVolume);

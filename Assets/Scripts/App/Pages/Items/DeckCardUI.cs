@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -48,6 +49,17 @@ namespace Loom.ZombieBattleground
 
             _gooAmountText.text = _card.Cost.ToString();
             _creatureNameText.text = _card.Name;
+
+            LocalizationTerm nameTerm;
+
+            if (Enum.TryParse("GameData_Cards_Name_" + _card.CardKey.MouldId.Id, out nameTerm))
+            {
+                _creatureNameText.text = LocalizationUtil.GetLocalizedString(nameTerm, _card.Name);
+            }
+            else
+            {
+                _creatureNameText.text = _card.Name;
+            }
 
             string imagePath = $"{Constants.PathToCardsIllustrations}{_card.Picture.ToLowerInvariant()}";
             _creatureCardImage.sprite = _loadObjectsManager.GetObjectByPath<Sprite>(imagePath);

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Loom.ZombieBattleground.Common;
 using Loom.ZombieBattleground.BackendCommunication;
 using Loom.ZombieBattleground.Helpers;
+using Loom.ZombieBattleground.Localization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +22,7 @@ namespace Loom.ZombieBattleground
         private IApplicationSettingsManager _applicationSettingsManager;
         private ITutorialManager _tutorialManager;
         private BackendDataControlMediator _backendDataControlMediator;
+        private ILocalizationManager _localizationManager;
 
         public Action<bool> OnLoginButtonDisplayUpdate;
         
@@ -44,12 +46,19 @@ namespace Loom.ZombieBattleground
         private TMP_Dropdown _resolutionDropdown;
         private TMP_Dropdown _screenModeDropdown;
 #endif
+        private TMP_Dropdown _languageDropdown;
 
         private const float ScrollSensitivityForWindows = 25f;
 
         private bool _infoDataFilled;
 
         public GameObject Self { get; private set; }
+
+        private static readonly List<Enumerators.Language> AvailableLanguages = new List<Enumerators.Language>
+        {
+            Enumerators.Language.EN,
+            Enumerators.Language.ZH_CN
+        };
 
         private Resolution _cachePreviousFrameResolution;
         
@@ -64,6 +73,7 @@ namespace Loom.ZombieBattleground
             _applicationSettingsManager = GameClient.Get<IApplicationSettingsManager>();
             _tutorialManager = GameClient.Get<ITutorialManager>();
             _backendDataControlMediator = GameClient.Get<BackendDataControlMediator>();
+            _localizationManager = GameClient.Get<ILocalizationManager>();
 #if !UNITY_ANDROID && !UNITY_IOS
             ApplicationSettingsManager.OnResolutionChanged += RefreshSettingPopup;
 #endif
@@ -161,6 +171,8 @@ namespace Loom.ZombieBattleground
             _screenModeDropdown.transform.Find("Template").GetComponent<ScrollRect>().scrollSensitivity = ScrollSensitivityForWindows;
             #endif
 #endif
+            _languageDropdown = Self.transform.Find("Panel_Group/GroupAudio/Dropdown_Language").GetComponent<TMP_Dropdown>();
+            
             FixSliderAndDropdownZPosition();
             FillInfo();
             LoadSettingData();
@@ -169,6 +181,8 @@ namespace Loom.ZombieBattleground
             _resolutionDropdown.onValueChanged.AddListener(ResolutionChangedHandler);
             _screenModeDropdown.onValueChanged.AddListener(ScreenModeChangedHandler);
             #endif
+
+            _languageDropdown.onValueChanged.AddListener(LanguageChangedHandler);
 
             OnLoginButtonDisplayUpdate?.Invoke(true);
         }
@@ -265,6 +279,20 @@ namespace Loom.ZombieBattleground
 
         private void FillInfo()
         {            
+            _languageDropdown.ClearOptions();
+            List<string> languageOptions = new List<string>();
+            for( int i = 0; i < AvailableLanguages.Count; ++i)
+            {
+                languageOptions.Add
+                (
+                    LocalizationUtil.IsoLanguageCodeToFullLanguageNameMap
+                    [
+                        AvailableLanguages[i]
+                    ]
+                );
+            }
+            _languageDropdown.AddOptions(languageOptions);
+
 #if !UNITY_ANDROID && !UNITY_IOS
             _resolutionDropdown.ClearOptions();
             _screenModeDropdown.ClearOptions();
@@ -304,6 +332,8 @@ namespace Loom.ZombieBattleground
             
             _sfxVolumeSlider.value = _soundManager.SoundVolume;
             _musicVolumeSlider.value = _soundManager.MusicVolume;
+
+            _languageDropdown.value = AvailableLanguages.IndexOf(GameClient.Get<ILocalizationManager>().CurrentLanguage);
         }
         
 #if !UNITY_ANDROID && !UNITY_IOS
@@ -316,7 +346,14 @@ namespace Loom.ZombieBattleground
                 await _applicationSettingsManager.SetResolution(_applicationSettingsManager.Resolutions[index]);
                 
                 Hide();
-                GameClient.Get<IUIManager>().DrawPopup<LoadingOverlayPopup>("Apply settings ...");
+                GameClient.Get<IUIManager>().DrawPopup<LoadingOverlayPopup>
+                (
+                    LocalizationUtil.GetLocalizedString
+                    (
+                        LocalizationTerm.LoadingPage_Message_Loading,
+                        "Apply settings ..."
+                    )               
+                );
                 await Task.Delay(TimeSpan.FromSeconds
                 (
                     ApplicationSettingsManager.WaitForResolutionChangeFinishAnimating
@@ -337,6 +374,27 @@ namespace Loom.ZombieBattleground
         }
 #endif
         
+        private async void LanguageChangedHandler(int index)
+        {
+            if (_infoDataFilled)
+            {
+                PlayClickSound();
+                GameClient.Get<IUIManager>().GetPopup<LoadingOverlayPopup>().Show
+                (
+                    LocalizationUtil.GetLocalizedString
+                    (
+                        LocalizationTerm.LoadingPage_Message_Loading,
+                        "Loading..."
+                    )                
+                );
+                Hide();
+                _localizationManager.SetLanguage(AvailableLanguages[index]);
+                await Task.Delay(TimeSpan.FromSeconds(1));
+                Show();
+                GameClient.Get<IUIManager>().HidePopup<LoadingOverlayPopup>();
+            }
+        }
+
         private void ButtonLoginHandler()
         {
             PlayClickSound();
@@ -349,7 +407,14 @@ namespace Loom.ZombieBattleground
         {
             PlayClickSound();
             _uiManager.GetPopup<QuestionPopup>().ConfirmationReceived += ConfirmLogout;
-            _uiManager.DrawPopup<QuestionPopup>("Would you like to logout?"); 
+            _uiManager.DrawPopup<QuestionPopup>
+            (
+                LocalizationUtil.GetLocalizedString
+                (
+                    LocalizationTerm.SettingsPopup_Popup_ConfirmLogout,
+                    "Would you like to logout?"
+                )                
+            );
         }
         
         private void ConfirmLogout(bool status)
@@ -407,7 +472,14 @@ namespace Loom.ZombieBattleground
         {
             PlayClickSound();
             _uiManager.GetPopup<QuestionPopup>().ConfirmationReceived += ConfirmRedirectHelpLink;
-            _uiManager.DrawPopup<QuestionPopup>("Would you like to redirect to help link?");            
+            _uiManager.DrawPopup<QuestionPopup>
+            (
+                LocalizationUtil.GetLocalizedString
+                (
+                    LocalizationTerm.SettingsPopup_Popup_ConfirmHelp,
+                    "Would you like to redirect to help link?"
+                )                
+            );             
         }
         
         private void ConfirmRedirectHelpLink(bool status)
@@ -423,7 +495,14 @@ namespace Loom.ZombieBattleground
         {
             PlayClickSound();
             _uiManager.GetPopup<QuestionPopup>().ConfirmationReceived += ConfirmRedirectSupportLink;
-            _uiManager.DrawPopup<QuestionPopup>("Would you like to redirect to support link?");
+            _uiManager.DrawPopup<QuestionPopup>
+            (
+                LocalizationUtil.GetLocalizedString
+                (
+                    LocalizationTerm.SettingsPopup_Popup_ConfirmSupport,
+                    "Would you like to redirect to support link?"
+                )                
+            );
         }
         
         private void ConfirmRedirectSupportLink(bool status)

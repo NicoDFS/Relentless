@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -198,7 +199,12 @@ namespace Loom.ZombieBattleground
 
                     if (FilterData.GooCostList[gooIndex] && FilterData.GooCostList.FindAll(gooBottle => gooBottle).Count <= 1)
                     {
-                        OpenAlertDialog("At least one goo cost should be selected.");
+                        OpenAlertDialog(
+                            LocalizationUtil.GetLocalizedString(
+                                LocalizationTerm.Warning_FilterCard_NoElement,
+                                "At least one goo cost should be selected."
+                            )
+                        );
                         return;
                     }
 
@@ -261,7 +267,12 @@ namespace Loom.ZombieBattleground
 
             if (FilterData.FactionDictionary[faction] && FilterData.GetActiveElementFilterCount() <= 1)
             {
-                OpenAlertDialog("At least one element should be selected.");
+                OpenAlertDialog(
+                    LocalizationUtil.GetLocalizedString(
+                        LocalizationTerm.Warning_FilterCard_NoElement,
+                        "At least one goo cost should be selected."
+                    )
+                );
                 return;
             }
 
@@ -275,7 +286,12 @@ namespace Loom.ZombieBattleground
 
             if (FilterData.RankDictionary[rank] && FilterData.GetActiveRankFilterCount() <= 1)
             {
-                OpenAlertDialog("At least one rank should be selected.");
+                OpenAlertDialog(
+                    LocalizationUtil.GetLocalizedString(
+                        LocalizationTerm.Warning_FilterCard_NoElement,
+                        "At least one goo cost should be selected."
+                    )
+                );
                 return;
             }
 

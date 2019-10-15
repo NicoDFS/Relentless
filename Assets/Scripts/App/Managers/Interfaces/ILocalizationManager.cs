@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Loom.ZombieBattleground.Common;
 using UnityEngine;
+using TMPro;
 
 namespace Loom.ZombieBattleground
 {
@@ -18,5 +19,7 @@ namespace Loom.ZombieBattleground
         void SetLanguage(Enumerators.Language language, bool forceUpdate = false);
 
         string GetUITranslation(string key);
+        
+        Dictionary<Enumerators.Language, TMP_FontAsset> fontLanguages {get; set;}
     }
 }

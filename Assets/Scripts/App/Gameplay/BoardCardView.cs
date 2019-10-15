@@ -12,6 +12,7 @@ using Object = UnityEngine.Object;
 #if UNITY_EDITOR
 using ZombieBattleground.Editor.Runtime;
 #endif
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -32,6 +33,8 @@ namespace Loom.ZombieBattleground
         protected const float cardToHandSoundKoef = 2f;
 
         protected ILoadObjectsManager LoadObjectsManager;
+
+        protected ILocalizationManager LocalizationManager;
 
         protected ISoundManager SoundManager;
 
@@ -91,6 +94,7 @@ namespace Loom.ZombieBattleground
 
         public BoardCardView(GameObject selfObject, CardModel cardModel)
         {
+            LocalizationManager = GameClient.Get<ILocalizationManager>();
             LoadObjectsManager = GameClient.Get<ILoadObjectsManager>();
             SoundManager = GameClient.Get<ISoundManager>();
             DataManager = GameClient.Get<IDataManager>();
@@ -143,6 +147,11 @@ namespace Loom.ZombieBattleground
 
             NameText.text = Model.Card.Prototype.Name;
             BodyText.text = Model.Card.Prototype.Description;
+
+            FillNameAndDescription(LocalizationManager.CurrentLanguage);
+
+            LocalizationManager.LanguageWasChangedEvent += FillNameAndDescription;
+
             CostText.text = Model.Card.Prototype.Cost.ToString();
 
             IsNewCard = true;
@@ -214,6 +223,36 @@ namespace Loom.ZombieBattleground
             None,
             Radio,
             Counter
+        }
+
+        public void FillNameAndDescription(Enumerators.Language language)
+        {
+            if (GameObject == null)
+            {
+                LocalizationManager.LanguageWasChangedEvent -= FillNameAndDescription;
+                return;
+            }
+
+            LocalizationTerm nameTerm;
+            LocalizationTerm bodyTerm;
+
+            if (Enum.TryParse("GameData_Cards_Name_" + Model.Prototype.CardKey.MouldId.Id, out nameTerm))
+            {
+                NameText.text = LocalizationUtil.GetLocalizedString(nameTerm, Model.Card.Prototype.Name);
+            }
+            else
+            {
+                NameText.text = Model.Card.Prototype.Name;
+            }
+
+            if (Enum.TryParse("GameData_Cards_Description_" + Model.Prototype.CardKey.MouldId.Id, out bodyTerm))
+            {
+                BodyText.text = LocalizationUtil.GetLocalizedString(bodyTerm, Model.Card.Prototype.Description);
+            }
+            else
+            {
+                BodyText.text = Model.Card.Prototype.Description;
+            }
         }
 
         public void SetAmount(AmountTrayType amountTrayType, int amount = -1, int maxCopies = -1)
@@ -389,8 +428,8 @@ namespace Loom.ZombieBattleground
                     buffs.Add(
                         new BuffTooltipInfo
                         {
-                            Title = rankInfo.Name,
-                            Description = rankDescription.Tooltip,
+                            Title = LocalizationUtil.GetLocalizedStringFromEnglish(rankInfo.Name),
+                            Description = LocalizationUtil.GetLocalizedStringFromEnglish(rankDescription.Tooltip),
                             TooltipObjectType = Enumerators.TooltipObjectType.RANK,
                             Value = -1
                         });
@@ -405,8 +444,8 @@ namespace Loom.ZombieBattleground
                     buffs.Add(
                         new BuffTooltipInfo
                         {
-                            Title = cardTypeInfo.Name,
-                            Description = cardTypeInfo.Tooltip,
+                            Title = LocalizationUtil.GetLocalizedStringFromEnglish(cardTypeInfo.Name),
+                            Description = LocalizationUtil.GetLocalizedStringFromEnglish(cardTypeInfo.Tooltip),
                             TooltipObjectType = Enumerators.TooltipObjectType.UNIT_TYPE,
                             Value = -1
                         });
@@ -426,8 +465,8 @@ namespace Loom.ZombieBattleground
                         buffs.Add(
                             new BuffTooltipInfo
                             {
-                                Title = gameMechanicInfo.Name,
-                                Description = gameMechanicInfo.Tooltip,
+                                Title = LocalizationUtil.GetLocalizedStringFromEnglish(gameMechanicInfo.Name),
+                                Description = LocalizationUtil.GetLocalizedStringFromEnglish(gameMechanicInfo.Tooltip),
                                 TooltipObjectType = Enumerators.TooltipObjectType.ABILITY,
                                 Value = GetValueOfAbilityByType(abil)
                             });
@@ -480,8 +519,8 @@ namespace Loom.ZombieBattleground
                     buffs.Add(
                         new BuffTooltipInfo
                         {
-                            Title = gameMechanicInfo.Name,
-                            Description = gameMechanicInfo.Tooltip,
+                            Title = LocalizationUtil.GetLocalizedStringFromEnglish(gameMechanicInfo.Name),
+                            Description = LocalizationUtil.GetLocalizedStringFromEnglish(gameMechanicInfo.Tooltip),
                             TooltipObjectType = Enumerators.TooltipObjectType.BUFF,
                             Value = -1
                         });
@@ -538,8 +577,8 @@ namespace Loom.ZombieBattleground
                     buffs.Add(
                         new BuffTooltipInfo
                         {
-                            Title = rankInfo.Name,
-                            Description = rankDescription.Tooltip,
+                            Title = LocalizationUtil.GetLocalizedStringFromEnglish(rankInfo.Name),
+                            Description = LocalizationUtil.GetLocalizedStringFromEnglish(rankDescription.Tooltip),
                             TooltipObjectType = Enumerators.TooltipObjectType.RANK,
                             Value = -1
                         });
@@ -554,8 +593,8 @@ namespace Loom.ZombieBattleground
                     buffs.Add(
                         new BuffTooltipInfo
                         {
-                            Title = cardTypeInfo.Name,
-                            Description = cardTypeInfo.Tooltip,
+                            Title = LocalizationUtil.GetLocalizedStringFromEnglish(cardTypeInfo.Name),
+                            Description = LocalizationUtil.GetLocalizedStringFromEnglish(cardTypeInfo.Tooltip),
                             TooltipObjectType = Enumerators.TooltipObjectType.UNIT_TYPE,
                             Value = -1
                         });
@@ -572,8 +611,8 @@ namespace Loom.ZombieBattleground
                         buffs.Add(
                             new BuffTooltipInfo
                             {
-                                Title = gameMechanicInfo.Name,
-                                Description = gameMechanicInfo.Tooltip,
+                                Title = LocalizationUtil.GetLocalizedStringFromEnglish(gameMechanicInfo.Name),
+                                Description = LocalizationUtil.GetLocalizedStringFromEnglish(gameMechanicInfo.Tooltip),
                                 TooltipObjectType = Enumerators.TooltipObjectType.ABILITY,
                                 Value = GetValueOfAbilityByType(abil)
                             });

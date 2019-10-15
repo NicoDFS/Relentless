@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -329,6 +330,8 @@ namespace Loom.ZombieBattleground
         {
             private GameObject _selfObject;
 
+            private ILocalizationManager _localizationManager;
+
             private TextMeshProUGUI _gooText,
                                     _titleText,
                                     _bodyText,
@@ -345,6 +348,8 @@ namespace Loom.ZombieBattleground
             private int _defense, _damage;
 
             private int _initialHp, _initialDamage;
+
+            private WorkingCard _workingCard;
 
             public event Action<int, int> DefenseChangedEvent;
 
@@ -376,6 +381,8 @@ namespace Loom.ZombieBattleground
 
             public UnitCardElement(GameObject selfObject, bool withEffect = false)
             {
+                _localizationManager = GameClient.Get<ILocalizationManager>();
+
                 _selfObject = selfObject;
                 _withEffect = withEffect;
 
@@ -403,9 +410,12 @@ namespace Loom.ZombieBattleground
                                       bool hasValue = false, int value = 0, Sprite cardPicture = null)
             {
                 IReadOnlyCard prototype = workingCard.Prototype;
+                _workingCard = workingCard;
 
                 _titleText.text = prototype.Name;
                 _bodyText.text = prototype.Description;
+                FillNameAndDescription(Enumerators.Language.EN);
+
                 _gooText.text = prototype.Cost.ToString();
                 Damage = prototype.Damage;
                 Defense = prototype.Defense;
@@ -470,6 +480,36 @@ namespace Loom.ZombieBattleground
                 _selfObject.SetActive(true);
             }
 
+            public void FillNameAndDescription(Enumerators.Language language)
+            {
+                if (_titleText == null)
+                {
+                    _localizationManager.LanguageWasChangedEvent -= FillNameAndDescription;
+                    return;
+                }
+
+                LocalizationTerm nameTerm;
+                LocalizationTerm bodyTerm;
+
+                if (Enum.TryParse("GameData_Cards_Name_" + _workingCard.Prototype.CardKey.MouldId.Id, out nameTerm))
+                {
+                    _titleText.text = LocalizationUtil.GetLocalizedString(nameTerm, _workingCard.Prototype.Name);
+                }
+                else
+                {
+                    _titleText.text = _workingCard.Prototype.Name;
+                }
+
+                if (Enum.TryParse("GameData_Cards_Description_" + _workingCard.Prototype.CardKey.MouldId.Id, out bodyTerm))
+                {
+                    _bodyText.text = LocalizationUtil.GetLocalizedString(bodyTerm, _workingCard.Prototype.Description);
+                }
+                else
+                {
+                    _bodyText.text = _workingCard.Prototype.Description;
+                }
+            }
+
             private void DrawStats()
             {
                 _attackText.text = Damage.ToString();
@@ -499,6 +539,7 @@ namespace Loom.ZombieBattleground
         public class ItemCardElement : ActionElement
         {
             private GameObject _selfObject;
+            private ILocalizationManager _localizationManager;
 
             private TextMeshProUGUI _gooText,
                                     _titleText,
@@ -512,8 +553,12 @@ namespace Loom.ZombieBattleground
 
             private bool _withEffect;
 
+            private WorkingCard _workingCard;
+
             public ItemCardElement(GameObject selfObject, bool withEffect = false)
             {
+                _localizationManager = GameClient.Get<ILocalizationManager>();
+
                 _selfObject = selfObject;
                 _withEffect = withEffect;
 
@@ -532,15 +577,20 @@ namespace Loom.ZombieBattleground
                 }
 
                 _selfObject.SetActive(false);
+
+                _localizationManager.LanguageWasChangedEvent += FillNameAndDescription;
             }
 
             public override void Init(WorkingCard workingCard, Enumerators.ActionEffectType actionEffectType = Enumerators.ActionEffectType.None,
                                       bool hasValue = false, int value = 0, Sprite cardPicture = null)
             {
                 IReadOnlyCard prototype = workingCard.Prototype;
+                _workingCard = workingCard;
 
                 _titleText.text = prototype.Name;
                 _bodyText.text = prototype.Description;
+                FillNameAndDescription(Enumerators.Language.EN);
+
                 _gooText.text = prototype.Cost.ToString();
 
                 string rarity = Enum.GetName(typeof(Enumerators.CardRank), prototype.Rank);
@@ -587,6 +637,36 @@ namespace Loom.ZombieBattleground
 
                 _selfObject.SetActive(true);
             }
+
+            public void FillNameAndDescription(Enumerators.Language language)
+            {
+                if (_titleText == null)
+                {
+                    _localizationManager.LanguageWasChangedEvent -= FillNameAndDescription;
+                    return;
+                }
+
+                LocalizationTerm nameTerm;
+                LocalizationTerm bodyTerm;
+
+                if (Enum.TryParse("GameData_Cards_Name_" + _workingCard.Prototype.CardKey.MouldId.Id, out nameTerm))
+                {
+                    _titleText.text = LocalizationUtil.GetLocalizedString(nameTerm, _workingCard.Prototype.Name);
+                }
+                else
+                {
+                    _titleText.text = _workingCard.Prototype.Name;
+                }
+
+                if (Enum.TryParse("GameData_Cards_Description_" + _workingCard.Prototype.CardKey.MouldId.Id, out bodyTerm))
+                {
+                    _bodyText.text = LocalizationUtil.GetLocalizedString(bodyTerm, _workingCard.Prototype.Description);
+                }
+                else
+                {
+                    _bodyText.text = _workingCard.Prototype.Description;
+                }
+            }
         }
 
         public class OverlordElement : ActionElement
@@ -619,7 +699,7 @@ namespace Loom.ZombieBattleground
             public override void Init(Player player, Enumerators.ActionEffectType actionEffectType = Enumerators.ActionEffectType.None,
                                       bool hasValue = false, int value = 0)
             {
-                _overlordImage.sprite = _loadObjectsManager.GetObjectByPath<Sprite>("CZB_2D_Hero_Portrait_" + player.SelfOverlord.Prototype.Faction.ToString() + "_EXP");
+                _overlordImage.sprite = _loadObjectsManager.GetObjectByPath<Sprite>("CZB_2D_Hero_Portrait_" + player.SelfOverlord.Prototype.Id.Id.ToString() + "_EXP");
 
                 if (_withEffect)
                 {
@@ -717,6 +797,8 @@ namespace Loom.ZombieBattleground
         {
             private GameObject _selfObject;
 
+            private ILocalizationManager _localizationManager;
+
             private TextMeshProUGUI _gooText,
                                     _titleText,
                                     _bodyText,
@@ -732,6 +814,8 @@ namespace Loom.ZombieBattleground
             private bool _withEffect;
             private bool _hideCardInfo;
 
+            private WorkingCard _workingCard;
+
             public GameObject SelfObject => _selfObject;
 
             public SmallUnitCardElement(Transform parent, bool withEffect = false, bool hideCardInfo = false)
@@ -741,6 +825,8 @@ namespace Loom.ZombieBattleground
                         "Prefabs/UI/Elements/PastActionBar/Item_CardUnitSmall_Hidden") :
                     _loadObjectsManager.GetObjectByPath<GameObject>(
                         "Prefabs/UI/Elements/PastActionBar/Item_CardUnitSmall");
+
+                _localizationManager = GameClient.Get<ILocalizationManager>();
 
                 _selfObject = Object.Instantiate(cardUnit, parent, false);
                 _withEffect = withEffect;
@@ -769,9 +855,12 @@ namespace Loom.ZombieBattleground
                                       bool hasValue = false, int value = 0, Sprite cardPicture = null)
             {
                 IReadOnlyCard prototype = workingCard.Prototype;
+                _workingCard = workingCard;
 
                 _titleText.text = prototype.Name;
                 _bodyText.text = prototype.Description;
+                FillNameAndDescription(Enumerators.Language.EN);
+
                 _gooText.text = prototype.Cost.ToString();
                 _attackText.text = prototype.Damage.ToString();
                 _defenseText.text = prototype.Defense.ToString();
@@ -826,6 +915,35 @@ namespace Loom.ZombieBattleground
                 _selfObject.SetActive(true);
             }
 
+            public void FillNameAndDescription(Enumerators.Language language)
+            {
+                if (_titleText == null)
+                {
+                    _localizationManager.LanguageWasChangedEvent -= FillNameAndDescription;
+                    return;
+                }
+
+                LocalizationTerm nameTerm;
+                LocalizationTerm bodyTerm;
+
+                if (Enum.TryParse("GameData_Cards_Name_" + _workingCard.Prototype.CardKey.MouldId.Id, out nameTerm))
+                {
+                    _titleText.text = LocalizationUtil.GetLocalizedString(nameTerm, _workingCard.Prototype.Name);
+                }
+                else
+                {
+                    _titleText.text = _workingCard.Prototype.Name;
+                }
+
+                if (Enum.TryParse("GameData_Cards_Description_" + _workingCard.Prototype.CardKey.MouldId.Id, out bodyTerm))
+                {
+                    _bodyText.text = LocalizationUtil.GetLocalizedString(bodyTerm, _workingCard.Prototype.Description);
+                }
+                else
+                {
+                    _bodyText.text = _workingCard.Prototype.Description;
+                }
+            }
 
             public override void Dispose()
             {
@@ -836,6 +954,8 @@ namespace Loom.ZombieBattleground
         public class SmallItemCardElement : ActionElement
         {
             private GameObject _selfObject;
+
+            private ILocalizationManager _localizationManager;
 
             private TextMeshProUGUI _gooText,
                                     _titleText,
@@ -848,10 +968,14 @@ namespace Loom.ZombieBattleground
 
             private bool _withEffect;
 
+            private WorkingCard _workingCard;
+
             public GameObject SelfObject => _selfObject;
 
             public SmallItemCardElement(Transform parent, bool withEffect = false)
             {
+                _localizationManager = GameClient.Get<ILocalizationManager>();
+
                 _selfObject = Object.Instantiate(_loadObjectsManager.GetObjectByPath<GameObject>("Prefabs/UI/Elements/PastActionBar/Item_CardSpellSmall"), parent, false);
                 _withEffect = withEffect;
 
@@ -875,9 +999,12 @@ namespace Loom.ZombieBattleground
                                       bool hasValue = false, int value = 0, Sprite cardPicture = null)
             {
                 IReadOnlyCard prototype = workingCard.Prototype;
+                _workingCard = workingCard;
 
                 _titleText.text = prototype.Name;
                 _bodyText.text = prototype.Description;
+                FillNameAndDescription(Enumerators.Language.EN);
+
                 _gooText.text = prototype.Cost.ToString();
 
                 string rarity = Enum.GetName(typeof(Enumerators.CardRank), prototype.Rank);
@@ -921,6 +1048,36 @@ namespace Loom.ZombieBattleground
                 }
 
                 _selfObject.SetActive(true);
+            }
+
+            public void FillNameAndDescription(Enumerators.Language language)
+            {
+                if (_titleText == null)
+                {
+                    _localizationManager.LanguageWasChangedEvent -= FillNameAndDescription;
+                    return;
+                }
+
+                LocalizationTerm nameTerm;
+                LocalizationTerm bodyTerm;
+
+                if (Enum.TryParse("GameData_Cards_Name_" + _workingCard.Prototype.CardKey.MouldId.Id, out nameTerm))
+                {
+                    _titleText.text = LocalizationUtil.GetLocalizedString(nameTerm, _workingCard.Prototype.Name);
+                }
+                else
+                {
+                    _titleText.text = _workingCard.Prototype.Name;
+                }
+
+                if (Enum.TryParse("GameData_Cards_Description_" + _workingCard.Prototype.CardKey.MouldId.Id, out bodyTerm))
+                {
+                    _bodyText.text = LocalizationUtil.GetLocalizedString(bodyTerm, _workingCard.Prototype.Description);
+                }
+                else
+                {
+                    _bodyText.text = _workingCard.Prototype.Description;
+                }
             }
 
             public override void Dispose()

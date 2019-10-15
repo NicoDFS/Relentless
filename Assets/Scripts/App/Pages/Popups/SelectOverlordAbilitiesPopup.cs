@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using Object = UnityEngine.Object;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -215,7 +216,11 @@ namespace Loom.ZombieBattleground
 
         private void UpdateCountDisplay(int abilityCount)
         {
-            _selectedAbilitiesCount.text = "<color=#FFFF00>"+ abilityCount +"/2</color> ABILITIES SELECTED";
+            _selectedAbilitiesCount.text = "<color=#FFFF00>"+ abilityCount +"/2</color>" + 
+            LocalizationUtil.GetLocalizedString(
+                LocalizationTerm.SelectChampionAbilityPopup_Label_SelectedAmount,
+                " ABILITIES SELECTED"
+            );
         }
 
         private void ButtonSaveHandler()

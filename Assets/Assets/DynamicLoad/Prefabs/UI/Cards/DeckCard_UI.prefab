@@ -89,6 +89,8 @@ GameObject:
   - component: {fileID: 224059667534475690}
   - component: {fileID: 222778152023684736}
   - component: {fileID: 114253875114336052}
+  - component: {fileID: 5836987265344208855}
+  - component: {fileID: 4124798117585481000}
   m_Layer: 0
   m_Name: CreatureName
   m_TagString: Untagged
@@ -238,6 +240,36 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5836987265344208855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471550075444638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6110fa9c0f922424baad87dccde74b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceNormal: 0
+  offsetSpacing: 0
+--- !u!114 &4124798117585481000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471550075444638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99c19572d63e8a43999bf51c125b668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TranslationKey: 0
+  ChangeFont: 1
+  ChangeText: 0
+  KeepOriginalFontInEnglish: 1
 --- !u!1 &1583740858716998
 GameObject:
   m_ObjectHideFlags: 0

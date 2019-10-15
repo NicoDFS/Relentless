@@ -223,15 +223,53 @@ namespace Loom.ZombieBattleground
 
         private void SelectDeckNameHandler(string deckName)
         {
+            string FinalName = "";
+            int CardBack = 0;
+            string[] nameSplit = deckName.Split('|');
+            if (nameSplit.Length > 1)
+            {
+                for (int i = 0; i < nameSplit.Length-1; i++)
+                {
+                    FinalName += nameSplit[i];
+                }
+                int finalBack = 0;
+                {
+                    int.TryParse(nameSplit[nameSplit.Length-1], out finalBack);
+                }
+                CardBack = finalBack;
+            }
+
             CurrentEditDeck.Name = deckName;
+            CurrentEditDeck.FinalName = FinalName;
+            CurrentEditDeck.Back = CardBack;
+
             ChangeTab(Tab.Editing);
         }
 
         private void SaveNewDeckNameHandler(string deckName)
         {
+            string FinalName = "";
+            int CardBack = 0;
+            string[] nameSplit = deckName.Split('|');
+            if (nameSplit.Length > 1)
+            {
+                for (int i = 0; i < nameSplit.Length-1; i++)
+                {
+                    FinalName += nameSplit[i];
+                }
+                int finalBack = 0;
+                {
+                    int.TryParse(nameSplit[nameSplit.Length-1], out finalBack);
+                }
+                CardBack = finalBack;
+            }
+
             CurrentEditDeck.Name = deckName;
-            HordeSelectDeckTab.ChangeSelectedDeckName(deckName);
-            HordeEditTab.GetCustomDeck().ChangeDeckName(deckName);
+            CurrentEditDeck.FinalName = FinalName;
+            CurrentEditDeck.Back = CardBack;
+
+            HordeSelectDeckTab.ChangeSelectedDeckName(FinalName);
+            HordeEditTab.GetCustomDeck().ChangeDeckName(FinalName);
         }
 
         private Deck CreateNewDeckData(OverlordId overlordId)

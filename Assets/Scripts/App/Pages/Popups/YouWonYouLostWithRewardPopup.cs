@@ -127,7 +127,7 @@ namespace Loom.ZombieBattleground
             _imageOverlordPortrait = Self.transform.Find("Moving_Panel/Image_OverlordPortrait").GetComponent<Image>();
             _imageOverlordPortrait.sprite = GetOverlordPortraitSprite
             (
-                overlord.Prototype.Faction
+                overlord.Prototype.Id
             );
 
             _textDeckName = Self.transform.Find("Moving_Panel/Text_DeckName").GetComponent<TextMeshProUGUI>();
@@ -135,7 +135,7 @@ namespace Loom.ZombieBattleground
             _textLevel = Self.transform.Find("Moving_Panel/Group_PlayerInfo/Image_Circle/Text_LevelNumber").GetComponent<TextMeshProUGUI>();
 
             _textPlayerName.text = _backendDataControlMediator.UserDataModel.UserId;
-            _textDeckName.text = deck.Name;
+            _textDeckName.text = deck.FinalName;
             _textLevel.text = "1";
 
             _rewardAnimation = Object.Instantiate(
@@ -270,9 +270,9 @@ namespace Loom.ZombieBattleground
             _soundManager.StopPlaying(Enumerators.SoundType.LOST_POPUP);
         }
 
-        public Sprite GetOverlordPortraitSprite(Enumerators.Faction heroElement)
+        public Sprite GetOverlordPortraitSprite(OverlordId overlordId)
         {
-            string path = "Images/UI/WinLose/OverlordPortrait/results_overlord_"+heroElement.ToString().ToLowerInvariant();
+            string path = "Images/UI/WinLose/OverlordPortrait/results_overlord_"+overlordId.Id.ToString();
             return _loadObjectsManager.GetObjectByPath<Sprite>(path);
         }
 

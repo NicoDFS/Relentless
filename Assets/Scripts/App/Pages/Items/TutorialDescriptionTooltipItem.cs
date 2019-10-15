@@ -6,6 +6,7 @@ using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -106,7 +107,7 @@ namespace Loom.ZombieBattleground
 
             description = description.Replace("\n", " ");
 
-            _textDescription.text = description;
+            _textDescription.text = LocalizationUtil.GetLocalizedStringFromEnglish(description);
 
             SetBackgroundType(align);
             if (resizable && _currentBackground != null)
@@ -243,18 +244,18 @@ namespace Loom.ZombieBattleground
             switch (_layer)
             {
                 case Enumerators.TutorialObjectLayer.Default:
-                    _textDescription.renderer.sortingLayerName = SRSortingLayers.GameUI2;
-                    UpdateBackgroundLayers(SRSortingLayers.GameUI2, 1);
+                    _textDescription.renderer.sortingLayerName = "GameUI2";
+                    UpdateBackgroundLayers("GameUI2", 1);
                     _textDescription.renderer.sortingOrder = 2;
                     break;
                 case Enumerators.TutorialObjectLayer.AboveUI:
-                    _textDescription.renderer.sortingLayerName = SRSortingLayers.GameplayInfo;
-                    UpdateBackgroundLayers(SRSortingLayers.GameplayInfo, 1);
+                    _textDescription.renderer.sortingLayerName = "GameplayInfo";
+                    UpdateBackgroundLayers("GameplayInfo", 1);
                     _textDescription.renderer.sortingOrder = 2;
                     break;
                 default:
-                    _textDescription.renderer.sortingLayerName = SRSortingLayers.GameUI2;
-                    UpdateBackgroundLayers(SRSortingLayers.GameUI2, 0);
+                    _textDescription.renderer.sortingLayerName = "GameUI2";
+                    UpdateBackgroundLayers("GameUI2", 0);
                     _textDescription.renderer.sortingOrder = 1;
                     break;
             }

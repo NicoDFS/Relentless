@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using System;
 using log4net;
 using Loom.ZombieBattleground.Common;
+using Loom.ZombieBattleground.Localization;
 #if UNITY_EDITOR
 using System.Collections.Generic;
 using ZombieBattleground.Editor.Runtime;
@@ -15,6 +16,8 @@ using ZombieBattleground.Editor.Runtime;
 public class UnitCardUI
 {
     private static readonly ILog Log = Logging.GetLog(nameof(UnitCardUI));
+
+    private ILocalizationManager _localizationManager;
 
     private GameObject _selfObj;
     private GameObject _cardAmountTray;
@@ -40,6 +43,9 @@ public class UnitCardUI
 
     public void Init(GameObject obj)
     {
+        _localizationManager = GameClient.Get<ILocalizationManager>();
+        _localizationManager.LanguageWasChangedEvent += FillNameAndDescription;
+
         _selfObj = obj;
         _frameImage = _selfObj.transform.Find("Frame").GetComponent<Image>();
         _unitImage = _selfObj.transform.Find("Viewport/Picture").GetComponent<Image>();
@@ -68,8 +74,7 @@ public class UnitCardUI
     public void FillCardData(Card card, int cardCount = 0)
     {
         _card = card;
-        _titleText.text = card.Name;
-        _bodyText.text = card.Description;
+        FillNameAndDescription(_localizationManager.CurrentLanguage);
         _gooText.text = card.Cost.ToString();
 
         _attackText.text = card.Damage != 0 ? card.Damage.ToString() : string.Empty;
@@ -90,6 +95,35 @@ public class UnitCardUI
 
         string setName = $"Images/IconsSets/set_icon_{card.CardKey.Variant.ToString().ToLowerInvariant()}";
         _setImage.sprite = _loadObjectsManager.GetObjectByPath<Sprite>(setName);
+    }
+
+    public void FillNameAndDescription(Enumerators.Language language)
+    {
+        if (_selfObj == null)
+        {
+            _localizationManager.LanguageWasChangedEvent -= FillNameAndDescription;
+            return;
+        }
+
+        LocalizationTerm titleTerm;
+        LocalizationTerm bodyTerm;
+        if (Enum.TryParse("GameData_Cards_Name_" + _card.CardKey.MouldId.Id, out titleTerm))
+        {
+            _titleText.text = LocalizationUtil.GetLocalizedString(titleTerm, _card.Name);
+        }
+        else
+        {
+            _titleText.text = _card.Name;
+        }
+
+        if (Enum.TryParse("GameData_Cards_Description_" + _card.CardKey.MouldId.Id, out bodyTerm))
+        {
+            _bodyText.text = LocalizationUtil.GetLocalizedString(bodyTerm, _card.Description);
+        }
+        else
+        {
+            _bodyText.text = _card.Description;
+        }
     }
 
     public void UpdateCardAmount(int cardCount)

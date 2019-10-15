@@ -7,6 +7,7 @@ using Loom.ZombieBattleground.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -253,7 +254,7 @@ namespace Loom.ZombieBattleground
 
                 Deck deck = deckListToDisplay[deckDataIndex];
 
-                string deckName = deck.Name;
+                string deckName = deck.FinalName;
                 int cardsAmount = deck.GetNumCards();
                 OverlordUserInstance overlord = _dataManager.CachedOverlordData.GetOverlordById(deck.OverlordId);
 
@@ -278,7 +279,7 @@ namespace Loom.ZombieBattleground
                 {
                     deckInfoObject.TextCardsAmount.text = $"{cardsAmount}/{Constants.MaxDeckSize}";
                 }
-                deckInfoObject.ImageOverlordThumbnail.sprite = GetOverlordThumbnailSprite(overlord.Prototype.Faction);
+                deckInfoObject.ImageOverlordThumbnail.sprite = GetOverlordThumbnailSprite(overlord.Prototype.Id);
 
                 if(deck.PrimarySkill == Enumerators.Skill.NONE)
                 {
@@ -394,7 +395,13 @@ namespace Loom.ZombieBattleground
 
             if(deckListToDisplay.Count <= 0)
             {
-                OpenAlertDialog($"No decks found with that search.");
+                OpenAlertDialog(
+                    LocalizationUtil.GetLocalizedString
+                    (   
+                        LocalizationTerm.Warning_HordeSelection_SearchDeck_NotFound,
+                        "No decks found with that search."
+                    )
+                );
                 return deckList;
             }
 
@@ -577,7 +584,13 @@ namespace Loom.ZombieBattleground
             PlayClickSound();
             if (_myDeckPage.GetDeckList().Count <= 1)
             {
-                OpenAlertDialog("Cannot delete. You must have at least one deck.");
+                OpenAlertDialog(
+                    LocalizationUtil.GetLocalizedString
+                    (   
+                        LocalizationTerm.HordeSelection_Popup_InfoDeleteLastDeck,
+                        "Cannot delete. You must have at least one deck."
+                    )
+                );
                 return;
             }
 
@@ -586,7 +599,12 @@ namespace Loom.ZombieBattleground
             {
                 _buttonDelete.enabled = false;
                 _uiManager.GetPopup<QuestionPopup>().ConfirmationReceived += ConfirmDeleteDeckReceivedHandler;
-                _uiManager.DrawPopup<QuestionPopup>("Are you sure you want to delete " + deck.Name + "?");
+                _uiManager.DrawPopup<QuestionPopup>(
+                    LocalizationUtil.GetLocalizedString(
+                        LocalizationTerm.HordeSelection_Popup_ConfirmDeleteDeck,
+                        "Are you sure you want to delete {DECK_NAME} ?"
+                    ).Replace("{DECK_NAME}", deck.Name)
+                );
             }
         }
 
@@ -654,27 +672,10 @@ namespace Loom.ZombieBattleground
             _uiManager.DrawPopup<WarningPopup>(msg);
         }
 
-        private Sprite GetOverlordThumbnailSprite(Enumerators.Faction overlordFaction)
+        private Sprite GetOverlordThumbnailSprite(OverlordId overlordId)
         {
             string path = "Images/UI/MyDecks/OverlordDeckThumbnail";
-            switch(overlordFaction)
-            {
-                case Enumerators.Faction.AIR:
-                    return _loadObjectsManager.GetObjectByPath<Sprite>(path+"/deck_thumbnail_air");
-                case Enumerators.Faction.FIRE:
-                    return _loadObjectsManager.GetObjectByPath<Sprite>(path+"/deck_thumbnail_fire");
-                case Enumerators.Faction.EARTH:
-                    return _loadObjectsManager.GetObjectByPath<Sprite>(path+"/deck_thumbnail_earth");
-                case Enumerators.Faction.TOXIC:
-                    return _loadObjectsManager.GetObjectByPath<Sprite>(path+"/deck_thumbnail_toxic");
-                case Enumerators.Faction.WATER:
-                    return _loadObjectsManager.GetObjectByPath<Sprite>(path+"/deck_thumbnail_water");
-                case Enumerators.Faction.LIFE:
-                    return _loadObjectsManager.GetObjectByPath<Sprite>(path+"/deck_thumbnail_life");
-                default:
-                    Log.Info($"No Overlord thumbnail found for faction {overlordFaction}");
-                    return null;
-            }
+            return _loadObjectsManager.GetObjectByPath<Sprite>(path+"/deck_thumbnail_"+overlordId.Id.ToString());
         }
     }
 }

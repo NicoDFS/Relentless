@@ -78,12 +78,10 @@ namespace Loom.ZombieBattleground
             return overlordUserInstance.Skills[index].Prototype.Id;
         }
 
-        public static Sprite GetOverlordImage(OverlordId overlordId)
+        public static Sprite GetOverlordImageById(OverlordId overlordId)
         {
-            Enumerators.Faction faction = GetFaction(overlordId);
-
             string path = "Images/UI/Overlord_Image/";
-            path = path + "champion_image_" + faction.ToString().ToLowerInvariant();
+            path = path + "champion_image_" + overlordId.Id.ToString();
             return GameClient.Get<ILoadObjectsManager>().GetObjectByPath<Sprite>(path);
         }
 
@@ -93,14 +91,6 @@ namespace Loom.ZombieBattleground
 
             OverlordUserInstance overlord = dataManager.CachedOverlordData.GetOverlordById(overlordId);
             return overlord.Prototype.Faction;
-        }
-
-
-        public static Sprite GetOverlordImage(Enumerators.Faction overlordFaction)
-        {
-            string path = "Images/UI/Overlord_Image/";
-            path = path + "champion_image_" + overlordFaction.ToString().ToLowerInvariant();
-            return GameClient.Get<ILoadObjectsManager>().GetObjectByPath<Sprite>(path);
         }
 
         public static OverlordUserInstance GetOverlordDataFromDeck(Deck deck)
@@ -163,10 +153,10 @@ namespace Loom.ZombieBattleground
             }
         }
 
-        public static Sprite GetOverlordDeckIcon(Enumerators.Faction faction)
+        public static Sprite GetOverlordDeckIcon(OverlordId overlordId)
         {
             string path = "Images/UI/DeckIcons/";
-            path = path + "icon_" + faction.ToString().ToLowerInvariant();
+            path = path + "icon_" + overlordId.Id.ToString();
             return GameClient.Get<ILoadObjectsManager>().GetObjectByPath<Sprite>(path);
         }
 

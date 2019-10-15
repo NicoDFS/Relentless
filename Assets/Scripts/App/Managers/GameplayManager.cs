@@ -10,6 +10,7 @@ using Loom.ZombieBattleground.Helpers;
 using Loom.ZombieBattleground.Protobuf;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using Loom.ZombieBattleground.Localization;
 
 namespace Loom.ZombieBattleground
 {
@@ -520,7 +521,7 @@ namespace Loom.ZombieBattleground
             const float sendTimeout = 5;
             float sendTime = Time.unscaledTime;
             WarningPopup warningPopup = _uiManager.GetPopup<WarningPopup>();
-            warningPopup.Show("Leaving the match and closing the game...");
+            warningPopup.Show(LocalizationUtil.GetLocalizedStringFromEnglish("Leaving the match and closing the game..."));
             warningPopup.SetCloseButtonVisible(false);
             CurrentPlayer.ThrowLeaveMatch();
 

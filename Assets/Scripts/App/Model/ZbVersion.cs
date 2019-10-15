@@ -191,4 +191,16 @@ namespace Loom.ZombieBattleground
             }
         }
     }
+
+    public class UserUnlockables
+    {
+        [JsonProperty("user")]
+        public string userId;
+
+        [JsonProperty("unlocked_champions")]
+        public bool unlockedChampion;
+
+        [JsonProperty("unlockedCardBack")]
+        public bool unlockedCardBack;
+    }
 }
