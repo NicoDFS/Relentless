@@ -2,7 +2,7 @@
 
 Relentless is an adrenaline-pumping trading card game for mobile and desktop. The game is completely free and open-source.
 
-See the [How to Set-Up Relentless](https://loomx.io/developers/en/relentless.htm) for details on how to:
+See the [How to Set-Up Relentless](https://loomx.io/developers/en/relentless.html) for details on how to:
 
 - Run the game in Unity,
 - Generate the binaries for macOS, Windows, Android, and iOS.
